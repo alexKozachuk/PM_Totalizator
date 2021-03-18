@@ -6,9 +6,3 @@
 //
 
 import Foundation
-
-public class MainDataSource {
-    
-    var item: String = "4"
-    
-}
