@@ -12,8 +12,52 @@ class FeedViewController: UIViewController, Instantiatable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .red
+        setupNavbar()
     }
 
+}
+
+private extension FeedViewController {
+
+    func setupNavbar() {
+        navigationController?.navigationBar.barStyle = .black
+
+        setupLogo()
+        setupProfileButton()
+    }
+
+    func setupLogo() {
+        let logoImage = UIImageView(image: UIImage(named: "pm_logo"))
+        let barButton = UIBarButtonItem(customView: logoImage)
+
+        barButton.customView?.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        barButton.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
+
+        navigationItem.setLeftBarButton(barButton, animated: true)
+    }
+
+    func setupProfileButton() {
+        let profilePicture = getProfilePicture()
+        let profileButton = UIButton()
+        profileButton.setImage(profilePicture, for: .normal)
+        profileButton.backgroundColor = .white
+        profileButton.layer.masksToBounds = true
+        profileButton.clipsToBounds = true
+        profileButton.tintColor = .black
+
+        let profileBarButton = UIBarButtonItem(customView: profileButton)
+
+        profileBarButton.customView?.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        profileBarButton.customView?.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        profileBarButton.customView?.layer.cornerRadius = 15
+
+        navigationItem.setRightBarButton(profileBarButton, animated: true)
+    }
+
+    func getProfilePicture() -> UIImage {
+        let image = UIImage(systemName: "person.fill")!
+
+        return image
+    }
 }
 

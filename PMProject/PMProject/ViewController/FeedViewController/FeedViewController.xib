@@ -17,20 +17,8 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLe-PW-RAG">
-                    <rect key="frame" x="190.5" y="437.5" width="33" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <constraints>
-                <constraint firstItem="DLe-PW-RAG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9ag-nV-eGR"/>
-                <constraint firstItem="DLe-PW-RAG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RkN-4i-Mq2"/>
-            </constraints>
             <point key="canvasLocation" x="-30" y="60"/>
         </view>
     </objects>
