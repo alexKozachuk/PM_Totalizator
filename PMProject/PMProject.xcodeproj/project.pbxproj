@@ -3,20 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88C0F86C2603A8730084A05E /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F86B2603A8730084A05E /* Bundle+Extension.swift */; };
+		88C0F8762603A93C0084A05E /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8732603A9340084A05E /* RobotoCondensed-Bold.ttf */; };
+		88C0F8772603A93C0084A05E /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8742603A9340084A05E /* RobotoCondensed-Regular.ttf */; };
 		D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */; };
 		D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */; };
 		D93BFEB5260363EF00BB93F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB4260363EF00BB93F1 /* ViewController.swift */; };
 		D93BFEB8260363EF00BB93F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEB6260363EF00BB93F1 /* Main.storyboard */; };
 		D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEB9260363F200BB93F1 /* Assets.xcassets */; };
 		D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEBB260363F200BB93F1 /* LaunchScreen.storyboard */; };
-		D93BFEC92603642200BB93F1 /* PMTotalizator in Frameworks */ = {isa = PBXBuildFile; productRef = D93BFEC82603642200BB93F1 /* PMTotalizator */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		88C0F86B2603A8730084A05E /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		88C0F8732603A9340084A05E /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		88C0F8742603A9340084A05E /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		D93BFEAD260363EF00BB93F1 /* PMProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PMProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,7 +30,6 @@
 		D93BFEB9260363F200BB93F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D93BFEBC260363F200BB93F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D93BFEBE260363F200BB93F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D93BFEC52603640900BB93F1 /* PMTotalizator */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PMTotalizator; path = ../PMTotalizator; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D93BFEC92603642200BB93F1 /* PMTotalizator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88C0F8712603A9340084A05E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				88C0F8722603A9340084A05E /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		88C0F8722603A9340084A05E /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				88C0F8732603A9340084A05E /* RobotoCondensed-Bold.ttf */,
+				88C0F8742603A9340084A05E /* RobotoCondensed-Regular.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		D93BFEA4260363EF00BB93F1 = {
 			isa = PBXGroup;
 			children = (
-				D93BFEC52603640900BB93F1 /* PMTotalizator */,
 				D93BFEAF260363EF00BB93F1 /* PMProject */,
 				D93BFEAE260363EF00BB93F1 /* Products */,
 				D93BFEC72603642200BB93F1 /* Frameworks */,
@@ -61,6 +80,7 @@
 		D93BFEAF260363EF00BB93F1 /* PMProject */ = {
 			isa = PBXGroup;
 			children = (
+				88C0F8712603A9340084A05E /* Resources */,
 				D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */,
 				D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */,
 				D93BFEB4260363EF00BB93F1 /* ViewController.swift */,
@@ -68,6 +88,7 @@
 				D93BFEB9260363F200BB93F1 /* Assets.xcassets */,
 				D93BFEBB260363F200BB93F1 /* LaunchScreen.storyboard */,
 				D93BFEBE260363F200BB93F1 /* Info.plist */,
+				88C0F86B2603A8730084A05E /* Bundle+Extension.swift */,
 			);
 			path = PMProject;
 			sourceTree = "<group>";
@@ -96,7 +117,6 @@
 			);
 			name = PMProject;
 			packageProductDependencies = (
-				D93BFEC82603642200BB93F1 /* PMTotalizator */,
 			);
 			productName = PMProject;
 			productReference = D93BFEAD260363EF00BB93F1 /* PMProject.app */;
@@ -139,6 +159,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88C0F8762603A93C0084A05E /* RobotoCondensed-Bold.ttf in Resources */,
+				88C0F8772603A93C0084A05E /* RobotoCondensed-Regular.ttf in Resources */,
 				D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */,
 				D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */,
 				D93BFEB8260363EF00BB93F1 /* Main.storyboard in Resources */,
@@ -155,6 +177,7 @@
 				D93BFEB5260363EF00BB93F1 /* ViewController.swift in Sources */,
 				D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */,
 				D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */,
+				88C0F86C2603A8730084A05E /* Bundle+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,13 +325,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4LAA475FW;
+				DEVELOPMENT_TEAM = 87N7QPTHS6;
 				INFOPLIST_FILE = PMProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = oleksandr.kozachuk.PMProject;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.beaxhem.PM-Totalizator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -321,13 +344,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B4LAA475FW;
+				DEVELOPMENT_TEAM = 87N7QPTHS6;
 				INFOPLIST_FILE = PMProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = oleksandr.kozachuk.PMProject;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.beaxhem.PM-Totalizator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -356,13 +379,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D93BFEC82603642200BB93F1 /* PMTotalizator */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PMTotalizator;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D93BFEA5260363EF00BB93F1 /* Project object */;
 }
