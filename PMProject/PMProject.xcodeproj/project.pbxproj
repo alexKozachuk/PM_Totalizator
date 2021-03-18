@@ -21,6 +21,7 @@
 		88C0F8AE2603E9CE0084A05E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8AD2603E9CE0084A05E /* LoginViewController.xib */; };
 		88C0F8B12603E9D20084A05E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8B02603E9D20084A05E /* LoginViewController.swift */; };
 		88C0F8B42603EA410084A05E /* Coordinated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8B32603EA410084A05E /* Coordinated.swift */; };
+		88C0F8B7260406980084A05E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8B6260406980084A05E /* UIColor.swift */; };
 		D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */; };
 		D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */; };
 		D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEB9260363F200BB93F1 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		88C0F8AD2603E9CE0084A05E /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		88C0F8B02603E9D20084A05E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		88C0F8B32603EA410084A05E /* Coordinated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinated.swift; sourceTree = "<group>"; };
+		88C0F8B6260406980084A05E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		D93BFEAD260363EF00BB93F1 /* PMProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PMProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				88C0F8A02603E84B0084A05E /* Keychain+Key.swift */,
+				88C0F8B6260406980084A05E /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				88C0F8B42603EA410084A05E /* Coordinated.swift in Sources */,
 				88C0F8862603CA910084A05E /* MainCoordinator.swift in Sources */,
 				88C0F88A2603CAF40084A05E /* FeedViewController.swift in Sources */,
+				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
 				88C0F8A12603E84B0084A05E /* Keychain+Key.swift in Sources */,
 				D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */,

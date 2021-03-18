@@ -13,7 +13,11 @@ extension Keychain {
         self[key.rawValue]
     }
 
-    func set(value: String, _ key: AuthorizationManager.Key) throws {
+    func set(_ value: String, key: AuthorizationManager.Key) throws {
         try self.set(value, key: key.rawValue)
+    }
+
+    func remove(_ key: AuthorizationManager.Key) throws {
+        try self.remove(key.rawValue)
     }
 }

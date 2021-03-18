@@ -11,10 +11,16 @@ class FeedViewController: UIViewController {
 
     weak var coordinator: MainCoordinator?
 
+    @IBOutlet weak var logoutButton: UIButton?
+
+    private let authManager = AuthorizationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavbar()
+
+        logoutButton?.isEnabled = authManager.isLoggedIn()
     }
 
 }
@@ -30,8 +36,6 @@ private extension FeedViewController {
 private extension FeedViewController {
 
     func setupNavbar() {
-        navigationController?.navigationBar.barStyle = .black
-
         setupLogo()
         setupProfileButton()
     }
@@ -78,6 +82,10 @@ private extension FeedViewController {
         let image = UIImage(systemName: "person.fill")!
 
         return image
+    }
+
+    @IBAction func logout() {
+        authManager.logout()
     }
 }
 

@@ -3,13 +3,25 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="RobotoCondensed-Bold.ttf">
+            <string>RobotoCondensed-Bold</string>
+        </array>
+        <array key="RobotoCondensed-Regular.ttf">
+            <string>RobotoCondensed-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="PMProject" customModuleProvider="target">
             <connections>
+                <outlet property="loginField" destination="hST-CM-ec6" id="3xU-rY-ZOK"/>
+                <outlet property="passwordField" destination="KFM-x6-r6N" id="RVM-q6-uR5"/>
+                <outlet property="submitButton" destination="bvW-og-yFy" id="VUZ-kH-xyG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3l1-8V-Fcj"/>
             </connections>
         </placeholder>
@@ -18,25 +30,77 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvy-lB-COZ">
-                    <rect key="frame" x="186" y="437.5" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hST-CM-ec6">
+                    <rect key="frame" x="15" y="89" width="384" height="34"/>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" textContentType="nickname"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Логін" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvk-CC-OAL">
+                    <rect key="frame" x="15" y="64" width="42.5" height="20"/>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
+                    <color key="textColor" systemColor="systemGrayColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KFM-x6-r6N">
+                    <rect key="frame" x="15" y="163" width="384" height="34"/>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwI-zd-OaD">
+                    <rect key="frame" x="15" y="138" width="60" height="20"/>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
+                    <color key="textColor" systemColor="systemGrayColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvW-og-yFy">
+                    <rect key="frame" x="15" y="227" width="384" height="40"/>
+                    <color key="backgroundColor" name="tintColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="dck-JW-Nfa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="18"/>
+                    <state key="normal" title="Ввійти">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="login" destination="-1" eventType="touchUpInside" id="s7y-oA-VEe"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="uvy-lB-COZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2ac-qC-Ulr"/>
-                <constraint firstItem="uvy-lB-COZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8d8-zM-716"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hST-CM-ec6" secondAttribute="trailing" constant="15" id="11g-Gu-1yx"/>
+                <constraint firstItem="bvW-og-yFy" firstAttribute="top" secondItem="KFM-x6-r6N" secondAttribute="bottom" constant="30" id="3pD-Cm-F9Y"/>
+                <constraint firstItem="gvk-CC-OAL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="4G5-Gz-bHn"/>
+                <constraint firstItem="KFM-x6-r6N" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="9Nr-ci-poa"/>
+                <constraint firstItem="bvW-og-yFy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Inj-mC-Ul1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bvW-og-yFy" secondAttribute="trailing" constant="15" id="LMi-Kt-THL"/>
+                <constraint firstItem="FwI-zd-OaD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="ODH-Uu-vAq"/>
+                <constraint firstItem="hST-CM-ec6" firstAttribute="top" secondItem="gvk-CC-OAL" secondAttribute="bottom" constant="5" id="On9-I4-08a"/>
+                <constraint firstItem="FwI-zd-OaD" firstAttribute="top" secondItem="hST-CM-ec6" secondAttribute="bottom" constant="15" id="X3n-wl-TIv"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KFM-x6-r6N" secondAttribute="trailing" constant="15" id="jsE-lg-nCn"/>
+                <constraint firstItem="hST-CM-ec6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="r3y-Pe-MNv"/>
+                <constraint firstItem="KFM-x6-r6N" firstAttribute="top" secondItem="FwI-zd-OaD" secondAttribute="bottom" constant="5" id="rds-yx-ife"/>
+                <constraint firstItem="gvk-CC-OAL" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="zuQ-nh-ebZ"/>
             </constraints>
-            <point key="canvasLocation" x="-271" y="90"/>
+            <point key="canvasLocation" x="-271.01449275362319" y="89.732142857142847"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="tintColor">
+            <color red="0.97254901960784312" green="1" blue="0.074509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

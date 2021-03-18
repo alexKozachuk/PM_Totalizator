@@ -16,6 +16,8 @@ class MainCoordinator: Coordinator {
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+
+        setupNavbar()
     }
 
     func start() {
@@ -56,3 +58,26 @@ extension MainCoordinator {
         navigationController.popToRootViewController(animated: true)
     }
 }
+
+private extension MainCoordinator {
+
+    func setupNavbar() {
+        navigationController.navigationBar.barStyle = .black
+        navigationController.navigationBar.isTranslucent = false
+
+        navigationController.navigationBar.tintColor = .pmYellow
+        navigationController.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont(name: "RobotoCondensed-Bold", size: 20.0)!,
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
+
+        UIBarButtonItem.appearance().setTitleTextAttributes([
+                NSAttributedString.Key.font: UIFont(
+                    name: "RobotoCondensed-Regular",
+                    size: 18)!
+            ],
+            for: .normal)
+    }
+
+}
+
