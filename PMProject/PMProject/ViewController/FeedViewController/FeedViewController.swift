@@ -11,16 +11,12 @@ class FeedViewController: UIViewController {
 
     weak var coordinator: MainCoordinator?
 
-    @IBOutlet weak var logoutButton: UIButton?
-
     private let authManager = AuthorizationManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavbar()
-
-        logoutButton?.isEnabled = authManager.isLoggedIn()
     }
 
 }
@@ -84,8 +80,5 @@ private extension FeedViewController {
         return image
     }
 
-    @IBAction func logout() {
-        authManager.logout()
-    }
 }
 

@@ -30,11 +30,12 @@ class AuthorizationManager {
         completion(nil)
     }
 
-    func logout() {
+    func logout(completion: @escaping (Error?) -> Void) {
         do {
             try authKeychain.remove(.token)
+            completion(nil)
         } catch {
-            print(error)
+            completion(error)
         }
     }
 }

@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController" customModule="PMProject" customModuleProvider="target">
             <connections>
-                <outlet property="logoutButton" destination="fvt-b4-JNY" id="eAN-FD-Et1"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uLe-2r-3L6"/>
             </connections>
         </placeholder>
@@ -25,19 +24,10 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvt-b4-JNY">
-                    <rect key="frame" x="183" y="466" width="48" height="30"/>
-                    <state key="normal" title="Logout"/>
-                    <connections>
-                        <action selector="logout" destination="-1" eventType="touchUpInside" id="tDA-NS-IY4"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fvt-b4-JNY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="NFm-kH-X7R"/>
-                <constraint firstItem="fvt-b4-JNY" firstAttribute="top" secondItem="2Q8-SZ-6nS" secondAttribute="bottom" constant="7.5" id="U05-MS-UqI"/>
                 <constraint firstItem="2Q8-SZ-6nS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cBP-xu-faZ"/>
                 <constraint firstItem="2Q8-SZ-6nS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hWX-xK-LHA"/>
             </constraints>

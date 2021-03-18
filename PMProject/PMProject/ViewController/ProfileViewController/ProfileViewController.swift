@@ -7,8 +7,20 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, Coordinated {
+class ProfileViewController: UIViewController {
 
-    weak var coordinator: Coordinator?
+    weak var coordinator: MainCoordinator?
 
+    private let authManager = AuthorizationManager()
+
+    @IBAction func logout() {
+        authManager.logout() { [weak self] error in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+
+            self?.coordinator?.popBack()
+        }
+    }
 }
