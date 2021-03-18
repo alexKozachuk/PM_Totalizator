@@ -11,6 +11,7 @@ public class MainViewController: UIViewController {
     
     public init() {
         super.init(nibName: nil, bundle: .module)
+        print("lol")
     }
     
     required init?(coder: NSCoder) {
