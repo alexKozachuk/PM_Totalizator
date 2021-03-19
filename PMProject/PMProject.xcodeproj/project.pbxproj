@@ -21,6 +21,8 @@
 		88C0F8AE2603E9CE0084A05E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8AD2603E9CE0084A05E /* LoginViewController.xib */; };
 		88C0F8B12603E9D20084A05E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8B02603E9D20084A05E /* LoginViewController.swift */; };
 		88C0F8B7260406980084A05E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8B6260406980084A05E /* UIColor.swift */; };
+		88C0F8BF2604A0210084A05E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8BE2604A0210084A05E /* RegisterViewController.swift */; };
+		88C0F8C22604A0270084A05E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8C12604A0270084A05E /* RegisterViewController.xib */; };
 		D93487F526049AEA005A8291 /* TotalizatorNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = D93487F426049AEA005A8291 /* TotalizatorNetworkLayer */; };
 		D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */; };
 		D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */; };
@@ -42,6 +44,8 @@
 		88C0F8AD2603E9CE0084A05E /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		88C0F8B02603E9D20084A05E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		88C0F8B6260406980084A05E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		88C0F8BE2604A0210084A05E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		88C0F8C12604A0270084A05E /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		D93BFEAD260363EF00BB93F1 /* PMProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PMProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +96,7 @@
 		88C0F87A2603C7890084A05E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				88C0F8AC2603E9CA0084A05E /* LoginViewController */,
+				88C0F8BC2604A00A0084A05E /* Authorization */,
 				88C0F8A42603E9820084A05E /* ProfileViewController */,
 				88C0F8882603CAE90084A05E /* FeedViewController */,
 			);
@@ -157,6 +161,24 @@
 				88C0F8B02603E9D20084A05E /* LoginViewController.swift */,
 			);
 			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		88C0F8BB26049FFF0084A05E /* RegisterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88C0F8BE2604A0210084A05E /* RegisterViewController.swift */,
+				88C0F8C12604A0270084A05E /* RegisterViewController.xib */,
+			);
+			path = RegisterViewController;
+			sourceTree = "<group>";
+		};
+		88C0F8BC2604A00A0084A05E /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				88C0F8BB26049FFF0084A05E /* RegisterViewController */,
+				88C0F8AC2603E9CA0084A05E /* LoginViewController */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		D93BFEA4260363EF00BB93F1 = {
@@ -272,6 +294,7 @@
 				D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */,
 				88C0F8AE2603E9CE0084A05E /* LoginViewController.xib in Resources */,
 				88C0F88E2603CB700084A05E /* FeedViewController.xib in Resources */,
+				88C0F8C22604A0270084A05E /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C0F8B12603E9D20084A05E /* LoginViewController.swift in Sources */,
+				88C0F8BF2604A0210084A05E /* RegisterViewController.swift in Sources */,
 				88C0F8822603CA750084A05E /* Coordinator.swift in Sources */,
 				D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */,
 				88C0F8992603E7650084A05E /* AuthorizationManager.swift in Sources */,

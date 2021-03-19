@@ -40,11 +40,22 @@ class LoginViewController: UIViewController {
             self?.coordinator?.popBack()
         }
     }
+
+    @objc func goToRegisterPage() {
+        let registerVC = RegisterViewController()
+        registerVC.coordinator = coordinator
+
+        coordinator?.navigationController.pushViewController(registerVC, animated: true)
+    }
 }
 
 private extension LoginViewController {
 
     func setupNavbar() {
         title = "Ввійти"
+
+        let registerNavBarButton = UIBarButtonItem(title: "Реєстрація", style: .plain, target: self, action: #selector(goToRegisterPage))
+
+        navigationItem.setRightBarButton(registerNavBarButton, animated: true)
     }
 }

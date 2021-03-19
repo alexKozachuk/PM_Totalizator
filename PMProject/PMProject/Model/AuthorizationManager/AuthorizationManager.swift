@@ -22,12 +22,24 @@ class AuthorizationManager {
 
     func login(login: String, password: String, completion: @escaping (Error?) -> Void) {
         do {
-            try authKeychain.set("password", key: .token)
+            try authKeychain.set("\(password)", key: .token)
+            print("User has successfully signed in")
+
+            completion(nil)
         } catch {
             completion(error)
         }
+    }
 
-        completion(nil)
+    func register(name: String, login: String, password: String, completion: @escaping (Error?) -> Void) {
+        do {
+            try authKeychain.set("\(password)", key: .token)
+            print("User has successfully registered")
+
+            completion(nil)
+        } catch {
+            completion(error)
+        }
     }
 
     func logout(completion: @escaping (Error?) -> Void) {
