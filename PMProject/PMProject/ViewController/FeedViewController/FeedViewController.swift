@@ -13,10 +13,16 @@ class FeedViewController: UIViewController {
 
     private let authManager = AuthorizationManager()
 
+    private var eventsDataSource: EventsCollectionViewDataSource?
+    private var eventsCollectionViewDelegate: EventsCollectionViewDelegate?
+
+    @IBOutlet weak var eventsCollectionView: UICollectionView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavbar()
+        setupCollectionView()
     }
 
 }
@@ -25,6 +31,24 @@ private extension FeedViewController {
 
     @objc func profileButtonTapped() {
         coordinator?.presentProfileOrAuthorizationPage()
+    }
+}
+
+private extension FeedViewController {
+
+    func setupCollectionView() {
+        eventsDataSource = EventsCollectionViewDataSource()
+        eventsCollectionView?.dataSource = eventsDataSource
+
+        eventsCollectionViewDelegate = EventsCollectionViewDelegate()
+        eventsCollectionView?.delegate = eventsCollectionViewDelegate
+
+        let reuseIdentifier = EventCollectionViewCell.reuseIdentifier
+
+        eventsCollectionView?.register(
+            UINib(nibName: reuseIdentifier, bundle: nil),
+            forCellWithReuseIdentifier: reuseIdentifier)
+
     }
 }
 

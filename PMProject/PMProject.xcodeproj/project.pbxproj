@@ -23,6 +23,11 @@
 		88C0F8B7260406980084A05E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8B6260406980084A05E /* UIColor.swift */; };
 		88C0F8BF2604A0210084A05E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8BE2604A0210084A05E /* RegisterViewController.swift */; };
 		88C0F8C22604A0270084A05E /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8C12604A0270084A05E /* RegisterViewController.xib */; };
+		88C0F8CA2604AB2F0084A05E /* UIResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8C92604AB2F0084A05E /* UIResponder.swift */; };
+		88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8CC2604AB8B0084A05E /* EventCollectionViewCell.swift */; };
+		88C0F8D42604ABBB0084A05E /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */; };
+		88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */; };
+		88C0F8DC2604B2330084A05E /* EventsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */; };
 		D93487F526049AEA005A8291 /* TotalizatorNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = D93487F426049AEA005A8291 /* TotalizatorNetworkLayer */; };
 		D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */; };
 		D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */; };
@@ -46,6 +51,11 @@
 		88C0F8B6260406980084A05E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		88C0F8BE2604A0210084A05E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		88C0F8C12604A0270084A05E /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		88C0F8C92604AB2F0084A05E /* UIResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIResponder.swift; sourceTree = "<group>"; };
+		88C0F8CC2604AB8B0084A05E /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
+		88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		D93BFEAD260363EF00BB93F1 /* PMProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PMProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +118,7 @@
 			children = (
 				88C0F8A02603E84B0084A05E /* Keychain+Key.swift */,
 				88C0F8B6260406980084A05E /* UIColor.swift */,
+				88C0F8C92604AB2F0084A05E /* UIResponder.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -131,6 +142,7 @@
 		88C0F8882603CAE90084A05E /* FeedViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88C0F8D62604B15F0084A05E /* EventsCollectionView */,
 				88C0F8892603CAF40084A05E /* FeedViewController.swift */,
 				88C0F88D2603CB700084A05E /* FeedViewController.xib */,
 			);
@@ -181,6 +193,32 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		88C0F8C62604AA330084A05E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				88C0F8C72604AA610084A05E /* EventCollectionViewCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		88C0F8C72604AA610084A05E /* EventCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				88C0F8CC2604AB8B0084A05E /* EventCollectionViewCell.swift */,
+				88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */,
+			);
+			path = EventCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		88C0F8D62604B15F0084A05E /* EventsCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */,
+				88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */,
+			);
+			path = EventsCollectionView;
+			sourceTree = "<group>";
+		};
 		D93BFEA4260363EF00BB93F1 = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				88C0F87D2603C79F0084A05E /* Extension */,
+				88C0F8C62604AA330084A05E /* View */,
 				88C0F87A2603C7890084A05E /* ViewController */,
 				88C0F8802603CA630084A05E /* Protocols */,
 				88C0F8792603C77C0084A05E /* Model */,
@@ -295,6 +334,7 @@
 				88C0F8AE2603E9CE0084A05E /* LoginViewController.xib in Resources */,
 				88C0F88E2603CB700084A05E /* FeedViewController.xib in Resources */,
 				88C0F8C22604A0270084A05E /* RegisterViewController.xib in Resources */,
+				88C0F8D42604ABBB0084A05E /* EventCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,10 +349,14 @@
 				88C0F8BF2604A0210084A05E /* RegisterViewController.swift in Sources */,
 				88C0F8822603CA750084A05E /* Coordinator.swift in Sources */,
 				D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */,
+				88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */,
+				88C0F8CA2604AB2F0084A05E /* UIResponder.swift in Sources */,
 				88C0F8992603E7650084A05E /* AuthorizationManager.swift in Sources */,
+				88C0F8DC2604B2330084A05E /* EventsCollectionViewDelegate.swift in Sources */,
 				88C0F8862603CA910084A05E /* MainCoordinator.swift in Sources */,
 				88C0F88A2603CAF40084A05E /* FeedViewController.swift in Sources */,
 				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
+				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
 				88C0F8A12603E84B0084A05E /* Keychain+Key.swift in Sources */,
 				D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */,
