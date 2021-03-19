@@ -29,35 +29,46 @@
                     <rect key="frame" x="191" y="44" width="191" height="340"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="10 500 UAH" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BK-xA-xuY">
-                    <rect key="frame" x="201" y="326" width="161" height="20"/>
+                    <rect key="frame" x="201" y="330" width="161" height="20"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="17 600 UAH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaU-mW-CgP">
-                    <rect key="frame" x="20" y="326" width="161" height="20"/>
+                    <rect key="frame" x="20" y="330" width="161" height="20"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dong Hyun Kim" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F28-di-pCR">
-                    <rect key="frame" x="20" y="300" width="161" height="18"/>
+                    <rect key="frame" x="20" y="304" width="161" height="18"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colby Covington" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eni-hw-7He">
-                    <rect key="frame" x="201" y="300" width="161" height="18"/>
+                    <rect key="frame" x="201" y="304" width="161" height="18"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dff-TO-LCx">
-                    <rect key="frame" x="20" y="354" width="342" height="10"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dff-TO-LCx" customClass="CustomProgressView" customModule="PMProject" customModuleProvider="target">
+                    <rect key="frame" x="20" y="358" width="342" height="6"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="10" id="yBa-NC-yAJ"/>
+                        <constraint firstAttribute="height" constant="6" id="yBa-NC-yAJ"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="leftColor">
+                            <color key="value" systemColor="systemBlueColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="middleColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="rightColor">
+                            <color key="value" systemColor="systemRedColor"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -89,10 +100,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="battleView" destination="dff-TO-LCx" id="NcP-9y-pDM"/>
                 <outlet property="leftImageView" destination="05h-2e-4h5" id="iks-kw-Eix"/>
                 <outlet property="leftNameLabel" destination="F28-di-pCR" id="JTm-Nf-bh6"/>
                 <outlet property="leftSumLabel" destination="aaU-mW-CgP" id="PRO-j4-RlA"/>
+                <outlet property="progressView" destination="dff-TO-LCx" id="Zwl-1v-LXk"/>
                 <outlet property="rightImageView" destination="BBz-vl-vLw" id="I9l-gB-bAa"/>
                 <outlet property="rightNameLabel" destination="eni-hw-7He" id="Xtr-Jj-L5B"/>
                 <outlet property="rightSumLabel" destination="2BK-xA-xuY" id="aDS-bK-4t8"/>
@@ -105,6 +116,12 @@
         <image name="rightImage" width="160" height="307"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

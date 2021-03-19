@@ -19,6 +19,8 @@ class EventsCollectionViewDataSource: NSObject, UICollectionViewDataSource {
             fatalError("Can't find EventCollectionViewCell")
         }
 
+        cell.setup()
+
         return cell
     }
 

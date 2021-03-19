@@ -198,6 +198,7 @@
 		88C0F8C62604AA330084A05E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88C0F8E02604B8450084A05E /* СustomProgressView */,
 				88C0F8C72604AA610084A05E /* EventCollectionViewCell */,
 			);
 			path = View;
@@ -219,6 +220,14 @@
 				88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */,
 			);
 			path = EventsCollectionView;
+			sourceTree = "<group>";
+		};
+		88C0F8E02604B8450084A05E /* СustomProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				D934882B2604B734005A8291 /* CustomProgressView.swift */,
+			);
+			path = "СustomProgressView";
 			sourceTree = "<group>";
 		};
 		D93BFEA4260363EF00BB93F1 = {
@@ -252,7 +261,6 @@
 				D93BFEB9260363F200BB93F1 /* Assets.xcassets */,
 				D93BFEBB260363F200BB93F1 /* LaunchScreen.storyboard */,
 				D93BFEBE260363F200BB93F1 /* Info.plist */,
-				D934882B2604B734005A8291 /* CustomProgressView.swift */,
 			);
 			path = PMProject;
 			sourceTree = "<group>";

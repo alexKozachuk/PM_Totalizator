@@ -18,6 +18,10 @@ class EventCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var leftSumLabel: UILabel?
     @IBOutlet weak var rightSumLabel: UILabel?
 
-    @IBOutlet weak var battleView: UIView?
+    @IBOutlet weak var progressView: CustomProgressView?
+
+    func setup() {
+        progressView?.setup(left: 170, middle: 20, right: 280)
+    }
 
 }
