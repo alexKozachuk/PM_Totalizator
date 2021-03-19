@@ -21,6 +21,7 @@
 		88C0F8AE2603E9CE0084A05E /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8AD2603E9CE0084A05E /* LoginViewController.xib */; };
 		88C0F8B12603E9D20084A05E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8B02603E9D20084A05E /* LoginViewController.swift */; };
 		88C0F8B7260406980084A05E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8B6260406980084A05E /* UIColor.swift */; };
+		D93487F526049AEA005A8291 /* TotalizatorNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = D93487F426049AEA005A8291 /* TotalizatorNetworkLayer */; };
 		D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */; };
 		D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */; };
 		D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEB9260363F200BB93F1 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88C0F89E2603E7BA0084A05E /* KeychainAccess in Frameworks */,
+				D93487F526049AEA005A8291 /* TotalizatorNetworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,20 +97,6 @@
 				88C0F8882603CAE90084A05E /* FeedViewController */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		88C0F87B2603C7920084A05E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		88C0F87C2603C7980084A05E /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		88C0F87D2603C79F0084A05E /* Extension */ = {
@@ -192,8 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				88C0F87D2603C79F0084A05E /* Extension */,
-				88C0F87C2603C7980084A05E /* Service */,
-				88C0F87B2603C7920084A05E /* View */,
 				88C0F87A2603C7890084A05E /* ViewController */,
 				88C0F8802603CA630084A05E /* Protocols */,
 				88C0F8792603C77C0084A05E /* Model */,
@@ -232,6 +218,7 @@
 			name = PMProject;
 			packageProductDependencies = (
 				88C0F89D2603E7BA0084A05E /* KeychainAccess */,
+				D93487F426049AEA005A8291 /* TotalizatorNetworkLayer */,
 			);
 			productName = PMProject;
 			productReference = D93BFEAD260363EF00BB93F1 /* PMProject.app */;
@@ -262,6 +249,7 @@
 			mainGroup = D93BFEA4260363EF00BB93F1;
 			packageReferences = (
 				88C0F89C2603E7BA0084A05E /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				D93487F326049AEA005A8291 /* XCRemoteSwiftPackageReference "TotalizatorNetworkLayer" */,
 			);
 			productRefGroup = D93BFEAE260363EF00BB93F1 /* Products */;
 			projectDirPath = "";
@@ -507,6 +495,14 @@
 				version = 4.2.2;
 			};
 		};
+		D93487F326049AEA005A8291 /* XCRemoteSwiftPackageReference "TotalizatorNetworkLayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexKozachuk/TotalizatorNetworkLayer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -514,6 +510,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 88C0F89C2603E7BA0084A05E /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		D93487F426049AEA005A8291 /* TotalizatorNetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D93487F326049AEA005A8291 /* XCRemoteSwiftPackageReference "TotalizatorNetworkLayer" */;
+			productName = TotalizatorNetworkLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

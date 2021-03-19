@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "KeychainAccess",
+        "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess.git",
+        "state": {
+          "branch": null,
+          "revision": "84e546727d66f1adc5439debad16270d0fdd04e7",
+          "version": "4.2.2"
+        }
+      },
+      {
+        "package": "TotalizatorNetworkLayer",
+        "repositoryURL": "https://github.com/alexKozachuk/TotalizatorNetworkLayer",
+        "state": {
+          "branch": null,
+          "revision": "5dea3042fbaaaae26a4c6640bf44cb2ff3f36755",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

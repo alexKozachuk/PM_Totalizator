@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import PMTotalizator
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
