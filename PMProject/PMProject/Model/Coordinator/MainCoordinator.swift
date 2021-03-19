@@ -26,6 +26,12 @@ class MainCoordinator: Coordinator {
 
         navigationController.viewControllers = [mainViewController]
     }
+    
+    func presentDetailFeed() {
+        let detailFeedVC = DetailFeedViewController()
+        detailFeedVC.coordinator = self
+        navigationController.pushViewController(detailFeedVC, animated: true)
+    }
 
     func presentProfileOrAuthorizationPage() {
         if authManager.isLoggedIn() {
