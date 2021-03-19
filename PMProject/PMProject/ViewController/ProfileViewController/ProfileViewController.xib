@@ -24,12 +24,21 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-oo-Drd">
+                    <rect key="frame" x="183" y="473.5" width="48" height="30"/>
+                    <state key="normal" title="Logout"/>
+                    <connections>
+                        <action selector="logout" destination="-1" eventType="touchUpInside" id="Mpa-YJ-fZQ"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="ACd-oo-Drd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2w1-Ln-Dmy"/>
                 <constraint firstItem="3M3-qW-hgj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5tc-tV-jDi"/>
                 <constraint firstItem="3M3-qW-hgj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Hrz-VJ-Qih"/>
+                <constraint firstItem="ACd-oo-Drd" firstAttribute="top" secondItem="3M3-qW-hgj" secondAttribute="bottom" constant="15" id="q1M-3z-hli"/>
             </constraints>
             <point key="canvasLocation" x="-271.01449275362319" y="89.732142857142847"/>
         </view>

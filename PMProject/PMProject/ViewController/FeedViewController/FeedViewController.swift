@@ -11,6 +11,8 @@ class FeedViewController: UIViewController {
 
     weak var coordinator: MainCoordinator?
 
+    private let authManager = AuthorizationManager()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,8 +32,6 @@ private extension FeedViewController {
 private extension FeedViewController {
 
     func setupNavbar() {
-        navigationController?.navigationBar.barStyle = .black
-
         setupLogo()
         setupProfileButton()
     }
@@ -79,5 +79,6 @@ private extension FeedViewController {
 
         return image
     }
+
 }
 
