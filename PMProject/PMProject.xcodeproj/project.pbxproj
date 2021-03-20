@@ -29,6 +29,9 @@
 		88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */; };
 		88C0F8DC2604B2330084A05E /* EventsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */; };
 		950739F6703AC9FB8C292C0B /* Pods_PMProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD557A38EF98E1ADDB86D161 /* Pods_PMProject.framework */; };
+		D90BF22C26061CC900B4B38A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22B26061CC900B4B38A /* Event.swift */; };
+		D90BF22F260620AA00B4B38A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22E260620AA00B4B38A /* Team.swift */; };
+		D90BF232260620BC00B4B38A /* BetSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF231260620BB00B4B38A /* BetSum.swift */; };
 		D93487F526049AEA005A8291 /* TotalizatorNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = D93487F426049AEA005A8291 /* TotalizatorNetworkLayer */; };
 		D934882C2604B734005A8291 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D934882B2604B734005A8291 /* CustomProgressView.swift */; };
 		D93488342604C248005A8291 /* DetailFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93488322604C248005A8291 /* DetailFeedViewController.swift */; };
@@ -70,6 +73,9 @@
 		88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		A9334F42FA409F1B3806A85B /* Pods-PMProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMProject.debug.xcconfig"; path = "Target Support Files/Pods-PMProject/Pods-PMProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BD557A38EF98E1ADDB86D161 /* Pods_PMProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D90BF22B26061CC900B4B38A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		D90BF22E260620AA00B4B38A /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		D90BF231260620BB00B4B38A /* BetSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetSum.swift; sourceTree = "<group>"; };
 		D934882B2604B734005A8291 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		D93488322604C248005A8291 /* DetailFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailFeedViewController.swift; path = PMProject/ViewController/DetailFeedViewController/DetailFeedViewController.swift; sourceTree = SOURCE_ROOT; };
 		D93488332604C248005A8291 /* DetailFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailFeedViewController.xib; path = PMProject/ViewController/DetailFeedViewController/DetailFeedViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -124,6 +130,7 @@
 			children = (
 				88C0F8972603E7480084A05E /* AuthorizationManager */,
 				88C0F87F2603CA580084A05E /* Coordinator */,
+				D90BF234260620CA00B4B38A /* Event */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -264,6 +271,16 @@
 				0EA111BEC0DBD6D90258103B /* Pods-PMProject.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D90BF234260620CA00B4B38A /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				D90BF22B26061CC900B4B38A /* Event.swift */,
+				D90BF22E260620AA00B4B38A /* Team.swift */,
+				D90BF231260620BB00B4B38A /* BetSum.swift */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		D93488312604C1DD005A8291 /* DetailFeedViewController */ = {
@@ -507,17 +524,20 @@
 				D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */,
 				88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */,
 				88C0F8CA2604AB2F0084A05E /* UIResponder.swift in Sources */,
+				D90BF232260620BC00B4B38A /* BetSum.swift in Sources */,
 				88C0F8992603E7650084A05E /* AuthorizationManager.swift in Sources */,
 				88C0F8DC2604B2330084A05E /* EventsCollectionViewDelegate.swift in Sources */,
 				D934883A2604C338005A8291 /* DetailInfoCollectionViewCell.swift in Sources */,
 				D93488572604D62F005A8291 /* DetailFeedCollectionViewDataSource.swift in Sources */,
 				88C0F8862603CA910084A05E /* MainCoordinator.swift in Sources */,
+				D90BF22C26061CC900B4B38A /* Event.swift in Sources */,
 				88C0F88A2603CAF40084A05E /* FeedViewController.swift in Sources */,
 				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
 				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
 				D934884F2604D436005A8291 /* UICollectionView+Extension.swift in Sources */,
 				D93488612604FB2E005A8291 /* DetailFeedCollectionReusableView.swift in Sources */,
+				D90BF22F260620AA00B4B38A /* Team.swift in Sources */,
 				88C0F8A12603E84B0084A05E /* Keychain+Key.swift in Sources */,
 				D93488342604C248005A8291 /* DetailFeedViewController.swift in Sources */,
 				D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */,
