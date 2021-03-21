@@ -28,15 +28,29 @@
 		88C0F8D42604ABBB0084A05E /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */; };
 		88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */; };
 		88C0F8DC2604B2330084A05E /* EventsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */; };
+		950739F6703AC9FB8C292C0B /* Pods_PMProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD557A38EF98E1ADDB86D161 /* Pods_PMProject.framework */; };
+		D90BF22C26061CC900B4B38A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22B26061CC900B4B38A /* Event.swift */; };
+		D90BF22F260620AA00B4B38A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22E260620AA00B4B38A /* Team.swift */; };
+		D90BF232260620BC00B4B38A /* BetSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF231260620BB00B4B38A /* BetSum.swift */; };
 		D93487F526049AEA005A8291 /* TotalizatorNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = D93487F426049AEA005A8291 /* TotalizatorNetworkLayer */; };
 		D934882C2604B734005A8291 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D934882B2604B734005A8291 /* CustomProgressView.swift */; };
+		D93488342604C248005A8291 /* DetailFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93488322604C248005A8291 /* DetailFeedViewController.swift */; };
+		D93488352604C248005A8291 /* DetailFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93488332604C248005A8291 /* DetailFeedViewController.xib */; };
+		D934883A2604C338005A8291 /* DetailInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93488382604C338005A8291 /* DetailInfoCollectionViewCell.swift */; };
+		D934883B2604C338005A8291 /* DetailInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93488392604C338005A8291 /* DetailInfoCollectionViewCell.xib */; };
+		D934884F2604D436005A8291 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D934884E2604D436005A8291 /* UICollectionView+Extension.swift */; };
+		D93488572604D62F005A8291 /* DetailFeedCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93488512604D593005A8291 /* DetailFeedCollectionViewDataSource.swift */; };
+		D93488612604FB2E005A8291 /* DetailFeedCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D934885F2604FB2E005A8291 /* DetailFeedCollectionReusableView.swift */; };
+		D93488622604FB2E005A8291 /* DetailFeedCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93488602604FB2E005A8291 /* DetailFeedCollectionReusableView.xib */; };
 		D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */; };
 		D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */; };
 		D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEB9260363F200BB93F1 /* Assets.xcassets */; };
 		D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEBB260363F200BB93F1 /* LaunchScreen.storyboard */; };
+		D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EA111BEC0DBD6D90258103B /* Pods-PMProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMProject.release.xcconfig"; path = "Target Support Files/Pods-PMProject/Pods-PMProject.release.xcconfig"; sourceTree = "<group>"; };
 		88C0F8732603A9340084A05E /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		88C0F8742603A9340084A05E /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		88C0F8812603CA750084A05E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -57,13 +71,27 @@
 		88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 		88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		A9334F42FA409F1B3806A85B /* Pods-PMProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMProject.debug.xcconfig"; path = "Target Support Files/Pods-PMProject/Pods-PMProject.debug.xcconfig"; sourceTree = "<group>"; };
+		BD557A38EF98E1ADDB86D161 /* Pods_PMProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D90BF22B26061CC900B4B38A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		D90BF22E260620AA00B4B38A /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		D90BF231260620BB00B4B38A /* BetSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetSum.swift; sourceTree = "<group>"; };
 		D934882B2604B734005A8291 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
+		D93488322604C248005A8291 /* DetailFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailFeedViewController.swift; path = PMProject/ViewController/DetailFeedViewController/DetailFeedViewController.swift; sourceTree = SOURCE_ROOT; };
+		D93488332604C248005A8291 /* DetailFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailFeedViewController.xib; path = PMProject/ViewController/DetailFeedViewController/DetailFeedViewController.xib; sourceTree = SOURCE_ROOT; };
+		D93488382604C338005A8291 /* DetailInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		D93488392604C338005A8291 /* DetailInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		D934884E2604D436005A8291 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		D93488512604D593005A8291 /* DetailFeedCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeedCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		D934885F2604FB2E005A8291 /* DetailFeedCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFeedCollectionReusableView.swift; sourceTree = "<group>"; };
+		D93488602604FB2E005A8291 /* DetailFeedCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailFeedCollectionReusableView.xib; sourceTree = "<group>"; };
 		D93BFEAD260363EF00BB93F1 /* PMProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PMProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93BFEB0260363EF00BB93F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D93BFEB9260363F200BB93F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D93BFEBC260363F200BB93F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D93BFEBE260363F200BB93F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +101,7 @@
 			files = (
 				88C0F89E2603E7BA0084A05E /* KeychainAccess in Frameworks */,
 				D93487F526049AEA005A8291 /* TotalizatorNetworkLayer in Frameworks */,
+				950739F6703AC9FB8C292C0B /* Pods_PMProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +130,7 @@
 			children = (
 				88C0F8972603E7480084A05E /* AuthorizationManager */,
 				88C0F87F2603CA580084A05E /* Coordinator */,
+				D90BF234260620CA00B4B38A /* Event */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,6 +138,7 @@
 		88C0F87A2603C7890084A05E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D93488312604C1DD005A8291 /* DetailFeedViewController */,
 				88C0F8BC2604A00A0084A05E /* Authorization */,
 				88C0F8A42603E9820084A05E /* ProfileViewController */,
 				88C0F8882603CAE90084A05E /* FeedViewController */,
@@ -121,6 +152,7 @@
 				88C0F8A02603E84B0084A05E /* Keychain+Key.swift */,
 				88C0F8B6260406980084A05E /* UIColor.swift */,
 				88C0F8C92604AB2F0084A05E /* UIResponder.swift */,
+				D934884E2604D436005A8291 /* UICollectionView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -200,6 +232,8 @@
 			children = (
 				88C0F8E02604B8450084A05E /* СustomProgressView */,
 				88C0F8C72604AA610084A05E /* EventCollectionViewCell */,
+				D934883D2604C340005A8291 /* DetailInfoCollectionViewCell */,
+				D93488642604FB34005A8291 /* DetailFeedCollectionReusableView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,12 +264,68 @@
 			path = "СustomProgressView";
 			sourceTree = "<group>";
 		};
+		93BA948FEDFE1A2B5579EDD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9334F42FA409F1B3806A85B /* Pods-PMProject.debug.xcconfig */,
+				0EA111BEC0DBD6D90258103B /* Pods-PMProject.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D90BF234260620CA00B4B38A /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				D90BF22B26061CC900B4B38A /* Event.swift */,
+				D90BF22E260620AA00B4B38A /* Team.swift */,
+				D90BF231260620BB00B4B38A /* BetSum.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		D93488312604C1DD005A8291 /* DetailFeedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D93488552604D5AC005A8291 /* DetailFeedCollectionView */,
+				D93488322604C248005A8291 /* DetailFeedViewController.swift */,
+				D93488332604C248005A8291 /* DetailFeedViewController.xib */,
+			);
+			path = DetailFeedViewController;
+			sourceTree = "<group>";
+		};
+		D934883D2604C340005A8291 /* DetailInfoCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D93488382604C338005A8291 /* DetailInfoCollectionViewCell.swift */,
+				D93488392604C338005A8291 /* DetailInfoCollectionViewCell.xib */,
+			);
+			path = DetailInfoCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		D93488552604D5AC005A8291 /* DetailFeedCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D93488512604D593005A8291 /* DetailFeedCollectionViewDataSource.swift */,
+			);
+			path = DetailFeedCollectionView;
+			sourceTree = "<group>";
+		};
+		D93488642604FB34005A8291 /* DetailFeedCollectionReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				D934885F2604FB2E005A8291 /* DetailFeedCollectionReusableView.swift */,
+				D93488602604FB2E005A8291 /* DetailFeedCollectionReusableView.xib */,
+			);
+			path = DetailFeedCollectionReusableView;
+			sourceTree = "<group>";
+		};
 		D93BFEA4260363EF00BB93F1 = {
 			isa = PBXGroup;
 			children = (
 				D93BFEAF260363EF00BB93F1 /* PMProject */,
 				D93BFEAE260363EF00BB93F1 /* Products */,
 				D93BFEC72603642200BB93F1 /* Frameworks */,
+				93BA948FEDFE1A2B5579EDD3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -260,6 +350,7 @@
 				D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */,
 				D93BFEB9260363F200BB93F1 /* Assets.xcassets */,
 				D93BFEBB260363F200BB93F1 /* LaunchScreen.storyboard */,
+				D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */,
 				D93BFEBE260363F200BB93F1 /* Info.plist */,
 			);
 			path = PMProject;
@@ -268,6 +359,7 @@
 		D93BFEC72603642200BB93F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BD557A38EF98E1ADDB86D161 /* Pods_PMProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -279,9 +371,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D93BFEC1260363F200BB93F1 /* Build configuration list for PBXNativeTarget "PMProject" */;
 			buildPhases = (
+				77C334C68F1EEEDEA8AF33F5 /* [CP] Check Pods Manifest.lock */,
 				D93BFEA9260363EF00BB93F1 /* Sources */,
 				D93BFEAA260363EF00BB93F1 /* Frameworks */,
 				D93BFEAB260363EF00BB93F1 /* Resources */,
+				AE389CDF24467E622FC07BD8 /* [CP] Embed Pods Frameworks */,
+				D98573AC2605F9EF00C9E987 /* FirebaseCrashlytics Script */,
 			);
 			buildRules = (
 			);
@@ -337,12 +432,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */,
 				88C0F8A92603E9910084A05E /* ProfileViewController.xib in Resources */,
 				88C0F8762603A93C0084A05E /* RobotoCondensed-Bold.ttf in Resources */,
 				88C0F8772603A93C0084A05E /* RobotoCondensed-Regular.ttf in Resources */,
+				D93488352604C248005A8291 /* DetailFeedViewController.xib in Resources */,
+				D934883B2604C338005A8291 /* DetailInfoCollectionViewCell.xib in Resources */,
 				D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */,
 				D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */,
 				88C0F8AE2603E9CE0084A05E /* LoginViewController.xib in Resources */,
+				D93488622604FB2E005A8291 /* DetailFeedCollectionReusableView.xib in Resources */,
 				88C0F88E2603CB700084A05E /* FeedViewController.xib in Resources */,
 				88C0F8C22604A0270084A05E /* RegisterViewController.xib in Resources */,
 				88C0F8D42604ABBB0084A05E /* EventCollectionViewCell.xib in Resources */,
@@ -350,6 +449,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77C334C68F1EEEDEA8AF33F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PMProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE389CDF24467E622FC07BD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PMProject/Pods-PMProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PMProject/Pods-PMProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PMProject/Pods-PMProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D98573AC2605F9EF00C9E987 /* FirebaseCrashlytics Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "FirebaseCrashlytics Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D93BFEA9260363EF00BB93F1 /* Sources */ = {
@@ -363,14 +524,22 @@
 				D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */,
 				88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */,
 				88C0F8CA2604AB2F0084A05E /* UIResponder.swift in Sources */,
+				D90BF232260620BC00B4B38A /* BetSum.swift in Sources */,
 				88C0F8992603E7650084A05E /* AuthorizationManager.swift in Sources */,
 				88C0F8DC2604B2330084A05E /* EventsCollectionViewDelegate.swift in Sources */,
+				D934883A2604C338005A8291 /* DetailInfoCollectionViewCell.swift in Sources */,
+				D93488572604D62F005A8291 /* DetailFeedCollectionViewDataSource.swift in Sources */,
 				88C0F8862603CA910084A05E /* MainCoordinator.swift in Sources */,
+				D90BF22C26061CC900B4B38A /* Event.swift in Sources */,
 				88C0F88A2603CAF40084A05E /* FeedViewController.swift in Sources */,
 				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
 				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
+				D934884F2604D436005A8291 /* UICollectionView+Extension.swift in Sources */,
+				D93488612604FB2E005A8291 /* DetailFeedCollectionReusableView.swift in Sources */,
+				D90BF22F260620AA00B4B38A /* Team.swift in Sources */,
 				88C0F8A12603E84B0084A05E /* Keychain+Key.swift in Sources */,
+				D93488342604C248005A8291 /* DetailFeedViewController.swift in Sources */,
 				D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,10 +676,12 @@
 		};
 		D93BFEC2260363F200BB93F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9334F42FA409F1B3806A85B /* Pods-PMProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 87N7QPTHS6;
 				INFOPLIST_FILE = PMProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -526,6 +697,7 @@
 		};
 		D93BFEC3260363F200BB93F1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EA111BEC0DBD6D90258103B /* Pods-PMProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
