@@ -10,6 +10,6 @@ import Foundation
 struct Team: Identifiable {
     var id: Int
     var name: String
-    var imageUrl: URL
+    var imageUrl: String
     var characteristics: [String: String]
 }

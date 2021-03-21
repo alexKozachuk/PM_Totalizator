@@ -15,8 +15,23 @@ class CustomProgressView: UIView {
     private var left: CGFloat = 1 / 3
     private var middle: CGFloat = 1 / 3
     
+    private let leftLayer = CALayer()
+    private let middleLayer =  CALayer()
+    
     override func awakeFromNib() {
         backgroundColor = rightColor
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        layer.addSublayer(leftLayer)
+        layer.addSublayer(middleLayer)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        layer.addSublayer(leftLayer)
+        layer.addSublayer(middleLayer)
     }
     
     func setup(left: CGFloat, middle: CGFloat, right: CGFloat) {
@@ -30,17 +45,13 @@ class CustomProgressView: UIView {
        
         let leftSize = CGSize(width: rect.width * left, height: rect.height)
         let leftRect = CGRect(origin: .zero, size: leftSize)
-        let leftLayer = CALayer()
         leftLayer.frame = leftRect
-        layer.addSublayer(leftLayer)
         leftLayer.backgroundColor = leftColor.cgColor
         
         let middleSize = CGSize(width: rect.width * middle, height: rect.height)
         let middlePoint = CGPoint(x: rect.width * left, y: 0)
         let middleRect = CGRect(origin: middlePoint, size: middleSize)
-        let middleLayer = CALayer()
         middleLayer.frame = middleRect
-        layer.addSublayer(middleLayer)
         middleLayer.backgroundColor = middleColor.cgColor
         
     }

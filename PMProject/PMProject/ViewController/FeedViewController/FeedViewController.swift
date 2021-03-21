@@ -22,6 +22,7 @@ class FeedViewController: UIViewController {
 
         setupNavbar()
         setupCollectionView()
+        setupMockData()
     }
 
 }
@@ -43,6 +44,47 @@ private extension FeedViewController {
         eventsCollectionView?.delegate = eventsDataSource
 
         eventsCollectionView?.register(type: EventCollectionViewCell.self)
+    }
+    
+    func setupMockData() {
+        
+        let team1 = Team(id: 1,
+                         name: "Dong Hyun Kim",
+                         imageUrl: "mock url",
+                         characteristics: ["Weight (kg)": "65",
+                                           "Height (cm)": "154",
+                                           "Age": "31"])
+        let team2 = Team(id: 2,
+                         name: "Colby Covington",
+                         imageUrl: "mock url",
+                         characteristics: ["Weight (kg)": "68",
+                                           "Height (cm)": "170",
+                                           "Age": "28"])
+        let team3 = Team(id: 3,
+                         name: "Jon Jones",
+                         imageUrl: "mock url",
+                         characteristics: ["Weight (kg)": "69",
+                                           "Height (cm)": "164",
+                                           "Age": "33"])
+        let team4 = Team(id: 4,
+                         name: "Khabilov Rustam",
+                         imageUrl: "mock url",
+                         characteristics: ["Weight (kg)": "68",
+                                           "Height (cm)": "168",
+                                           "Age": "27"])
+        
+        eventsDataSource?.items = [
+            Event(id: 1, firstTeam: team1, secondTeam: team2,
+                  betSum: BetSum(firstBet: 17600, secondBet: 10500, drawBet: 1700)),
+            Event(id: 2, firstTeam: team3, secondTeam: team4,
+                  betSum: BetSum(firstBet: 9600, secondBet: 13500, drawBet: 1100)),
+            Event(id: 3, firstTeam: team3, secondTeam: team2,
+                  betSum: BetSum(firstBet: 6500, secondBet: 8500, drawBet: 500))
+        
+        ]
+        
+        eventsCollectionView?.reloadData()
+        
     }
 }
 

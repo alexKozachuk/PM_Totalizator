@@ -27,9 +27,10 @@ class MainCoordinator: Coordinator {
         navigationController.viewControllers = [mainViewController]
     }
     
-    func presentDetailFeed() {
+    func presentDetailFeed(with event: Event) {
         let detailFeedVC = DetailFeedViewController()
         detailFeedVC.coordinator = self
+        detailFeedVC.event = event
         navigationController.pushViewController(detailFeedVC, animated: true)
     }
 
