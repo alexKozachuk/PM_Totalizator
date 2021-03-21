@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88BB4CD726071B02008B5A5E /* BetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CD526071B02008B5A5E /* BetModalViewController.swift */; };
+		88BB4CD826071B02008B5A5E /* BetModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88BB4CD626071B02008B5A5E /* BetModalViewController.xib */; };
+		88BB4CDF26071B08008B5A5E /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CDB26071B08008B5A5E /* PresentationController.swift */; };
+		88BB4CE026071B08008B5A5E /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CDC26071B08008B5A5E /* PresentAnimation.swift */; };
+		88BB4CE126071B08008B5A5E /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CDD26071B08008B5A5E /* DismissAnimation.swift */; };
+		88BB4CE226071B08008B5A5E /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CDE26071B08008B5A5E /* ModalTransition.swift */; };
+		88BB4CE526071B0F008B5A5E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CE426071B0F008B5A5E /* UIView.swift */; };
 		88C0F8762603A93C0084A05E /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8732603A9340084A05E /* RobotoCondensed-Bold.ttf */; };
 		88C0F8772603A93C0084A05E /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8742603A9340084A05E /* RobotoCondensed-Regular.ttf */; };
 		88C0F8822603CA750084A05E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8812603CA750084A05E /* Coordinator.swift */; };
@@ -27,7 +34,6 @@
 		88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8CC2604AB8B0084A05E /* EventCollectionViewCell.swift */; };
 		88C0F8D42604ABBB0084A05E /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */; };
 		88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */; };
-		88C0F8DC2604B2330084A05E /* EventsCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */; };
 		950739F6703AC9FB8C292C0B /* Pods_PMProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD557A38EF98E1ADDB86D161 /* Pods_PMProject.framework */; };
 		D90BF22C26061CC900B4B38A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22B26061CC900B4B38A /* Event.swift */; };
 		D90BF22F260620AA00B4B38A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22E260620AA00B4B38A /* Team.swift */; };
@@ -51,6 +57,13 @@
 
 /* Begin PBXFileReference section */
 		0EA111BEC0DBD6D90258103B /* Pods-PMProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMProject.release.xcconfig"; path = "Target Support Files/Pods-PMProject/Pods-PMProject.release.xcconfig"; sourceTree = "<group>"; };
+		88BB4CD526071B02008B5A5E /* BetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetModalViewController.swift; sourceTree = "<group>"; };
+		88BB4CD626071B02008B5A5E /* BetModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BetModalViewController.xib; sourceTree = "<group>"; };
+		88BB4CDB26071B08008B5A5E /* PresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		88BB4CDC26071B08008B5A5E /* PresentAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
+		88BB4CDD26071B08008B5A5E /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
+		88BB4CDE26071B08008B5A5E /* ModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
+		88BB4CE426071B0F008B5A5E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = "../../../../pm-project-2-test/UIView.swift"; sourceTree = "<group>"; };
 		88C0F8732603A9340084A05E /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
 		88C0F8742603A9340084A05E /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
 		88C0F8812603CA750084A05E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -70,7 +83,6 @@
 		88C0F8CC2604AB8B0084A05E /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 		88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		A9334F42FA409F1B3806A85B /* Pods-PMProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMProject.debug.xcconfig"; path = "Target Support Files/Pods-PMProject/Pods-PMProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BD557A38EF98E1ADDB86D161 /* Pods_PMProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D90BF22B26061CC900B4B38A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -108,6 +120,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88BB4CD426071B02008B5A5E /* BetModalViewController */ = {
+			isa = PBXGroup;
+			children = (
+				88BB4CDA26071B08008B5A5E /* ModalTransition */,
+				88BB4CD526071B02008B5A5E /* BetModalViewController.swift */,
+				88BB4CD626071B02008B5A5E /* BetModalViewController.xib */,
+			);
+			name = BetModalViewController;
+			path = "../../../../pm-project-2-test/BetModalViewController";
+			sourceTree = "<group>";
+		};
+		88BB4CDA26071B08008B5A5E /* ModalTransition */ = {
+			isa = PBXGroup;
+			children = (
+				88BB4CDB26071B08008B5A5E /* PresentationController.swift */,
+				88BB4CDC26071B08008B5A5E /* PresentAnimation.swift */,
+				88BB4CDD26071B08008B5A5E /* DismissAnimation.swift */,
+				88BB4CDE26071B08008B5A5E /* ModalTransition.swift */,
+			);
+			name = ModalTransition;
+			path = ../ModalTransition;
+			sourceTree = "<group>";
+		};
 		88C0F8712603A9340084A05E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +173,7 @@
 		88C0F87A2603C7890084A05E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				88BB4CD426071B02008B5A5E /* BetModalViewController */,
 				D93488312604C1DD005A8291 /* DetailFeedViewController */,
 				88C0F8BC2604A00A0084A05E /* Authorization */,
 				88C0F8A42603E9820084A05E /* ProfileViewController */,
@@ -153,6 +189,7 @@
 				88C0F8B6260406980084A05E /* UIColor.swift */,
 				88C0F8C92604AB2F0084A05E /* UIResponder.swift */,
 				D934884E2604D436005A8291 /* UICollectionView+Extension.swift */,
+				88BB4CE426071B0F008B5A5E /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -176,7 +213,7 @@
 		88C0F8882603CAE90084A05E /* FeedViewController */ = {
 			isa = PBXGroup;
 			children = (
-				88C0F8D62604B15F0084A05E /* EventsCollectionView */,
+				88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */,
 				88C0F8892603CAF40084A05E /* FeedViewController.swift */,
 				88C0F88D2603CB700084A05E /* FeedViewController.xib */,
 			);
@@ -245,15 +282,6 @@
 				88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */,
 			);
 			path = EventCollectionViewCell;
-			sourceTree = "<group>";
-		};
-		88C0F8D62604B15F0084A05E /* EventsCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */,
-				88C0F8DB2604B2330084A05E /* EventsCollectionViewDelegate.swift */,
-			);
-			path = EventsCollectionView;
 			sourceTree = "<group>";
 		};
 		88C0F8E02604B8450084A05E /* СustomProgressView */ = {
@@ -432,6 +460,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88BB4CD826071B02008B5A5E /* BetModalViewController.xib in Resources */,
 				D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */,
 				88C0F8A92603E9910084A05E /* ProfileViewController.xib in Resources */,
 				88C0F8762603A93C0084A05E /* RobotoCondensed-Bold.ttf in Resources */,
@@ -521,17 +550,20 @@
 				D934882C2604B734005A8291 /* CustomProgressView.swift in Sources */,
 				88C0F8BF2604A0210084A05E /* RegisterViewController.swift in Sources */,
 				88C0F8822603CA750084A05E /* Coordinator.swift in Sources */,
+				88BB4CE526071B0F008B5A5E /* UIView.swift in Sources */,
 				D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */,
 				88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */,
 				88C0F8CA2604AB2F0084A05E /* UIResponder.swift in Sources */,
 				D90BF232260620BC00B4B38A /* BetSum.swift in Sources */,
 				88C0F8992603E7650084A05E /* AuthorizationManager.swift in Sources */,
-				88C0F8DC2604B2330084A05E /* EventsCollectionViewDelegate.swift in Sources */,
+				88BB4CDF26071B08008B5A5E /* PresentationController.swift in Sources */,
 				D934883A2604C338005A8291 /* DetailInfoCollectionViewCell.swift in Sources */,
 				D93488572604D62F005A8291 /* DetailFeedCollectionViewDataSource.swift in Sources */,
+				88BB4CE226071B08008B5A5E /* ModalTransition.swift in Sources */,
 				88C0F8862603CA910084A05E /* MainCoordinator.swift in Sources */,
 				D90BF22C26061CC900B4B38A /* Event.swift in Sources */,
 				88C0F88A2603CAF40084A05E /* FeedViewController.swift in Sources */,
+				88BB4CD726071B02008B5A5E /* BetModalViewController.swift in Sources */,
 				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
 				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
@@ -540,7 +572,9 @@
 				D90BF22F260620AA00B4B38A /* Team.swift in Sources */,
 				88C0F8A12603E84B0084A05E /* Keychain+Key.swift in Sources */,
 				D93488342604C248005A8291 /* DetailFeedViewController.swift in Sources */,
+				88BB4CE026071B08008B5A5E /* PresentAnimation.swift in Sources */,
 				D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */,
+				88BB4CE126071B08008B5A5E /* DismissAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

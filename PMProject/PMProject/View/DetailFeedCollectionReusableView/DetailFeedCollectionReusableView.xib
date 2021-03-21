@@ -111,6 +111,9 @@
                             <state key="normal" title="BET ON Dong Hyun Kim">
                                 <color key="titleColor" systemColor="labelColor"/>
                             </state>
+                            <connections>
+                                <action selector="leftBetButtonDidTapped" destination="U6b-Vx-4bR" eventType="touchUpInside" id="fYO-Wx-A4H"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxj-5X-RUr">
                             <rect key="frame" x="16" y="121" width="288" height="44"/>
@@ -122,6 +125,9 @@
                             <state key="normal" title="BET ON Draw">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="drawBetButtonDidTapped" destination="U6b-Vx-4bR" eventType="touchUpInside" id="rs2-E5-gdD"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxb-OJ-Za6">
                             <rect key="frame" x="16" y="176" width="288" height="44"/>
@@ -133,6 +139,9 @@
                             <state key="normal" title="BET ON Dong Hyun Kim">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="rightBetButtonDidTapped" destination="U6b-Vx-4bR" eventType="touchUpInside" id="jp7-QV-mrK"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -164,10 +173,13 @@
                 <constraint firstItem="ibw-vg-gq0" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="tUD-dl-AiQ"/>
             </constraints>
             <connections>
+                <outlet property="drawBetButton" destination="Lxj-5X-RUr" id="J1g-Xv-fPL"/>
+                <outlet property="leftBetButton" destination="pZ0-p3-Vqq" id="lU4-Ea-w6g"/>
                 <outlet property="leftImageView" destination="yJN-MX-33u" id="7oq-fJ-bTb"/>
                 <outlet property="leftNameLabel" destination="4zD-0W-gRz" id="7KP-7U-ISq"/>
                 <outlet property="leftValueLabel" destination="BoI-Ro-qpb" id="GFD-TP-qGV"/>
                 <outlet property="progressView" destination="ZO1-f5-H1A" id="7OL-qn-V2J"/>
+                <outlet property="rightBetButton" destination="vxb-OJ-Za6" id="BqA-sW-T1p"/>
                 <outlet property="rightImageView" destination="LCA-sw-8eb" id="H1J-Ry-OFz"/>
                 <outlet property="rightNameLabel" destination="i2Q-6a-zgU" id="owQ-pu-2x0"/>
                 <outlet property="rightValueLabel" destination="z7F-oo-n4p" id="J8z-tv-YIq"/>

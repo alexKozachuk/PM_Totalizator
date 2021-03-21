@@ -9,7 +9,8 @@ import UIKit
 
 class DetailFeedViewController: UIViewController {
 
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: Coordinator?
+
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var dataSource: DetailFeedCollectionViewDataSource?
@@ -25,6 +26,8 @@ private extension DetailFeedViewController {
     
     func setupCollectionView() {
         dataSource = DetailFeedCollectionViewDataSource()
+        dataSource?.coordinator = coordinator
+
         collectionView?.dataSource = dataSource
         collectionView?.delegate = dataSource
 
@@ -34,5 +37,4 @@ private extension DetailFeedViewController {
         collectionView?.register(type: DetailFeedCollectionReusableView.self, kind: kindHeader)
 
     }
-    
 }
