@@ -14,7 +14,6 @@ class FeedViewController: UIViewController {
     private let authManager = AuthorizationManager()
 
     private var eventsDataSource: EventsCollectionViewDataSource?
-    private var eventsCollectionViewDelegate: EventsCollectionViewDelegate?
 
     @IBOutlet weak var eventsCollectionView: UICollectionView?
 
@@ -38,17 +37,12 @@ private extension FeedViewController {
 
     func setupCollectionView() {
         eventsDataSource = EventsCollectionViewDataSource()
+        eventsDataSource?.coordinator = coordinator
+
         eventsCollectionView?.dataSource = eventsDataSource
+        eventsCollectionView?.delegate = eventsDataSource
 
-        eventsCollectionViewDelegate = EventsCollectionViewDelegate()
-        eventsCollectionView?.delegate = eventsCollectionViewDelegate
-
-        let reuseIdentifier = EventCollectionViewCell.reuseIdentifier
-
-        eventsCollectionView?.register(
-            UINib(nibName: reuseIdentifier, bundle: nil),
-            forCellWithReuseIdentifier: reuseIdentifier)
-
+        eventsCollectionView?.register(type: EventCollectionViewCell.self)
     }
 }
 
