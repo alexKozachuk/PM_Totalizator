@@ -23,8 +23,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="333" height="71"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="65" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQe-tw-mi2">
-                        <rect key="frame" x="67.5" y="24" width="20.5" height="23.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="65" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQe-tw-mi2">
+                        <rect key="frame" x="40" y="24" width="20.5" height="23.5"/>
                         <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,8 +35,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mel-9N-xSG">
-                        <rect key="frame" x="245" y="24" width="20.5" height="23.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="68" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mel-9N-xSG">
+                        <rect key="frame" x="272.5" y="24" width="20.5" height="23.5"/>
                         <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="20"/>
                         <color key="textColor" red="0.8862745098" green="0.1019607843" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -44,12 +44,13 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="mel-9N-xSG" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="22R-Eh-ZxB"/>
-                <constraint firstItem="tVC-ir-uMg" firstAttribute="leading" secondItem="nQe-tw-mi2" secondAttribute="trailing" constant="40" id="TfJ-nA-HYt"/>
-                <constraint firstItem="mel-9N-xSG" firstAttribute="leading" secondItem="tVC-ir-uMg" secondAttribute="trailing" constant="40" id="Trf-rD-TMJ"/>
+                <constraint firstItem="nQe-tw-mi2" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="10m-yR-MTd"/>
+                <constraint firstItem="mel-9N-xSG" firstAttribute="width" secondItem="nQe-tw-mi2" secondAttribute="width" id="X5J-MA-8U2"/>
+                <constraint firstAttribute="trailing" secondItem="mel-9N-xSG" secondAttribute="trailing" constant="40" id="Xt4-Bf-r6d"/>
+                <constraint firstItem="mel-9N-xSG" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Zs9-5W-Fji"/>
                 <constraint firstItem="tVC-ir-uMg" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="kg1-EU-fNm"/>
-                <constraint firstItem="nQe-tw-mi2" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="l0t-Pl-94X"/>
                 <constraint firstItem="tVC-ir-uMg" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="mtu-x3-vOf"/>
+                <constraint firstItem="nQe-tw-mi2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="40" id="tnf-0Q-ixQ"/>
             </constraints>
             <size key="customSize" width="333" height="71"/>
             <connections>

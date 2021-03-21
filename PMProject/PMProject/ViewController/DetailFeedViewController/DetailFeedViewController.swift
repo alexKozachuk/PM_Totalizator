@@ -9,11 +9,12 @@ import UIKit
 
 class DetailFeedViewController: UIViewController {
 
-    weak var coordinator: Coordinator?
+    weak var coordinator: MainCoordinator?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var dataSource: DetailFeedCollectionViewDataSource?
+    var event: Event?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ private extension DetailFeedViewController {
     func setupCollectionView() {
         dataSource = DetailFeedCollectionViewDataSource()
         dataSource?.coordinator = coordinator
+        dataSource?.event = event
 
         collectionView?.dataSource = dataSource
         collectionView?.delegate = dataSource

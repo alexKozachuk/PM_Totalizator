@@ -54,6 +54,7 @@
 		D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEB9260363F200BB93F1 /* Assets.xcassets */; };
 		D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEBB260363F200BB93F1 /* LaunchScreen.storyboard */; };
 		D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */; };
+		D9D5A29F26073107007B22DA /* CharacteristicsPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		D93BFEBC260363F200BB93F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D93BFEBE260363F200BB93F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsPair.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +310,7 @@
 				D90BF22B26061CC900B4B38A /* Event.swift */,
 				D90BF22E260620AA00B4B38A /* Team.swift */,
 				D90BF231260620BB00B4B38A /* BetSum.swift */,
+				D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				88BB4CF526072026008B5A5E /* PresentationController.swift in Sources */,
 				88C0F8BF2604A0210084A05E /* RegisterViewController.swift in Sources */,
 				88C0F8822603CA750084A05E /* Coordinator.swift in Sources */,
+				D9D5A29F26073107007B22DA /* CharacteristicsPair.swift in Sources */,
 				D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */,
 				88BB4CF626072026008B5A5E /* PresentAnimation.swift in Sources */,
 				88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */,

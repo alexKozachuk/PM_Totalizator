@@ -13,5 +13,12 @@ class DetailInfoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rightValueLabel: UILabel?
     @IBOutlet weak var nameLabel: UILabel?
     
+    func setup(with item: CharacteristicsPair) {
+        
+        leftValueLabel?.text = item.firstValue
+        rightValueLabel?.text = item.secondValue
+        nameLabel?.text = item.name
+        
+    }
 
 }

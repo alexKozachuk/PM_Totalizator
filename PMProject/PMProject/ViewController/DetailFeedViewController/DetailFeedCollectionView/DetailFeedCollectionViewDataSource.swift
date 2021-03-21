@@ -9,9 +9,25 @@ import UIKit
 
 class DetailFeedCollectionViewDataSource: NSObject {
 
-    weak var coordinator: Coordinator?
+    weak var coordinator: MainCoordinator?
 
     private let transitioningDelegate = ModalTransition()
+    
+    var event: Event?
+    
+    var items: [CharacteristicsPair] {
+        guard let event = event else { return [] }
+        var values: [CharacteristicsPair] = []
+        let first = event.firstTeam.characteristics
+        let second = event.secondTeam.characteristics
+        
+        first.forEach { key, value in
+            values.append(CharacteristicsPair(name: key,
+                                              firstValue: value,
+                                              secondValue: second[key] ?? ""))
+        }
+        return values
+    }
 
 }
 
@@ -19,6 +35,8 @@ extension DetailFeedCollectionViewDataSource: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = cell as? DetailInfoCollectionViewCell else { return }
+        let item = items[indexPath.row]
+        cell.setup(with: item)
     }
     
 }
@@ -26,7 +44,7 @@ extension DetailFeedCollectionViewDataSource: UICollectionViewDelegate {
 extension DetailFeedCollectionViewDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -38,10 +56,12 @@ extension DetailFeedCollectionViewDataSource: UICollectionViewDataSource {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let reusableView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, with: DetailFeedCollectionReusableView.self, for: indexPath)
-
-            reusableView.setup()
-            reusableView.delegate = self
-
+            
+            if let event = event {
+                reusableView.setup(with: event)
+                reusableView.delegate = self
+            }
+            
             return reusableView
         default:
             fatalError("Unexpected element kind")

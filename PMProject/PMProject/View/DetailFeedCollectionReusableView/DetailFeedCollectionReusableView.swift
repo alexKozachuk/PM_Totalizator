@@ -13,6 +13,8 @@ protocol DetailFeedCollectionReusableViewDelegate {
     func drawBetButtonDidTapped()
 }
 
+// TODO: Open coments
+
 class DetailFeedCollectionReusableView: UICollectionReusableView {
 
     @IBOutlet weak var leftNameLabel: UILabel!
@@ -32,12 +34,35 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
     
     var delegate: DetailFeedCollectionReusableViewDelegate?
     
+    private let imageLoader = ImageLoader()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func setup() {
-        progressView?.setup(left: 170, middle: 20, right: 280)
+    func setup(with event: Event) {
+        
+        imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
+            //self.leftImageView?.image = image
+        }
+        
+        imageLoader.loadImage(urlString: event.secondTeam.imageUrl) { [weak self] image in
+            //self.rightImageView?.image = image
+        }
+        
+        leftNameLabel?.text = event.firstTeam.name
+        rightNameLabel?.text = event.secondTeam.name
+        
+        leftValueLabel?.text = "\(event.betSum.firstBet)"
+        rightValueLabel?.text = "\(event.betSum.secondBet)"
+        
+        progressView?.setup(left: CGFloat(event.betSum.firstBet),
+                            middle: CGFloat(event.betSum.drawBet),
+                            right: CGFloat(event.betSum.secondBet))
+        
+        leftBetButton.setTitle("Bet on " + event.firstTeam.name, for: .normal)
+        rightBetButton.setTitle("Bet on " + event.secondTeam.name, for: .normal)
+        
     }
     
     @IBAction func leftBetButtonDidTapped() {
