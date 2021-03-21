@@ -38,6 +38,7 @@
 		D90BF22C26061CC900B4B38A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22B26061CC900B4B38A /* Event.swift */; };
 		D90BF22F260620AA00B4B38A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22E260620AA00B4B38A /* Team.swift */; };
 		D90BF232260620BC00B4B38A /* BetSum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF231260620BB00B4B38A /* BetSum.swift */; };
+		D90BF23D26064C5E00B4B38A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF23C26064C5E00B4B38A /* ImageLoader.swift */; };
 		D93487F526049AEA005A8291 /* TotalizatorNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = D93487F426049AEA005A8291 /* TotalizatorNetworkLayer */; };
 		D934882C2604B734005A8291 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D934882B2604B734005A8291 /* CustomProgressView.swift */; };
 		D93488342604C248005A8291 /* DetailFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93488322604C248005A8291 /* DetailFeedViewController.swift */; };
@@ -88,6 +89,7 @@
 		D90BF22B26061CC900B4B38A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D90BF22E260620AA00B4B38A /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		D90BF231260620BB00B4B38A /* BetSum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetSum.swift; sourceTree = "<group>"; };
+		D90BF23C26064C5E00B4B38A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		D934882B2604B734005A8291 /* CustomProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		D93488322604C248005A8291 /* DetailFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailFeedViewController.swift; path = PMProject/ViewController/DetailFeedViewController/DetailFeedViewController.swift; sourceTree = SOURCE_ROOT; };
 		D93488332604C248005A8291 /* DetailFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailFeedViewController.xib; path = PMProject/ViewController/DetailFeedViewController/DetailFeedViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -166,6 +168,7 @@
 				88C0F8972603E7480084A05E /* AuthorizationManager */,
 				88C0F87F2603CA580084A05E /* Coordinator */,
 				D90BF234260620CA00B4B38A /* Event */,
+				D90BF23C26064C5E00B4B38A /* ImageLoader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				88BB4CD726071B02008B5A5E /* BetModalViewController.swift in Sources */,
 				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
 				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,
+				D90BF23D26064C5E00B4B38A /* ImageLoader.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
 				D934884F2604D436005A8291 /* UICollectionView+Extension.swift in Sources */,
 				D93488612604FB2E005A8291 /* DetailFeedCollectionReusableView.swift in Sources */,
