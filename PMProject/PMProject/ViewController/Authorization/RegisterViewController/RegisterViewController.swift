@@ -8,30 +8,34 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
-
+    
     private let authManager = AuthorizationManager()
-
+    
     weak var coordinator: MainCoordinator?
-
-    @IBOutlet weak var nameField: UITextField?
-    @IBOutlet weak var loginField: UITextField?
+    
+    @IBOutlet weak var emailField: UITextField?
     @IBOutlet weak var passwordField: UITextField?
-
+    @IBOutlet weak var datePicker: UIDatePicker?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     @IBAction func register() {
-        guard let name = nameField?.text, let login = loginField?.text, let password = passwordField?.text else {
+        
+        guard let email = emailField?.text, let password = passwordField?.text, let date = datePicker?.date else {
             return
         }
-        authManager.register(name: name, login: login, password: password) { [weak self] error in
-            guard error == nil else {
-                print(error!)
+        
+        authManager.register(email: email, password: password, dateOfBirth: date) { [weak self] error in
+            if let error = error {
+                print(error)
                 return
             }
-
-            self?.coordinator?.popToRoot()
+            DispatchQueue.main.async {
+                self?.coordinator?.popToRoot()
+            }
         }
+        
     }
 }

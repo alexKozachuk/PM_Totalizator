@@ -46,6 +46,12 @@ class MainCoordinator: Coordinator {
             navigationController.pushViewController(loginVC, animated: true)
         }
     }
+    
+    func presentRegistrationPage() {
+        let registerVC = RegisterViewController()
+        registerVC.coordinator = self
+        navigationController.pushViewController(registerVC, animated: true)
+    }
 
 }
 

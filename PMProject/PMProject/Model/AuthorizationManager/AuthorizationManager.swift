@@ -7,8 +7,11 @@
 
 import Foundation
 import KeychainAccess
+import TotalizatorNetworkLayer
 
 class AuthorizationManager {
+    
+    private var networkManager = NetworkManager()
 
     enum Key: String {
         case token
@@ -20,26 +23,54 @@ class AuthorizationManager {
         return authKeychain.get(.token) != nil
     }
 
-    func login(login: String, password: String, completion: @escaping (Error?) -> Void) {
-        do {
-            try authKeychain.set("\(password)", key: .token)
-            print("User has successfully signed in")
+    func login(email: String, password: String, completion: @escaping (String?) -> Void) {
+        
+        networkManager.login(login: email, password: password) { [weak self] token, error in
+            
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let token = token else { return }
+            
+            do {
+                try self?.authKeychain.set(token.jwtString, key: .token)
+                print("User has successfully registered")
 
-            completion(nil)
-        } catch {
-            completion(error)
+                completion(nil)
+            } catch {
+                completion(error.localizedDescription)
+            }
+            
         }
+        
     }
 
-    func register(name: String, login: String, password: String, completion: @escaping (Error?) -> Void) {
-        do {
-            try authKeychain.set("\(password)", key: .token)
-            print("User has successfully registered")
+    func register(email: String, password: String, dateOfBirth: Date, completion: @escaping (String?) -> Void) {
+        
+        networkManager.registration(login: email,
+                                    password: password,
+                                    dateOfBirth: dateOfBirth) { [weak self] token, error in
+            if let error = error {
+                completion(error)
+                return
+            }
+            
+            guard let token = token else { return }
+            
+            do {
+                try self?.authKeychain.set(token.jwtString, key: .token)
+                print("User has successfully registered")
 
-            completion(nil)
-        } catch {
-            completion(error)
+                completion(nil)
+            } catch {
+                completion(error.localizedDescription)
+            }
+            
         }
+        
+        
     }
 
     func logout(completion: @escaping (Error?) -> Void) {
@@ -51,3 +82,5 @@ class AuthorizationManager {
         }
     }
 }
+
+
