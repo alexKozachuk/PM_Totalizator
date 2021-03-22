@@ -10,6 +10,7 @@ import UIKit
 class BetModalViewController: UIViewController {
 
     @IBOutlet weak var headerContainer: UIView?
+    @IBOutlet weak var submitButton: UIButton?
 
     var isKeyboardShowing = false
 
@@ -17,6 +18,7 @@ class BetModalViewController: UIViewController {
         super.viewDidLoad()
 
         headerContainer?.addBorder(side: .bottom)
+        submitButton?.pmStyle()
 
         setupKeyboardNotifications()
     }
@@ -36,6 +38,19 @@ class BetModalViewController: UIViewController {
     }
 }
 
+extension BetModalViewController: UITextFieldDelegate {
+
+    @IBAction func textChanged(_ sender: UITextField) {
+        if let text = sender.text, text.count > 0 {
+            submitButton?.isEnabled = true
+            submitButton?.backgroundColor = .pmYellow
+        } else {
+            submitButton?.isEnabled = false
+            submitButton?.backgroundColor = .gray
+        }
+    }
+
+}
 
 // MARK: - Keyboard hiding/showing handlers
 private extension BetModalViewController {

@@ -55,6 +55,7 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
     func setup(with event: Event) {
 
         setupGradientView()
+        setupButtons()
         
         imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
             //self.leftImageView?.image = image
@@ -114,5 +115,11 @@ private extension DetailFeedCollectionReusableView {
         gradientView.layer.insertSublayer(gradientLayer, at: 0)
 
         self.gradientLayer = gradientLayer
+    }
+
+    func setupButtons() {
+        leftBetButton.pmStyle()
+        drawBetButton.pmStyle()
+        rightBetButton.pmStyle()
     }
 }

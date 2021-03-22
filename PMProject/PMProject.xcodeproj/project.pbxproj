@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		88A5F3732608A29D00378E4F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F3722608A29D00378E4F /* GradientView.swift */; };
+		88A5F3762608AC6C00378E4F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F3752608AC6C00378E4F /* UIButton.swift */; };
 		88BB4CE926072014008B5A5E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CE826072014008B5A5E /* UIView.swift */; };
 		88BB4CF326072026008B5A5E /* BetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CEC26072026008B5A5E /* BetModalViewController.swift */; };
 		88BB4CF426072026008B5A5E /* BetModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88BB4CED26072026008B5A5E /* BetModalViewController.xib */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		0EA111BEC0DBD6D90258103B /* Pods-PMProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMProject.release.xcconfig"; path = "Target Support Files/Pods-PMProject/Pods-PMProject.release.xcconfig"; sourceTree = "<group>"; };
 		88A5F3722608A29D00378E4F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		88A5F3752608AC6C00378E4F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		88BB4CE826072014008B5A5E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		88BB4CEC26072026008B5A5E /* BetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetModalViewController.swift; sourceTree = "<group>"; };
 		88BB4CED26072026008B5A5E /* BetModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BetModalViewController.xib; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				88C0F8C92604AB2F0084A05E /* UIResponder.swift */,
 				88BB4CE826072014008B5A5E /* UIView.swift */,
 				D934884E2604D436005A8291 /* UICollectionView+Extension.swift */,
+				88A5F3752608AC6C00378E4F /* UIButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				D9D5A29F26073107007B22DA /* CharacteristicsPair.swift in Sources */,
 				D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */,
 				88BB4CF626072026008B5A5E /* PresentAnimation.swift in Sources */,
+				88A5F3762608AC6C00378E4F /* UIButton.swift in Sources */,
 				88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */,
 				88C0F8CA2604AB2F0084A05E /* UIResponder.swift in Sources */,
 				D90BF232260620BC00B4B38A /* BetSum.swift in Sources */,
