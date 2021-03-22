@@ -180,6 +180,7 @@
                 <constraint firstItem="ibw-vg-gq0" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="tUD-dl-AiQ"/>
             </constraints>
             <connections>
+                <outlet property="betView" destination="abW-py-eDF" id="hgc-CZ-4os"/>
                 <outlet property="drawBetButton" destination="Lxj-5X-RUr" id="J1g-Xv-fPL"/>
                 <outlet property="gradientView" destination="Hla-63-YJr" id="IjS-ca-Y7d"/>
                 <outlet property="leftBetButton" destination="pZ0-p3-Vqq" id="lU4-Ea-w6g"/>

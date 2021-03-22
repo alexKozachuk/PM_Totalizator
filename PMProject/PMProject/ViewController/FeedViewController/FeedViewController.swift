@@ -75,11 +75,13 @@ private extension FeedViewController {
         
         eventsDataSource?.items = [
             Event(id: 1, firstTeam: team1, secondTeam: team2,
-                  betSum: BetSum(firstBet: 17600, secondBet: 10500, drawBet: 1700)),
+                  betSum: BetSum(firstBet: 17600, secondBet: 10500, drawBet: 1700),
+                  startTime: Date(timeIntervalSince1970: 1617112869)),
             Event(id: 2, firstTeam: team3, secondTeam: team4,
                   betSum: BetSum(firstBet: 9600, secondBet: 13500, drawBet: 1100)),
             Event(id: 3, firstTeam: team3, secondTeam: team2,
-                  betSum: BetSum(firstBet: 6500, secondBet: 8500, drawBet: 500))
+                  betSum: BetSum(firstBet: 6500, secondBet: 8500, drawBet: 500),
+                  startTime: Date(timeIntervalSince1970: 1617112869))
         
         ]
         
