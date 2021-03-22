@@ -24,28 +24,26 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func login() {
-        guard let loginField = loginField, let passwordField = passwordField else {
+        guard let login = loginField?.text,
+              let password = passwordField?.text else {
             return
         }
 
-        let login = loginField.text ?? ""
-        let password = passwordField.text ?? ""
-
-        authManager.login(login: login, password: password) { [weak self] error in
-            guard error == nil else {
-                print(error!)
+        authManager.login(email: login, password: password) { [weak self] error in
+            if let error = error {
+                print(error)
                 return
             }
 
-            self?.coordinator?.popBack()
+            DispatchQueue.main.async {
+                self?.coordinator?.popBack()
+            }
+            
         }
     }
 
     @objc func goToRegisterPage() {
-        let registerVC = RegisterViewController()
-        registerVC.coordinator = coordinator
-
-        coordinator?.navigationController.pushViewController(registerVC, animated: true)
+        coordinator?.presentRegistrationPage()
     }
 }
 
