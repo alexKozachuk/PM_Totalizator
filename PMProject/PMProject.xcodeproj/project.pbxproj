@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88A5F3732608A29D00378E4F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F3722608A29D00378E4F /* GradientView.swift */; };
 		88A5F3762608AC6C00378E4F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F3752608AC6C00378E4F /* UIButton.swift */; };
 		88BB4CE926072014008B5A5E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CE826072014008B5A5E /* UIView.swift */; };
 		88BB4CF326072026008B5A5E /* BetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CEC26072026008B5A5E /* BetModalViewController.swift */; };
@@ -57,11 +56,11 @@
 		D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEBB260363F200BB93F1 /* LaunchScreen.storyboard */; };
 		D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */; };
 		D9D5A29F26073107007B22DA /* CharacteristicsPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */; };
+		D9F23EEE2608B954003C9EBA /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F23EED2608B954003C9EBA /* LoginValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0EA111BEC0DBD6D90258103B /* Pods-PMProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMProject.release.xcconfig"; path = "Target Support Files/Pods-PMProject/Pods-PMProject.release.xcconfig"; sourceTree = "<group>"; };
-		88A5F3722608A29D00378E4F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		88A5F3752608AC6C00378E4F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		88BB4CE826072014008B5A5E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		88BB4CEC26072026008B5A5E /* BetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetModalViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		D93BFEBE260363F200BB93F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsPair.swift; sourceTree = "<group>"; };
+		D9F23EED2608B954003C9EBA /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +173,7 @@
 				88C0F87F2603CA580084A05E /* Coordinator */,
 				D90BF234260620CA00B4B38A /* Event */,
 				D90BF23C26064C5E00B4B38A /* ImageLoader.swift */,
+				D9F23EED2608B954003C9EBA /* LoginValidator.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,7 +280,6 @@
 				88C0F8C72604AA610084A05E /* EventCollectionViewCell */,
 				D934883D2604C340005A8291 /* DetailInfoCollectionViewCell */,
 				D93488642604FB34005A8291 /* DetailFeedCollectionReusableView */,
-				88A5F3722608A29D00378E4F /* GradientView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -579,8 +579,8 @@
 				88BB4CF826072026008B5A5E /* ModalTransition.swift in Sources */,
 				D90BF23D26064C5E00B4B38A /* ImageLoader.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
-				88A5F3732608A29D00378E4F /* GradientView.swift in Sources */,
 				D934884F2604D436005A8291 /* UICollectionView+Extension.swift in Sources */,
+				D9F23EEE2608B954003C9EBA /* LoginValidator.swift in Sources */,
 				D93488612604FB2E005A8291 /* DetailFeedCollectionReusableView.swift in Sources */,
 				88BB4CE926072014008B5A5E /* UIView.swift in Sources */,
 				D90BF22F260620AA00B4B38A /* Team.swift in Sources */,
