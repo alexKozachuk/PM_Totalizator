@@ -19,7 +19,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="PMProject" customModuleProvider="target">
             <connections>
-                <outlet property="loginField" destination="hST-CM-ec6" id="3xU-rY-ZOK"/>
+                <outlet property="emailField" destination="hST-CM-ec6" id="I5a-45-rkd"/>
+                <outlet property="errorLabel" destination="PK8-P8-Mrb" id="6HM-Ag-PGf"/>
                 <outlet property="passwordField" destination="KFM-x6-r6N" id="RVM-q6-uR5"/>
                 <outlet property="submitButton" destination="bvW-og-yFy" id="VUZ-kH-xyG"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3l1-8V-Fcj"/>
@@ -34,6 +35,9 @@
                     <rect key="frame" x="15" y="89" width="384" height="34"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
                     <textInputTraits key="textInputTraits" textContentType="nickname"/>
+                    <connections>
+                        <action selector="textFiedlEditingChanged" destination="-1" eventType="editingChanged" id="dpI-cq-8oa"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvk-CC-OAL">
                     <rect key="frame" x="15" y="64" width="42" height="20"/>
@@ -45,6 +49,9 @@
                     <rect key="frame" x="15" y="163" width="384" height="34"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                    <connections>
+                        <action selector="textFiedlEditingChanged" destination="-1" eventType="editingChanged" id="TKT-vl-X82"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwI-zd-OaD">
                     <rect key="frame" x="15" y="138" width="60" height="20"/>
@@ -71,6 +78,12 @@
                         <action selector="login" destination="-1" eventType="touchUpInside" id="s7y-oA-VEe"/>
                     </connections>
                 </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK8-P8-Mrb">
+                    <rect key="frame" x="15" y="202" width="384" height="20"/>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="12"/>
+                    <color key="textColor" red="0.8862745098" green="0.1019607843" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -79,10 +92,14 @@
                 <constraint firstItem="bvW-og-yFy" firstAttribute="top" secondItem="KFM-x6-r6N" secondAttribute="bottom" constant="30" id="3pD-Cm-F9Y"/>
                 <constraint firstItem="gvk-CC-OAL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="4G5-Gz-bHn"/>
                 <constraint firstItem="KFM-x6-r6N" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="9Nr-ci-poa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="PK8-P8-Mrb" secondAttribute="trailing" constant="15" id="AHn-v8-ieT"/>
+                <constraint firstItem="bvW-og-yFy" firstAttribute="top" secondItem="PK8-P8-Mrb" secondAttribute="bottom" constant="5" id="EZo-8H-Gd0"/>
+                <constraint firstItem="PK8-P8-Mrb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="G0q-Be-YPw"/>
                 <constraint firstItem="bvW-og-yFy" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Inj-mC-Ul1"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bvW-og-yFy" secondAttribute="trailing" constant="15" id="LMi-Kt-THL"/>
                 <constraint firstItem="FwI-zd-OaD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="ODH-Uu-vAq"/>
                 <constraint firstItem="hST-CM-ec6" firstAttribute="top" secondItem="gvk-CC-OAL" secondAttribute="bottom" constant="5" id="On9-I4-08a"/>
+                <constraint firstItem="PK8-P8-Mrb" firstAttribute="top" secondItem="KFM-x6-r6N" secondAttribute="bottom" constant="5" id="RmW-2M-vsn"/>
                 <constraint firstItem="FwI-zd-OaD" firstAttribute="top" secondItem="hST-CM-ec6" secondAttribute="bottom" constant="15" id="X3n-wl-TIv"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KFM-x6-r6N" secondAttribute="trailing" constant="15" id="jsE-lg-nCn"/>
                 <constraint firstItem="hST-CM-ec6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="r3y-Pe-MNv"/>

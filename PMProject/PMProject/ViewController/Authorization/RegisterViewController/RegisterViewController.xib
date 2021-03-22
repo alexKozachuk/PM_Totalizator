@@ -21,6 +21,7 @@
             <connections>
                 <outlet property="datePicker" destination="GbO-VT-z8c" id="6hv-B4-ruv"/>
                 <outlet property="emailField" destination="kFp-Gv-eYt" id="tWS-fb-YRH"/>
+                <outlet property="errorLabel" destination="ILi-nE-xoo" id="fCC-O6-awo"/>
                 <outlet property="passwordField" destination="6aR-kd-Egq" id="KUh-y3-jPV"/>
                 <outlet property="submitButton" destination="5sB-qi-JId" id="Dec-VT-qJn"/>
                 <outlet property="view" destination="iN0-l3-epB" id="BfX-6x-cRZ"/>
@@ -41,9 +42,12 @@
                     <rect key="frame" x="15" y="429" width="384" height="34"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                    <connections>
+                        <action selector="textFiedlEditingChanged" destination="-1" eventType="editingChanged" id="FRb-Zk-Afv"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sB-qi-JId">
-                    <rect key="frame" x="15" y="493" width="384" height="40"/>
+                    <rect key="frame" x="15" y="487" width="384" height="40"/>
                     <color key="backgroundColor" name="tintColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="3Xf-JH-eR8"/>
@@ -65,6 +69,9 @@
                     <rect key="frame" x="15" y="89" width="384" height="34"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
                     <textInputTraits key="textInputTraits" textContentType="nickname"/>
+                    <connections>
+                        <action selector="textFiedlEditingChanged" destination="-1" eventType="editingChanged" id="58U-SY-7yc"/>
+                    </connections>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMi-1y-bza">
                     <rect key="frame" x="15" y="64" width="42" height="20"/>
@@ -85,23 +92,32 @@
                     <color key="textColor" systemColor="systemGrayColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILi-nE-xoo">
+                    <rect key="frame" x="15" y="468" width="384" height="14"/>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="12"/>
+                    <color key="textColor" red="0.8862745098" green="0.1019607843" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="kFp-Gv-eYt" secondAttribute="trailing" constant="15" id="2Mi-8p-fOy"/>
+                <constraint firstItem="ILi-nE-xoo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="8Cr-VA-nP6"/>
                 <constraint firstItem="zDU-i4-aQc" firstAttribute="top" secondItem="kFp-Gv-eYt" secondAttribute="bottom" constant="15" id="Aci-zi-3aM"/>
                 <constraint firstItem="GbO-VT-z8c" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="ElY-Zf-yaZ"/>
                 <constraint firstItem="5ov-ds-CG9" firstAttribute="top" secondItem="GbO-VT-z8c" secondAttribute="bottom" constant="15" id="FAu-2N-nEX"/>
-                <constraint firstItem="5sB-qi-JId" firstAttribute="top" secondItem="6aR-kd-Egq" secondAttribute="bottom" constant="30" id="Fwv-Gb-ncF"/>
                 <constraint firstItem="6aR-kd-Egq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="RVy-Zp-g0X"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5sB-qi-JId" secondAttribute="trailing" constant="15" id="Xb2-ta-aMh"/>
                 <constraint firstItem="5ov-ds-CG9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="Y5B-tu-1Kr"/>
                 <constraint firstItem="zDU-i4-aQc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="c4B-5r-3R7"/>
                 <constraint firstItem="5sB-qi-JId" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="c6H-po-URo"/>
+                <constraint firstItem="ILi-nE-xoo" firstAttribute="top" secondItem="6aR-kd-Egq" secondAttribute="bottom" constant="5" id="d1v-iU-eJh"/>
                 <constraint firstItem="hMi-1y-bza" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="dq1-Ks-PYo"/>
                 <constraint firstAttribute="trailing" secondItem="GbO-VT-z8c" secondAttribute="trailing" constant="15" id="ez1-m6-l7E"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ILi-nE-xoo" secondAttribute="trailing" constant="15" id="hH1-6a-tRX"/>
                 <constraint firstItem="kFp-Gv-eYt" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="i6E-zI-GpQ"/>
+                <constraint firstItem="5sB-qi-JId" firstAttribute="top" secondItem="ILi-nE-xoo" secondAttribute="bottom" constant="5" id="jYj-im-59p"/>
                 <constraint firstItem="GbO-VT-z8c" firstAttribute="top" secondItem="zDU-i4-aQc" secondAttribute="bottom" constant="15" id="meB-ol-D2z"/>
                 <constraint firstItem="kFp-Gv-eYt" firstAttribute="top" secondItem="hMi-1y-bza" secondAttribute="bottom" constant="5" id="mpF-74-d9z"/>
                 <constraint firstItem="6aR-kd-Egq" firstAttribute="top" secondItem="5ov-ds-CG9" secondAttribute="bottom" constant="5" id="rLF-j7-p5Z"/>
