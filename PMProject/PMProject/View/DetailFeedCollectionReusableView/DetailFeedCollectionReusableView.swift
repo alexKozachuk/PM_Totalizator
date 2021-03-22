@@ -33,6 +33,7 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var drawBetButton: UIButton!
 
     @IBOutlet weak var gradientView: UIView?
+    @IBOutlet weak var betView: UIView?
 
     var gradientLayer: CAGradientLayer?
     
@@ -56,6 +57,11 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
 
         setupGradientView()
         setupButtons()
+        
+        if event.isLive {
+            betView?.removeAllConstraints()
+            betView?.isHidden = true
+        }
         
         imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
             //self.leftImageView?.image = image

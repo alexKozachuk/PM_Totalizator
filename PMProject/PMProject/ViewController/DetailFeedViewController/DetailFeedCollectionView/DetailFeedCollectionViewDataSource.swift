@@ -15,6 +15,17 @@ class DetailFeedCollectionViewDataSource: NSObject {
     
     var event: Event?
     
+    var detailHeight: CGFloat {
+        guard let event = event else { return 0 }
+        
+        if event.isLive {
+            return 320
+        } else {
+            return 540
+        }
+        
+    }
+    
     var items: [CharacteristicsPair] {
         guard let event = event else { return [] }
         var values: [CharacteristicsPair] = []
@@ -77,7 +88,7 @@ extension DetailFeedCollectionViewDataSource: UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 540)
+        return CGSize(width: collectionView.frame.width, height: detailHeight)
     }
 }
 

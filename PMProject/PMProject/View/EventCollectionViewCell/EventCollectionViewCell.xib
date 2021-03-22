@@ -85,9 +85,17 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Live Icon" translatesAutoresizingMaskIntoConstraints="NO" id="zai-1G-lLy">
+                    <rect key="frame" x="15" y="15" width="40" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="fww-tJ-dqn"/>
+                        <constraint firstAttribute="height" constant="20" id="uVy-hX-4eC"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="zai-1G-lLy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="1Fk-Z2-oFq"/>
                 <constraint firstItem="BBz-vl-vLw" firstAttribute="width" secondItem="05h-2e-4h5" secondAttribute="width" id="3zx-CR-Jfp"/>
                 <constraint firstItem="BBz-vl-vLw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4Jp-ar-7Lj"/>
                 <constraint firstItem="2BK-xA-xuY" firstAttribute="width" secondItem="aaU-mW-CgP" secondAttribute="width" id="5R6-nl-2ru"/>
@@ -104,6 +112,7 @@
                 <constraint firstItem="BBz-vl-vLw" firstAttribute="leading" secondItem="05h-2e-4h5" secondAttribute="trailing" id="U86-Cf-O5d"/>
                 <constraint firstItem="dff-TO-LCx" firstAttribute="top" secondItem="aaU-mW-CgP" secondAttribute="bottom" constant="8" id="UfK-MR-51B"/>
                 <constraint firstItem="A52-H4-RXD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bl7-Um-H5g"/>
+                <constraint firstItem="zai-1G-lLy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="f5E-K6-4lC"/>
                 <constraint firstAttribute="trailing" secondItem="2BK-xA-xuY" secondAttribute="trailing" constant="20" id="fTx-FN-gLi"/>
                 <constraint firstAttribute="trailing" secondItem="dff-TO-LCx" secondAttribute="trailing" constant="20" id="i1H-rF-HnZ"/>
                 <constraint firstAttribute="bottom" secondItem="A52-H4-RXD" secondAttribute="bottom" id="jGg-dX-amC"/>
@@ -122,6 +131,7 @@
                 <outlet property="leftImageView" destination="05h-2e-4h5" id="iks-kw-Eix"/>
                 <outlet property="leftNameLabel" destination="F28-di-pCR" id="JTm-Nf-bh6"/>
                 <outlet property="leftSumLabel" destination="aaU-mW-CgP" id="PRO-j4-RlA"/>
+                <outlet property="liveImageView" destination="zai-1G-lLy" id="IfF-Pm-V66"/>
                 <outlet property="progressView" destination="dff-TO-LCx" id="Zwl-1v-LXk"/>
                 <outlet property="rightImageView" destination="BBz-vl-vLw" id="I9l-gB-bAa"/>
                 <outlet property="rightNameLabel" destination="eni-hw-7He" id="Xtr-Jj-L5B"/>
@@ -131,6 +141,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Live Icon" width="122" height="55"/>
         <image name="leftImage" width="160" height="304"/>
         <image name="rightImage" width="160" height="307"/>
         <systemColor name="systemBackgroundColor">

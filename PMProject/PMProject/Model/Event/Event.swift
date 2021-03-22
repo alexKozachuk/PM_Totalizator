@@ -12,6 +12,12 @@ struct Event: Identifiable {
     var firstTeam: Team
     var secondTeam: Team
     var betSum: BetSum
+    var marge: Double = 0.0
+    var startTime: Date = Date()
+    
+    var isLive: Bool {
+        return startTime < Date()
+    }
 }
 
 
