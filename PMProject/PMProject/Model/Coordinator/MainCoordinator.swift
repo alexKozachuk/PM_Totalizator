@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import TotalizatorNetworkLayer
 
 class MainCoordinator: Coordinator {
 
@@ -13,9 +14,11 @@ class MainCoordinator: Coordinator {
 
     var navigationController: UINavigationController
 
-    private let authManager = AuthorizationManager()
+    private let networkManager = NetworkManager()
 
-    private let balanceProvider = BalanceProvider()
+    private lazy var authManager = AuthorizationManager(networkManager: networkManager)
+
+    private lazy var balanceProvider = BalanceProvider(networkManager: networkManager)
 
     weak var balanceProviderDelegate: BalanceProviderDelegate? {
         didSet {

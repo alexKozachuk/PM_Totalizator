@@ -12,6 +12,7 @@
 		88A5F398260901EC00378E4F /* BalanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F397260901EC00378E4F /* BalanceProvider.swift */; };
 		88A5F39B2609247800378E4F /* Coordinated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F39A2609247800378E4F /* Coordinated.swift */; };
 		88A5F39E2609249500378E4F /* BalanceProvidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F39D2609249500378E4F /* BalanceProvidingViewController.swift */; };
+		88A5F3A1260930C200378E4F /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F3A0260930C200378E4F /* Double.swift */; };
 		88BB4CE926072014008B5A5E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CE826072014008B5A5E /* UIView.swift */; };
 		88BB4CF326072026008B5A5E /* BetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CEC26072026008B5A5E /* BetModalViewController.swift */; };
 		88BB4CF426072026008B5A5E /* BetModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88BB4CED26072026008B5A5E /* BetModalViewController.xib */; };
@@ -70,6 +71,7 @@
 		88A5F397260901EC00378E4F /* BalanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceProvider.swift; sourceTree = "<group>"; };
 		88A5F39A2609247800378E4F /* Coordinated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinated.swift; sourceTree = "<group>"; };
 		88A5F39D2609249500378E4F /* BalanceProvidingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceProvidingViewController.swift; sourceTree = "<group>"; };
+		88A5F3A0260930C200378E4F /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		88BB4CE826072014008B5A5E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		88BB4CEC26072026008B5A5E /* BetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetModalViewController.swift; sourceTree = "<group>"; };
 		88BB4CED26072026008B5A5E /* BetModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BetModalViewController.xib; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				88BB4CE826072014008B5A5E /* UIView.swift */,
 				D934884E2604D436005A8291 /* UICollectionView+Extension.swift */,
 				88A5F3752608AC6C00378E4F /* UIButton.swift */,
+				88A5F3A0260930C200378E4F /* Double.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
 				D934884F2604D436005A8291 /* UICollectionView+Extension.swift in Sources */,
 				D9F23EEE2608B954003C9EBA /* LoginValidator.swift in Sources */,
+				88A5F3A1260930C200378E4F /* Double.swift in Sources */,
 				D93488612604FB2E005A8291 /* DetailFeedCollectionReusableView.swift in Sources */,
 				88BB4CE926072014008B5A5E /* UIView.swift in Sources */,
 				D90BF22F260620AA00B4B38A /* Team.swift in Sources */,
@@ -831,8 +835,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alexKozachuk/TotalizatorNetworkLayer";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

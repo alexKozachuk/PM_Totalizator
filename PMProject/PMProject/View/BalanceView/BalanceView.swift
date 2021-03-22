@@ -9,9 +9,9 @@ import UIKit
 
 class BalanceView: UIBarButtonItem {
 
-    var balance: Int
+    var balance: Double
 
-    init(balance: Int) {
+    init(balance: Double) {
         self.balance = balance
         super.init()
 
@@ -30,7 +30,7 @@ private extension BalanceView {
 
     func commonInit() {
         let label = UILabel(frame: .zero)
-        label.text = "\(balance) uah"
+        label.text = "\(balance.rounded(places: 1)) uah"
         label.font = UIFont(name: "RobotoCondensed-Regular", size: 15)
         
         customView = label

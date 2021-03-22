@@ -11,10 +11,14 @@ import TotalizatorNetworkLayer
 
 class AuthorizationManager {
     
-    private var networkManager = NetworkManager()
+    private var networkManager: NetworkManager
 
     enum Key: String {
         case token
+    }
+
+    init(networkManager: NetworkManager = NetworkManager()) {
+        self.networkManager = networkManager
     }
 
     private let authKeychain = Keychain(service: "com.pm-tech.totalizator.auth")
@@ -36,8 +40,9 @@ class AuthorizationManager {
             
             do {
                 try self?.authKeychain.set(token.jwtString, key: .token)
-                print("User has successfully registered")
+                NetworkManager.APIKey = token.jwtString
 
+                print("User has successfully registered")
                 completion(nil)
             } catch {
                 completion(error.localizedDescription)
@@ -61,6 +66,7 @@ class AuthorizationManager {
             
             do {
                 try self?.authKeychain.set(token.jwtString, key: .token)
+                NetworkManager.APIKey = token.jwtString
                 print("User has successfully registered")
 
                 completion(nil)

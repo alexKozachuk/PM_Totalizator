@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import TotalizatorNetworkLayer
 
 protocol BalanceProviderDelegate: AnyObject {
-    func update(balance: Int)
+    func update(balance: Double)
 }
 
 class BalanceProvider {
@@ -17,7 +18,13 @@ class BalanceProvider {
 
     private var timer: DispatchSourceTimer?
 
-    var balance: Int = 0
+    var networkManager: NetworkManager
+
+    init(networkManager: NetworkManager) {
+        self.networkManager = networkManager
+    }
+
+    var balance: Double = 0
 
     func startTimer() {
         guard timer == nil else {
@@ -55,9 +62,18 @@ class BalanceProvider {
 
 private extension BalanceProvider {
 
-    func fetchBalance(completion: @escaping (Int?) -> Void) {
-        balance += 1
-
-        completion(balance)
+    func fetchBalance(completion: @escaping (Double?) -> Void) {
+        networkManager.wallet { wallet, error in
+            if let error = error {
+                print(error)
+                completion(nil)
+                return
+            }
+            guard let wallet = wallet else {
+                completion(nil)
+                return
+            }
+            completion(wallet.amount)
+        }
     }
 }

@@ -51,7 +51,7 @@ class BalanceProvidingViewController: UIViewController, Coordinated {
 
 extension BalanceProvidingViewController: BalanceProviderDelegate {
 
-    @objc func update(balance: Int) {
+    @objc func update(balance: Double) {
 
     }
 }

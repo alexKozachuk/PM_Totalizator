@@ -22,7 +22,7 @@ class DetailFeedViewController: BalanceProvidingViewController {
         setupCollectionView()
     }
 
-    override func update(balance: Int) {
+    override func update(balance: Double) {
         DispatchQueue.main.async { [weak self] in
             guard let navigationItem = self?.navigationItem else {
                 return
