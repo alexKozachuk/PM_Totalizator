@@ -7,24 +7,39 @@
 
 import UIKit
 
-class DetailFeedViewController: UIViewController {
-
-    weak var coordinator: MainCoordinator?
+class DetailFeedViewController: BalanceProvidingViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var dataSource: DetailFeedCollectionViewDataSource?
+
     var event: Event?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupNavbar()
         setupCollectionView()
     }
 
+    override func update(balance: Double) {
+        DispatchQueue.main.async { [weak self] in
+            guard let navigationItem = self?.navigationItem else {
+                return
+            }
+            self?.coordinator?.displayWallet(navigationItem: navigationItem)
+        }
+    }
 }
 
 private extension DetailFeedViewController {
-    
+
+    func setupNavbar() {
+
+        coordinator?.balanceProviderDelegate = self
+        coordinator?.displayWallet(navigationItem: navigationItem)
+    }
+
     func setupCollectionView() {
         dataSource = DetailFeedCollectionViewDataSource()
         dataSource?.coordinator = coordinator

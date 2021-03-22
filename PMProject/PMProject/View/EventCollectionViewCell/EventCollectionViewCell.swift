@@ -29,8 +29,6 @@ class EventCollectionViewCell: UICollectionViewCell {
 
     func setup(with event: Event) {
 
-        setupGradientView()
-        
         imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
             //self.leftImageView?.image = image
         }
