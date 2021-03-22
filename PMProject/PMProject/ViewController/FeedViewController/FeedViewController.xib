@@ -21,7 +21,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="rPA-ci-5iz">
                     <rect key="frame" x="0.0" y="44" width="414" height="405"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="rPA-ci-5iz" secondAttribute="height" multiplier="46:45" id="Yog-qc-PqW"/>
                     </constraints>

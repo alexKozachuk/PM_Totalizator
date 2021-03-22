@@ -16,9 +16,12 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField?
     @IBOutlet weak var passwordField: UITextField?
     @IBOutlet weak var datePicker: UIDatePicker?
+    @IBOutlet weak var submitButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        submitButton?.pmStyle()
     }
     
     @IBAction func register() {

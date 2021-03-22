@@ -31,6 +31,10 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var leftBetButton: UIButton!
     @IBOutlet weak var rightBetButton: UIButton!
     @IBOutlet weak var drawBetButton: UIButton!
+
+    @IBOutlet weak var gradientView: UIView?
+
+    var gradientLayer: CAGradientLayer?
     
     var delegate: DetailFeedCollectionReusableViewDelegate?
     
@@ -39,8 +43,19 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        if let gradientView = gradientView {
+            gradientLayer?.frame = gradientView.bounds
+        }
+    }
     
     func setup(with event: Event) {
+
+        setupGradientView()
+        setupButtons()
         
         imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
             //self.leftImageView?.image = image
@@ -77,4 +92,34 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
         self.delegate?.drawBetButtonDidTapped()
     }
     
+}
+
+private extension DetailFeedCollectionReusableView {
+
+    private func setupGradientView() {
+
+        guard let gradientView = gradientView else {
+            return
+        }
+
+        gradientView.clipsToBounds = true
+        gradientView.layer.bounds = gradientView.bounds
+
+        let gradientLayer = CAGradientLayer()
+
+        gradientLayer.colors = [UIColor.black.withAlphaComponent(0).cgColor,
+                                UIColor.black.cgColor]
+        gradientLayer.frame = gradientView.bounds
+        gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientView.layer.insertSublayer(gradientLayer, at: 0)
+
+        self.gradientLayer = gradientLayer
+    }
+
+    func setupButtons() {
+        leftBetButton.pmStyle()
+        drawBetButton.pmStyle()
+        rightBetButton.pmStyle()
+    }
 }

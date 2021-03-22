@@ -22,6 +22,7 @@
                 <outlet property="datePicker" destination="GbO-VT-z8c" id="6hv-B4-ruv"/>
                 <outlet property="emailField" destination="kFp-Gv-eYt" id="tWS-fb-YRH"/>
                 <outlet property="passwordField" destination="6aR-kd-Egq" id="KUh-y3-jPV"/>
+                <outlet property="submitButton" destination="5sB-qi-JId" id="Dec-VT-qJn"/>
                 <outlet property="view" destination="iN0-l3-epB" id="BfX-6x-cRZ"/>
             </connections>
         </placeholder>
