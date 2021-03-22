@@ -7,20 +7,20 @@
 
 import UIKit
 
-class DetailFeedViewController: UIViewController {
-
-    weak var coordinator: MainCoordinator?
+class DetailFeedViewController: BalanceProvidingViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var dataSource: DetailFeedCollectionViewDataSource?
+
     var event: Event?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-    }
 
+        coordinator?.displayWallet(navigationItem: navigationItem)
+    }
 }
 
 private extension DetailFeedViewController {

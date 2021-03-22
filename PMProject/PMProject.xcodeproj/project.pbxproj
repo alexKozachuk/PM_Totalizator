@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		88A5F3762608AC6C00378E4F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F3752608AC6C00378E4F /* UIButton.swift */; };
+		88A5F3932608FDB700378E4F /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F3922608FDB700378E4F /* BalanceView.swift */; };
+		88A5F398260901EC00378E4F /* BalanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F397260901EC00378E4F /* BalanceProvider.swift */; };
 		88BB4CE926072014008B5A5E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CE826072014008B5A5E /* UIView.swift */; };
 		88BB4CF326072026008B5A5E /* BetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CEC26072026008B5A5E /* BetModalViewController.swift */; };
 		88BB4CF426072026008B5A5E /* BetModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88BB4CED26072026008B5A5E /* BetModalViewController.xib */; };
@@ -62,6 +64,8 @@
 /* Begin PBXFileReference section */
 		0EA111BEC0DBD6D90258103B /* Pods-PMProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMProject.release.xcconfig"; path = "Target Support Files/Pods-PMProject/Pods-PMProject.release.xcconfig"; sourceTree = "<group>"; };
 		88A5F3752608AC6C00378E4F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		88A5F3922608FDB700378E4F /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
+		88A5F397260901EC00378E4F /* BalanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceProvider.swift; sourceTree = "<group>"; };
 		88BB4CE826072014008B5A5E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		88BB4CEC26072026008B5A5E /* BetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetModalViewController.swift; sourceTree = "<group>"; };
 		88BB4CED26072026008B5A5E /* BetModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BetModalViewController.xib; sourceTree = "<group>"; };
@@ -128,6 +132,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88A5F3912608FDA700378E4F /* BalanceView */ = {
+			isa = PBXGroup;
+			children = (
+				88A5F3922608FDB700378E4F /* BalanceView.swift */,
+			);
+			path = BalanceView;
+			sourceTree = "<group>";
+		};
+		88A5F396260901D400378E4F /* BalanceProvider */ = {
+			isa = PBXGroup;
+			children = (
+				88A5F397260901EC00378E4F /* BalanceProvider.swift */,
+			);
+			path = BalanceProvider;
+			sourceTree = "<group>";
+		};
 		88BB4CEB26072026008B5A5E /* BetModalViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +189,7 @@
 		88C0F8792603C77C0084A05E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				88A5F396260901D400378E4F /* BalanceProvider */,
 				88C0F8972603E7480084A05E /* AuthorizationManager */,
 				88C0F87F2603CA580084A05E /* Coordinator */,
 				D90BF234260620CA00B4B38A /* Event */,
@@ -276,6 +297,7 @@
 		88C0F8C62604AA330084A05E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88A5F3912608FDA700378E4F /* BalanceView */,
 				88C0F8E02604B8450084A05E /* СustomProgressView */,
 				88C0F8C72604AA610084A05E /* EventCollectionViewCell */,
 				D934883D2604C340005A8291 /* DetailInfoCollectionViewCell */,
@@ -563,6 +585,7 @@
 				88C0F8822603CA750084A05E /* Coordinator.swift in Sources */,
 				D9D5A29F26073107007B22DA /* CharacteristicsPair.swift in Sources */,
 				D93BFEB1260363EF00BB93F1 /* AppDelegate.swift in Sources */,
+				88A5F3932608FDB700378E4F /* BalanceView.swift in Sources */,
 				88BB4CF626072026008B5A5E /* PresentAnimation.swift in Sources */,
 				88A5F3762608AC6C00378E4F /* UIButton.swift in Sources */,
 				88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */,
@@ -573,6 +596,7 @@
 				D93488572604D62F005A8291 /* DetailFeedCollectionViewDataSource.swift in Sources */,
 				88C0F8862603CA910084A05E /* MainCoordinator.swift in Sources */,
 				D90BF22C26061CC900B4B38A /* Event.swift in Sources */,
+				88A5F398260901EC00378E4F /* BalanceProvider.swift in Sources */,
 				88C0F88A2603CAF40084A05E /* FeedViewController.swift in Sources */,
 				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
 				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,

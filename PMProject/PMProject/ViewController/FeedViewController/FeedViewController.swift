@@ -7,9 +7,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController {
-
-    weak var coordinator: MainCoordinator?
+class FeedViewController: BalanceProvidingViewController {
 
     private let authManager = AuthorizationManager()
 
@@ -24,7 +22,6 @@ class FeedViewController: UIViewController {
         setupCollectionView()
         setupMockData()
     }
-
 }
 
 private extension FeedViewController {
@@ -93,7 +90,7 @@ private extension FeedViewController {
 
     func setupNavbar() {
         setupLogo()
-        setupProfileButton()
+        coordinator?.displayWallet(navigationItem: navigationItem)
     }
 
     func setupLogo() {
@@ -105,40 +102,5 @@ private extension FeedViewController {
 
         navigationItem.setLeftBarButton(barButton, animated: true)
     }
-
-    func setupProfileButton() {
-        let iconLength: CGFloat = 30
-
-        let profilePicture = getProfilePicture()
-
-        let profileButton = UIButton()
-
-        profileButton.setImage(profilePicture, for: .normal)
-        profileButton.backgroundColor = .white
-        profileButton.layer.masksToBounds = true
-        profileButton.tintColor = .black
-
-        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
-
-        let profileBarButton = UIBarButtonItem(customView: profileButton)
-
-        profileBarButton.customView?.widthAnchor.constraint(
-            equalToConstant: iconLength
-        ).isActive = true
-        profileBarButton.customView?.heightAnchor.constraint(
-            equalToConstant: iconLength
-        ).isActive = true
-
-        profileBarButton.customView?.layer.cornerRadius = iconLength / 2
-
-        navigationItem.setRightBarButton(profileBarButton, animated: true)
-    }
-
-    func getProfilePicture() -> UIImage {
-        let image = UIImage(systemName: "person.fill")!
-
-        return image
-    }
-
 }
 
