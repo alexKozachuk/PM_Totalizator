@@ -21,10 +21,13 @@ class EventCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rightSumLabel: UILabel?
 
     @IBOutlet weak var progressView: CustomProgressView?
+    @IBOutlet weak var gradientView: UIView?
     
     private let imageLoader = ImageLoader()
 
     func setup(with event: Event) {
+
+        setupGradientView()
         
         imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
             //self.leftImageView?.image = image
@@ -45,4 +48,20 @@ class EventCollectionViewCell: UICollectionViewCell {
                             right: CGFloat(event.betSum.secondBet))
     }
 
+    private func setupGradientView() {
+        guard let gradientView = gradientView else {
+            return
+        }
+
+        gradientView.clipsToBounds = true
+
+        let gradientLayer = CAGradientLayer()
+
+        gradientLayer.colors = [UIColor.black.withAlphaComponent(0).cgColor,
+                                UIColor.black.withAlphaComponent(0.8).cgColor]
+        gradientLayer.frame = gradientView.bounds
+        gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientView.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

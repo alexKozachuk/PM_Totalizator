@@ -27,6 +27,12 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftImage" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-MX-33u" userLabel="leftImage">
                             <rect key="frame" x="0.0" y="0.0" width="160" height="310"/>
                         </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightImage" translatesAutoresizingMaskIntoConstraints="NO" id="LCA-sw-8eb" userLabel="rightImage">
+                            <rect key="frame" x="160" y="0.0" width="160" height="310"/>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hla-63-YJr">
+                            <rect key="frame" x="0.0" y="164" width="320" height="146"/>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="17 600 UAH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoI-Ro-qpb">
                             <rect key="frame" x="20" y="254" width="120" height="20"/>
                             <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="17"/>
@@ -39,9 +45,6 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightImage" translatesAutoresizingMaskIntoConstraints="NO" id="LCA-sw-8eb" userLabel="rightImage">
-                            <rect key="frame" x="160" y="0.0" width="160" height="310"/>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZO1-f5-H1A" customClass="CustomProgressView" customModule="PMProject" customModuleProvider="target">
                             <rect key="frame" x="20" y="289" width="280" height="6"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,7 +71,9 @@
                         <constraint firstAttribute="height" constant="310" id="3iU-ox-FxR"/>
                         <constraint firstItem="i2Q-6a-zgU" firstAttribute="leading" secondItem="yJN-MX-33u" secondAttribute="trailing" constant="20" id="7lA-mE-gWB"/>
                         <constraint firstItem="ZO1-f5-H1A" firstAttribute="leading" secondItem="ibw-vg-gq0" secondAttribute="leading" constant="20" id="7ss-NW-OkR"/>
+                        <constraint firstAttribute="trailing" secondItem="Hla-63-YJr" secondAttribute="trailing" id="AdA-Eg-OZ7"/>
                         <constraint firstItem="i2Q-6a-zgU" firstAttribute="trailing" secondItem="z7F-oo-n4p" secondAttribute="trailing" id="BfR-0P-dhB"/>
+                        <constraint firstItem="Hla-63-YJr" firstAttribute="leading" secondItem="ibw-vg-gq0" secondAttribute="leading" id="CTs-C9-R31"/>
                         <constraint firstAttribute="trailing" secondItem="LCA-sw-8eb" secondAttribute="trailing" id="CW5-75-DpD"/>
                         <constraint firstItem="yJN-MX-33u" firstAttribute="leading" secondItem="ibw-vg-gq0" secondAttribute="leading" id="HHX-fo-Qkd"/>
                         <constraint firstItem="4zD-0W-gRz" firstAttribute="leading" secondItem="ibw-vg-gq0" secondAttribute="leading" constant="20" id="Kcn-1h-7yd"/>
@@ -86,7 +91,9 @@
                         <constraint firstAttribute="trailing" secondItem="i2Q-6a-zgU" secondAttribute="trailing" constant="20" id="glG-tz-TGE"/>
                         <constraint firstAttribute="trailing" secondItem="ZO1-f5-H1A" secondAttribute="trailing" constant="20" id="ldk-8Z-6OR"/>
                         <constraint firstItem="yJN-MX-33u" firstAttribute="top" secondItem="ibw-vg-gq0" secondAttribute="top" id="obo-D8-eDe"/>
+                        <constraint firstAttribute="bottom" secondItem="Hla-63-YJr" secondAttribute="bottom" id="vTo-Vv-VHN"/>
                         <constraint firstItem="4zD-0W-gRz" firstAttribute="width" secondItem="BoI-Ro-qpb" secondAttribute="width" id="vkk-ux-2jr"/>
+                        <constraint firstItem="Hla-63-YJr" firstAttribute="height" secondItem="ibw-vg-gq0" secondAttribute="height" multiplier="0.470968" id="zcK-5S-PWE"/>
                         <constraint firstItem="LCA-sw-8eb" firstAttribute="leading" secondItem="yJN-MX-33u" secondAttribute="trailing" id="zcl-xO-kZ5"/>
                     </constraints>
                 </view>
@@ -174,6 +181,7 @@
             </constraints>
             <connections>
                 <outlet property="drawBetButton" destination="Lxj-5X-RUr" id="J1g-Xv-fPL"/>
+                <outlet property="gradientView" destination="Hla-63-YJr" id="IjS-ca-Y7d"/>
                 <outlet property="leftBetButton" destination="pZ0-p3-Vqq" id="lU4-Ea-w6g"/>
                 <outlet property="leftImageView" destination="yJN-MX-33u" id="7oq-fJ-bTb"/>
                 <outlet property="leftNameLabel" destination="4zD-0W-gRz" id="7KP-7U-ISq"/>
