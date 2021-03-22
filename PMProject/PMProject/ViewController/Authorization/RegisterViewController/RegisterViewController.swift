@@ -10,6 +10,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     private let authManager = AuthorizationManager()
+    private let validator = LoginValidator()
     
     weak var coordinator: MainCoordinator?
     
@@ -17,6 +18,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField?
     @IBOutlet weak var datePicker: UIDatePicker?
     @IBOutlet weak var submitButton: UIButton?
+    @IBOutlet weak var errorLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,9 +32,26 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        
+        switch validator.validate(email: email, password: password) {
+        case .emptyPassword:
+            setError("Поле пароль пусте")
+            return
+        case .emptyEmail:
+            setError("Поле Email пусте")
+            return
+        case .invalidEmail:
+            setError("Невалідний Email")
+            return
+        case .success:
+            break
+        }
+        
         authManager.register(email: email, password: password, dateOfBirth: date) { [weak self] error in
             if let error = error {
-                print(error)
+                DispatchQueue.main.async {
+                    self?.setError(error)
+                }
                 return
             }
             DispatchQueue.main.async {
@@ -41,4 +60,32 @@ class RegisterViewController: UIViewController {
         }
         
     }
+    
+    func setError(_ text: String) {
+        setErrorTextFied(self.emailField)
+        setErrorTextFied(self.passwordField)
+        errorLabel?.text = text
+        errorLabel?.isHidden = false
+    }
+    
+    func setErrorTextFied(_ textField: UITextField?) {
+        textField?.layer.borderWidth = 1
+        textField?.layer.cornerRadius = 5
+        textField?.layer.borderColor = UIColor.red.cgColor
+        textField?.textColor = .red
+    }
+    
+    func setNormalTextFied(_ textField: UITextField?) {
+        textField?.layer.borderWidth = 0
+        textField?.layer.cornerRadius = 0
+        textField?.layer.borderColor = UIColor.clear.cgColor
+        textField?.textColor = .label
+    }
+    
+    @IBAction func textFiedlEditingChanged() {
+        setNormalTextFied(passwordField)
+        setNormalTextFied(emailField)
+        errorLabel?.isHidden = true
+    }
+    
 }
