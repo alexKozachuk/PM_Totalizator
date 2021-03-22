@@ -23,6 +23,8 @@ class EventCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var progressView: CustomProgressView?
     @IBOutlet weak var gradientView: UIView?
     
+    @IBOutlet weak var liveImageView: UIImageView?
+    
     private let imageLoader = ImageLoader()
 
     func setup(with event: Event) {
@@ -44,6 +46,8 @@ class EventCollectionViewCell: UICollectionViewCell {
         progressView?.setup(left: CGFloat(event.betSum.firstBet),
                             middle: CGFloat(event.betSum.drawBet),
                             right: CGFloat(event.betSum.secondBet))
+        
+        liveImageView?.isHidden = !event.isLive
     }
 
     private func setupGradientView() {
