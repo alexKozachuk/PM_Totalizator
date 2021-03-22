@@ -87,6 +87,10 @@ class AuthorizationManager {
             completion(error)
         }
     }
+
+    func getToken() -> String? {
+        return authKeychain.get(.token)
+    }
 }
 
 

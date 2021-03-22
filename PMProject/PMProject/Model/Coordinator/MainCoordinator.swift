@@ -14,7 +14,7 @@ class MainCoordinator: Coordinator {
 
     var navigationController: UINavigationController
 
-    private let networkManager = NetworkManager()
+    private var networkManager = NetworkManager()
 
     private lazy var authManager = AuthorizationManager(networkManager: networkManager)
 
@@ -28,6 +28,10 @@ class MainCoordinator: Coordinator {
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+
+        if let token = authManager.getToken() {
+            NetworkManager.APIKey = token
+        }
 
         setupNavbar()
     }
