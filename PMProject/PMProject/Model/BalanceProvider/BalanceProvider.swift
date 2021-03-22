@@ -7,9 +7,17 @@
 
 import UIKit
 
+protocol BalanceProviderDelegate: AnyObject {
+    func update(balance: Int)
+}
+
 class BalanceProvider {
 
+    weak var delegate: BalanceProviderDelegate?
+
     private var timer: DispatchSourceTimer?
+
+    var balance: Int = 0
 
     func startTimer() {
         guard timer == nil else {
@@ -20,8 +28,17 @@ class BalanceProvider {
 
         timer = DispatchSource.makeTimerSource(queue: queue)
 
-        timer?.setEventHandler {
-            print(Date())
+        timer?.setEventHandler { [weak self] in
+            self?.fetchBalance { [weak self] balance in
+                guard let balance = balance else {
+                    print("Error fetching balance")
+                    return
+                }
+
+                self?.balance = balance
+                self?.delegate?.update(balance: balance)
+            }
+
         }
 
         timer?.schedule(deadline: .now(), repeating: .seconds(5))
@@ -38,4 +55,9 @@ class BalanceProvider {
 
 private extension BalanceProvider {
 
+    func fetchBalance(completion: @escaping (Int?) -> Void) {
+        balance += 1
+
+        completion(balance)
+    }
 }

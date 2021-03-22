@@ -10,6 +10,8 @@
 		88A5F3762608AC6C00378E4F /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F3752608AC6C00378E4F /* UIButton.swift */; };
 		88A5F3932608FDB700378E4F /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F3922608FDB700378E4F /* BalanceView.swift */; };
 		88A5F398260901EC00378E4F /* BalanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F397260901EC00378E4F /* BalanceProvider.swift */; };
+		88A5F39B2609247800378E4F /* Coordinated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F39A2609247800378E4F /* Coordinated.swift */; };
+		88A5F39E2609249500378E4F /* BalanceProvidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A5F39D2609249500378E4F /* BalanceProvidingViewController.swift */; };
 		88BB4CE926072014008B5A5E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CE826072014008B5A5E /* UIView.swift */; };
 		88BB4CF326072026008B5A5E /* BetModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BB4CEC26072026008B5A5E /* BetModalViewController.swift */; };
 		88BB4CF426072026008B5A5E /* BetModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88BB4CED26072026008B5A5E /* BetModalViewController.xib */; };
@@ -66,6 +68,8 @@
 		88A5F3752608AC6C00378E4F /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		88A5F3922608FDB700378E4F /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		88A5F397260901EC00378E4F /* BalanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceProvider.swift; sourceTree = "<group>"; };
+		88A5F39A2609247800378E4F /* Coordinated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinated.swift; sourceTree = "<group>"; };
+		88A5F39D2609249500378E4F /* BalanceProvidingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceProvidingViewController.swift; sourceTree = "<group>"; };
 		88BB4CE826072014008B5A5E /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		88BB4CEC26072026008B5A5E /* BetModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BetModalViewController.swift; sourceTree = "<group>"; };
 		88BB4CED26072026008B5A5E /* BetModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BetModalViewController.xib; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				88A5F397260901EC00378E4F /* BalanceProvider.swift */,
+				88A5F39D2609249500378E4F /* BalanceProvidingViewController.swift */,
 			);
 			path = BalanceProvider;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				88C0F8812603CA750084A05E /* Coordinator.swift */,
+				88A5F39A2609247800378E4F /* Coordinated.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -602,6 +608,7 @@
 				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,
 				88BB4CF826072026008B5A5E /* ModalTransition.swift in Sources */,
 				D90BF23D26064C5E00B4B38A /* ImageLoader.swift in Sources */,
+				88A5F39B2609247800378E4F /* Coordinated.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
 				D934884F2604D436005A8291 /* UICollectionView+Extension.swift in Sources */,
 				D9F23EEE2608B954003C9EBA /* LoginValidator.swift in Sources */,
@@ -609,6 +616,7 @@
 				88BB4CE926072014008B5A5E /* UIView.swift in Sources */,
 				D90BF22F260620AA00B4B38A /* Team.swift in Sources */,
 				88C0F8A12603E84B0084A05E /* Keychain+Key.swift in Sources */,
+				88A5F39E2609249500378E4F /* BalanceProvidingViewController.swift in Sources */,
 				D93488342604C248005A8291 /* DetailFeedViewController.swift in Sources */,
 				88BB4CF326072026008B5A5E /* BetModalViewController.swift in Sources */,
 				88BB4CF726072026008B5A5E /* DismissAnimation.swift in Sources */,

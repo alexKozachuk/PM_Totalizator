@@ -7,46 +7,6 @@
 
 import UIKit
 
-class CoordinatedViewController: UIViewController {
-
-    weak var coordinator: MainCoordinator?
-}
-
-class BalanceProvidingViewController: CoordinatedViewController {
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        coordinator?.balanceNeeded()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        guard let navigationController = navigationController else {
-            return
-        }
-
-        if isMovingFromParent {
-            let count = navigationController.viewControllers.count
-
-            let index = count - 1
-
-            if navigationController.viewControllers[index] is BalanceProvidingViewController {
-                return
-            } else {
-                coordinator?.discardBalanceFetching()
-            }
-        } else {
-            if navigationController.viewControllers.last is BalanceProvidingViewController {
-                return
-            } else {
-                coordinator?.discardBalanceFetching()
-            }
-        }
-    }
-}
-
 class MainCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator] = []
@@ -57,11 +17,21 @@ class MainCoordinator: Coordinator {
 
     private let balanceProvider = BalanceProvider()
 
+    weak var balanceProviderDelegate: BalanceProviderDelegate? {
+        didSet {
+            balanceProvider.delegate = balanceProviderDelegate
+        }
+    }
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
 
         setupNavbar()
     }
+}
+
+// MARK: - Presenting view controllers
+extension MainCoordinator {
 
     func start() {
         let mainViewController = FeedViewController()
@@ -69,7 +39,7 @@ class MainCoordinator: Coordinator {
 
         navigationController.viewControllers = [mainViewController]
     }
-    
+
     func presentDetailFeed(with event: Event) {
         let detailFeedVC = DetailFeedViewController()
         detailFeedVC.coordinator = self
@@ -89,16 +59,17 @@ class MainCoordinator: Coordinator {
             navigationController.pushViewController(loginVC, animated: true)
         }
     }
-    
+
     func presentRegistrationPage() {
         let registerVC = RegisterViewController()
         registerVC.coordinator = self
         navigationController.pushViewController(registerVC, animated: true)
     }
-
 }
 
+// MARK: - Popping view controllers
 extension MainCoordinator {
+
     func popBack<T: UIViewController>(to controllerType: T.Type) {
         let viewControllers: [UIViewController] = self.navigationController.viewControllers
         if let viewController = viewControllers.last(where: { $0.isKind(of: controllerType) }) {
@@ -113,6 +84,10 @@ extension MainCoordinator {
     func popToRoot() {
         navigationController.popToRootViewController(animated: true)
     }
+}
+
+// MARK: - Navigation Bar setup
+extension MainCoordinator {
 
     var profileBarButton: UIBarButtonItem {
         let iconLength: CGFloat = 30
@@ -143,7 +118,7 @@ extension MainCoordinator {
     }
 
     var balanceBarItem: UIBarButtonItem {
-        let balance = BalanceView()
+        let balance = BalanceView(balance: balanceProvider.balance)
 
         return balance
     }
@@ -174,11 +149,7 @@ extension MainCoordinator {
         balanceProvider.stopTimer()
     }
 
-}
-
-private extension MainCoordinator {
-
-    func setupNavbar() {
+    private func setupNavbar() {
         navigationController.navigationBar.barStyle = .black
         navigationController.navigationBar.isTranslucent = false
 
@@ -197,11 +168,14 @@ private extension MainCoordinator {
     }
 
 
-    func getProfilePicture() -> UIImage {
+    private func getProfilePicture() -> UIImage {
         let image = UIImage(systemName: "person.fill")!
 
         return image
     }
-}
 
+    func update() {
+        balanceProviderDelegate?.update(balance: balanceProvider.balance)
+    }
+}
 

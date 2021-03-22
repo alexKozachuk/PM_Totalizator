@@ -17,14 +17,29 @@ class DetailFeedViewController: BalanceProvidingViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
 
-        coordinator?.displayWallet(navigationItem: navigationItem)
+        setupNavbar()
+        setupCollectionView()
+    }
+
+    override func update(balance: Int) {
+        DispatchQueue.main.async { [weak self] in
+            guard let navigationItem = self?.navigationItem else {
+                return
+            }
+            self?.coordinator?.displayWallet(navigationItem: navigationItem)
+        }
     }
 }
 
 private extension DetailFeedViewController {
-    
+
+    func setupNavbar() {
+
+        coordinator?.balanceProviderDelegate = self
+        coordinator?.displayWallet(navigationItem: navigationItem)
+    }
+
     func setupCollectionView() {
         dataSource = DetailFeedCollectionViewDataSource()
         dataSource?.coordinator = coordinator

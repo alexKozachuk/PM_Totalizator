@@ -22,6 +22,17 @@ class FeedViewController: BalanceProvidingViewController {
         setupCollectionView()
         setupMockData()
     }
+
+    // MARK: - BalanceProviderDelegate
+    override func update(balance: Int) {
+        DispatchQueue.main.async { [weak self] in
+            guard let navigationItem = self?.navigationItem else {
+                return
+            }
+
+            self?.coordinator?.displayWallet(navigationItem: navigationItem)
+        }
+    }
 }
 
 private extension FeedViewController {
@@ -104,5 +115,6 @@ private extension FeedViewController {
 
         navigationItem.setLeftBarButton(barButton, animated: true)
     }
+    
 }
 
