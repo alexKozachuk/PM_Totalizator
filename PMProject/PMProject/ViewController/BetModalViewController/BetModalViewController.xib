@@ -17,6 +17,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BetModalViewController" customModule="PMProject" customModuleProvider="target">
             <connections>
+                <outlet property="betTextField" destination="XME-D9-6yA" id="PR5-La-2QF"/>
+                <outlet property="eventNameLabel" destination="dgh-jP-ykG" id="bZi-hY-Ygg"/>
                 <outlet property="headerContainer" destination="pQn-yT-5iC" id="Obn-hc-voq"/>
                 <outlet property="submitButton" destination="axt-ZK-Ens" id="svd-o5-BC0"/>
                 <outlet property="view" destination="iN0-l3-epB" id="z87-wR-jmi"/>

@@ -33,19 +33,19 @@ class EventCollectionViewCell: UICollectionViewCell {
 
     func setup(with event: Event) {
 
-        imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
-            //self.leftImageView?.image = image
+        imageLoader.loadImage(urlString: event.firstTeam.imageUrl, #imageLiteral(resourceName: "leftImage")) { [weak self] image in
+            //self?.leftImageView?.image = image
         }
         
-        imageLoader.loadImage(urlString: event.secondTeam.imageUrl) { [weak self] image in
-            //self.rightImageView?.image = image
+        imageLoader.loadImage(urlString: event.secondTeam.imageUrl, #imageLiteral(resourceName: "rightImage")) { [weak self] image in
+            //self?.rightImageView?.image = image
         }
         
         leftNameLabel?.text = event.firstTeam.name
         rightNameLabel?.text = event.secondTeam.name
         
         leftSumLabel?.text = "\(event.betSum.firstBet)"
-        leftSumLabel?.text = "\(event.betSum.secondBet)"
+        rightSumLabel?.text = "\(event.betSum.secondBet)"
         
         progressView?.setup(left: CGFloat(event.betSum.firstBet),
                             middle: CGFloat(event.betSum.drawBet),

@@ -6,14 +6,14 @@
 //
 
 import UIKit
+import TotalizatorNetworkLayer
 
 class DetailFeedCollectionViewDataSource: NSObject {
 
     weak var coordinator: MainCoordinator?
-
-    private let transitioningDelegate = ModalTransition()
     
     var event: Event?
+    private var networkManager = NetworkManager()
     
     var detailHeight: CGFloat {
         guard let event = event else { return 0 }
@@ -95,24 +95,37 @@ extension DetailFeedCollectionViewDataSource: UICollectionViewDelegateFlowLayout
 extension DetailFeedCollectionViewDataSource: DetailFeedCollectionReusableViewDelegate {
 
     func leftBetButtonDidTapped() {
-        presentModal()
+        let eventName = "Bet on \(event?.firstTeam.name ?? "")"
+        coordinator?.presentBetModal(eventName: eventName, delegate: self, typeBet: .w1)
     }
 
     func rightBetButtonDidTapped() {
-        presentModal()
+        let eventName = "Bet on \(event?.secondTeam.name ?? "")"
+        coordinator?.presentBetModal(eventName: eventName, delegate: self, typeBet: .w2)
     }
 
     func drawBetButtonDidTapped() {
-        presentModal()
+        let eventName = "Bet on draw"
+        coordinator?.presentBetModal(eventName: eventName, delegate: self, typeBet: .x)
     }
+    
+}
 
-    private func presentModal() {
-        let betModal = BetModalViewController()
-
-        betModal.transitioningDelegate = transitioningDelegate
-        betModal.modalPresentationStyle = .custom
-
-        coordinator?.navigationController.present(betModal, animated: true, completion: nil)
+extension DetailFeedCollectionViewDataSource: BetModalDelegate {
+    
+    func placeBetDidTapped(amount: Double, possibleResult: PossibleResult) {
+        guard let event = event else { return }
+        networkManager.makeBet(amount: amount,
+                               choice: possibleResult,
+                               eventID: event.id) { [weak self] error in
+            
+            guard let error = error else { return }
+            
+            let ac = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            
+            self?.coordinator?.navigationController.present(ac, animated: true)
+        }
     }
-
+    
 }
