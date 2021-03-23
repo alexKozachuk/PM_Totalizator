@@ -17,7 +17,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField?
     @IBOutlet weak var passwordField: UITextField?
     @IBOutlet weak var datePicker: UIDatePicker?
-    @IBOutlet weak var submitButton: UIButton?
+    @IBOutlet weak var submitButton: LoadingButton?
     @IBOutlet weak var errorLabel: UILabel?
     
     override func viewDidLoad() {
@@ -47,7 +47,13 @@ class RegisterViewController: UIViewController {
             break
         }
         
+        submitButton?.showLoading()
         authManager.register(email: email, password: password, dateOfBirth: date) { [weak self] error in
+            
+            DispatchQueue.main.async {
+                self?.submitButton?.hideLoading()
+            }
+            
             if let error = error {
                 DispatchQueue.main.async {
                     self?.setError(error)
