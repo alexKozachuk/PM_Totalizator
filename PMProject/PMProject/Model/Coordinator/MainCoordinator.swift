@@ -141,15 +141,17 @@ extension MainCoordinator {
             stackview.spacing = 8
 
             let rightBarButton = UIBarButtonItem(customView: stackview)
-            navigationItem.setRightBarButton(rightBarButton, animated: true)
+            navigationItem.setRightBarButton(rightBarButton, animated: false)
         } else {
-            navigationItem.setRightBarButton(profileBarButton, animated: true)
+            navigationItem.setRightBarButton(profileBarButton, animated: false)
         }
 
     }
 
     func balanceNeeded() {
-        balanceProvider.startTimer()
+        if authManager.isLoggedIn() {
+            balanceProvider.startTimer()
+        }
     }
 
     func discardBalanceFetching() {

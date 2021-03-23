@@ -27,6 +27,10 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     private let imageLoader = ImageLoader()
 
+    override func awakeFromNib() {
+        setupGradientView()
+    }
+
     func setup(with event: Event) {
 
         imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
