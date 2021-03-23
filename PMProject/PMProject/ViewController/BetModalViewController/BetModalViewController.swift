@@ -6,12 +6,23 @@
 //
 
 import UIKit
+import TotalizatorNetworkLayer
+
+protocol BetModalDelegate {
+    func placeBetDidTapped(amount: Double, possibleResult: PossibleResult)
+}
 
 class BetModalViewController: UIViewController {
 
     @IBOutlet weak var headerContainer: UIView?
     @IBOutlet weak var submitButton: UIButton?
-
+    @IBOutlet weak var eventNameLabel: UILabel?
+    @IBOutlet weak var betTextField: UITextField?
+    
+    var delegate: BetModalDelegate?
+    var possibleResult: PossibleResult?
+    private var eventName: String?
+    
     var isKeyboardShowing = false
 
     override func viewDidLoad() {
@@ -21,6 +32,7 @@ class BetModalViewController: UIViewController {
         submitButton?.pmStyle()
 
         setupKeyboardNotifications()
+        eventNameLabel?.text = eventName
     }
 
     var bottomSafeArea: CGFloat {
@@ -32,10 +44,25 @@ class BetModalViewController: UIViewController {
     }
 
     @IBAction func placeBet() {
-        print("Bet was placed")
-
+        guard let amountText = betTextField?.text,
+              let amount = Double(amountText),
+              let possibleResult = possibleResult,
+              amount > 0 else {
+            return
+        }
+        delegate?.placeBetDidTapped(amount: amount, possibleResult: possibleResult)
         dismiss(animated: true, completion: nil)
     }
+}
+
+extension BetModalViewController {
+    
+    func setup(eventName: String, delegate: BetModalDelegate, typeBet: PossibleResult) {
+        self.eventName = eventName
+        self.delegate = delegate
+        self.possibleResult = typeBet
+    }
+    
 }
 
 extension BetModalViewController: UITextFieldDelegate {

@@ -15,6 +15,8 @@ class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
 
     private var networkManager = NetworkManager()
+    
+    private let transitioningDelegate = ModalTransition()
 
     private lazy var authManager = AuthorizationManager(networkManager: networkManager)
 
@@ -71,6 +73,15 @@ extension MainCoordinator {
         let registerVC = RegisterViewController()
         registerVC.coordinator = self
         navigationController.pushViewController(registerVC, animated: true)
+    }
+    
+    func presentBetModal(eventName: String, delegate: BetModalDelegate, typeBet: PossibleResult) {
+        let betModal = BetModalViewController()
+        betModal.setup(eventName: eventName, delegate: delegate, typeBet: typeBet)
+        betModal.transitioningDelegate = transitioningDelegate
+        betModal.modalPresentationStyle = .custom
+
+        navigationController.present(betModal, animated: true, completion: nil)
     }
 }
 

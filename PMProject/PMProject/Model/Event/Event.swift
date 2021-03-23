@@ -6,17 +6,27 @@
 //
 
 import UIKit
+import TotalizatorNetworkLayer
 
 struct Event: Identifiable {
-    var id: Int
+    var id: String
     var firstTeam: Team
     var secondTeam: Team
     var betSum: BetSum
-    var marge: Double = 0.0
-    var startTime: Date = Date()
+    var margin: Double
+    var startTime: Date
     
     var isLive: Bool {
         return startTime < Date()
+    }
+    
+    init(event: TotalizatorNetworkLayer.Event) {
+        self.id = event.id
+        self.margin = event.margin
+        self.startTime = event.startTime.isoDate ?? Date()
+        self.firstTeam = Team(team: event.participant1)
+        self.secondTeam = Team(team: event.participant2)
+        self.betSum = BetSum(firstBet: event.amountW1, secondBet: event.amountW2, drawBet: event.amountX)
     }
 }
 
