@@ -12,7 +12,6 @@ class ImageLoader {
     private static let imageCache = NSCache<NSString, UIImage>()
     
     func loadImage(urlString: String,
-                   _ placeholderImage: UIImage,
                    queue: DispatchQueue = .main,
                    completion: @escaping (UIImage) -> Void) {
         
@@ -34,10 +33,10 @@ class ImageLoader {
                         ImageLoader.imageCache.setObject(image, forKey: nsUrlString)
                     }
                 } else {
-                    completion(placeholderImage)
-                    DispatchQueue.global(qos: .background).async {
-                        ImageLoader.imageCache.setObject(placeholderImage, forKey: nsUrlString)
-                    }
+                    // TODO: add placeholder image
+//                    DispatchQueue.global(qos: .background).async {
+//                        ImageLoader.imageCache.setObject(placeholderImage, forKey: nsUrlString)
+//                    }
                 }
             }
         }.resume()

@@ -16,6 +16,7 @@ class FeedViewController: BalanceProvidingViewController {
     private var eventsDataSource: EventsCollectionViewDataSource?
 
     @IBOutlet weak var eventsCollectionView: UICollectionView?
+    @IBOutlet weak var eventsLoaderIndicator: UIActivityIndicatorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,13 +58,15 @@ private extension FeedViewController {
     }
     
     func setupData() {
-        
+        self.showLoaderEvent()
         networkManager.feed { [weak self] feed, error in
+            DispatchQueue.main.async {
+                self?.hideLoaderEvent()
+            }
             if let error = error {
                 print(error)
                 return
             }
-            
             guard let feed = feed else { return }
             
             self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
@@ -91,6 +94,22 @@ private extension FeedViewController {
         barButton.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true
 
         navigationItem.setLeftBarButton(barButton, animated: true)
+    }
+    
+}
+
+// MARK: Events Loader Indicator Methods
+
+private extension FeedViewController {
+    
+    func showLoaderEvent() {
+        eventsLoaderIndicator?.isHidden = false
+        eventsLoaderIndicator?.startAnimating()
+    }
+    
+    func hideLoaderEvent() {
+        eventsLoaderIndicator?.isHidden = true
+        eventsLoaderIndicator?.stopAnimating()
     }
     
 }

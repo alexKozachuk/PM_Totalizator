@@ -14,6 +14,7 @@ class CustomProgressView: UIView {
     @IBInspectable var rightColor: UIColor = .red
     private var left: CGFloat = 1 / 3
     private var middle: CGFloat = 1 / 3
+    private var sum: CGFloat = 0
     
     private let leftLayer = CALayer()
     private let middleLayer =  CALayer()
@@ -35,7 +36,7 @@ class CustomProgressView: UIView {
     }
     
     func setup(left: CGFloat, middle: CGFloat, right: CGFloat) {
-        let sum = left + middle + right
+        sum = left + middle + right
         guard sum != 0 else { return }
         self.left = left / sum
         self.middle = middle / sum
@@ -43,6 +44,8 @@ class CustomProgressView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
+        
+        guard sum != 0 else { return }
        
         let leftSize = CGSize(width: rect.width * left, height: rect.height)
         let leftRect = CGRect(origin: .zero, size: leftSize)

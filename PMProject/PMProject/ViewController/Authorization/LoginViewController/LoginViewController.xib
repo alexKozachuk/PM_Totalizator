@@ -22,7 +22,7 @@
                 <outlet property="emailField" destination="hST-CM-ec6" id="I5a-45-rkd"/>
                 <outlet property="errorLabel" destination="PK8-P8-Mrb" id="6HM-Ag-PGf"/>
                 <outlet property="passwordField" destination="KFM-x6-r6N" id="RVM-q6-uR5"/>
-                <outlet property="submitButton" destination="bvW-og-yFy" id="VUZ-kH-xyG"/>
+                <outlet property="submitButton" destination="bvW-og-yFy" id="xra-gt-YnP"/>
                 <outlet property="view" destination="iN0-l3-epB" id="3l1-8V-Fcj"/>
             </connections>
         </placeholder>
@@ -59,7 +59,7 @@
                     <color key="textColor" systemColor="systemGrayColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvW-og-yFy">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvW-og-yFy" customClass="LoadingButton" customModule="PMProject" customModuleProvider="target">
                     <rect key="frame" x="15" y="227" width="384" height="40"/>
                     <color key="backgroundColor" name="tintColor"/>
                     <constraints>
@@ -75,7 +75,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="login" destination="-1" eventType="touchUpInside" id="s7y-oA-VEe"/>
+                        <action selector="login" destination="-1" eventType="touchUpInside" id="gno-XZ-1HG"/>
                     </connections>
                 </button>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PK8-P8-Mrb">
