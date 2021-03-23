@@ -59,20 +59,22 @@ private extension FeedViewController {
     
     func setupData() {
         self.showLoaderEvent()
-        networkManager.feed { [weak self] feed, error in
+        networkManager.feed { [weak self] result in
             DispatchQueue.main.async {
                 self?.hideLoaderEvent()
             }
-            if let error = error {
-                print(error)
-                return
-            }
-            guard let feed = feed else { return }
             
-            self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
-            DispatchQueue.main.async {
-                self?.eventsCollectionView?.reloadData()
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let feed):
+                self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
+                DispatchQueue.main.async {
+                    self?.eventsCollectionView?.reloadData()
+                }
             }
+            
+            
         }
         
     }

@@ -12,73 +12,67 @@ import TotalizatorNetworkLayer
 class AuthorizationManager {
     
     private var networkManager: NetworkManager
-
+    
     enum Key: String {
         case token
     }
-
+    
     init(networkManager: NetworkManager = NetworkManager()) {
         self.networkManager = networkManager
     }
-
+    
     private let authKeychain = Keychain(service: "com.pm-tech.totalizator.auth")
-
+    
     func isLoggedIn() -> Bool {
         return authKeychain.get(.token) != nil
     }
-
+    
     func login(email: String, password: String, completion: @escaping (String?) -> Void) {
         
-        networkManager.login(login: email, password: password) { [weak self] token, error in
+        networkManager.login(login: email, password: password) { [weak self] result in
             
-            if let error = error {
-                completion(error)
-                return
-            }
-            
-            guard let token = token else { return }
-            
-            do {
-                try self?.authKeychain.set(token.jwtString, key: .token)
-                NetworkManager.APIKey = token.jwtString
-
-                print("User has successfully registered")
-                completion(nil)
-            } catch {
-                completion(error.localizedDescription)
+            switch result {
+            case .failure(let error):
+                print(error.rawValue)
+            case .success(let token):
+                do {
+                    try self?.authKeychain.set(token.jwtString, key: .token)
+                    NetworkManager.APIKey = token.jwtString
+                    
+                    print("User has successfully registered")
+                    completion(nil)
+                } catch {
+                    completion(error.localizedDescription)
+                }
             }
             
         }
         
     }
-
+    
     func register(email: String, password: String, dateOfBirth: Date, completion: @escaping (String?) -> Void) {
         
         networkManager.registration(login: email,
                                     password: password,
-                                    dateOfBirth: dateOfBirth) { [weak self] token, error in
-            if let error = error {
-                completion(error)
-                return
+                                    dateOfBirth: dateOfBirth) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error.rawValue)
+            case .success(let token):
+                do {
+                    try self?.authKeychain.set(token.jwtString, key: .token)
+                    NetworkManager.APIKey = token.jwtString
+                    print("User has successfully registered")
+                    
+                    completion(nil)
+                } catch {
+                    completion(error.localizedDescription)
+                }
             }
-            
-            guard let token = token else { return }
-            
-            do {
-                try self?.authKeychain.set(token.jwtString, key: .token)
-                NetworkManager.APIKey = token.jwtString
-                print("User has successfully registered")
-
-                completion(nil)
-            } catch {
-                completion(error.localizedDescription)
-            }
-            
         }
         
-        
     }
-
+    
     func logout(completion: @escaping (Error?) -> Void) {
         do {
             try authKeychain.remove(.token)
@@ -87,7 +81,7 @@ class AuthorizationManager {
             completion(error)
         }
     }
-
+    
     func getToken() -> String? {
         return authKeychain.get(.token)
     }
