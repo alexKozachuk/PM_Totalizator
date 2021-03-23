@@ -60,6 +60,7 @@
 		D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEB9260363F200BB93F1 /* Assets.xcassets */; };
 		D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEBB260363F200BB93F1 /* LaunchScreen.storyboard */; };
 		D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */; };
+		D9CB98882609F0FB00EE8CD8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB98872609F0FB00EE8CD8 /* String+Extension.swift */; };
 		D9D5A29F26073107007B22DA /* CharacteristicsPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */; };
 		D9F23EEE2608B954003C9EBA /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F23EED2608B954003C9EBA /* LoginValidator.swift */; };
 /* End PBXBuildFile section */
@@ -120,6 +121,7 @@
 		D93BFEBC260363F200BB93F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D93BFEBE260363F200BB93F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D9CB98872609F0FB00EE8CD8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsPair.swift; sourceTree = "<group>"; };
 		D9F23EED2608B954003C9EBA /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +230,7 @@
 				D934884E2604D436005A8291 /* UICollectionView+Extension.swift */,
 				88A5F3752608AC6C00378E4F /* UIButton.swift */,
 				88A5F3A0260930C200378E4F /* Double.swift */,
+				D9CB98872609F0FB00EE8CD8 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				88C0F8862603CA910084A05E /* MainCoordinator.swift in Sources */,
 				D90BF22C26061CC900B4B38A /* Event.swift in Sources */,
 				88A5F398260901EC00378E4F /* BalanceProvider.swift in Sources */,
+				D9CB98882609F0FB00EE8CD8 /* String+Extension.swift in Sources */,
 				88C0F88A2603CAF40084A05E /* FeedViewController.swift in Sources */,
 				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
 				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,
@@ -835,7 +839,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alexKozachuk/TotalizatorNetworkLayer";
 			requirement = {
-				kind = upToNextMinorVersion;
+				kind = versionRange;
+				maximumVersion = 3.0.0;
 				minimumVersion = 1.2.0;
 			};
 		};

@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import TotalizatorNetworkLayer
 
 class FeedViewController: BalanceProvidingViewController {
 
     private let authManager = AuthorizationManager()
+    private let networkManager = NetworkManager()
 
     private var eventsDataSource: EventsCollectionViewDataSource?
 
@@ -20,7 +22,7 @@ class FeedViewController: BalanceProvidingViewController {
 
         setupNavbar()
         setupCollectionView()
-        setupMockData()
+        setupData()
     }
 
     // MARK: - BalanceProviderDelegate
@@ -54,46 +56,21 @@ private extension FeedViewController {
         eventsCollectionView?.register(type: EventCollectionViewCell.self)
     }
     
-    func setupMockData() {
+    func setupData() {
         
-        let team1 = Team(id: 1,
-                         name: "Dong Hyun Kim",
-                         imageUrl: "mock url",
-                         characteristics: ["Weight (kg)": "65",
-                                           "Height (cm)": "154",
-                                           "Age": "31"])
-        let team2 = Team(id: 2,
-                         name: "Colby Covington",
-                         imageUrl: "mock url",
-                         characteristics: ["Weight (kg)": "68",
-                                           "Height (cm)": "170",
-                                           "Age": "28"])
-        let team3 = Team(id: 3,
-                         name: "Jon Jones",
-                         imageUrl: "mock url",
-                         characteristics: ["Weight (kg)": "69",
-                                           "Height (cm)": "164",
-                                           "Age": "33"])
-        let team4 = Team(id: 4,
-                         name: "Khabilov Rustam",
-                         imageUrl: "mock url",
-                         characteristics: ["Weight (kg)": "68",
-                                           "Height (cm)": "168",
-                                           "Age": "27"])
-        
-        eventsDataSource?.items = [
-            Event(id: 1, firstTeam: team1, secondTeam: team2,
-                  betSum: BetSum(firstBet: 17600, secondBet: 10500, drawBet: 1700),
-                  startTime: Date(timeIntervalSince1970: 1617112869)),
-            Event(id: 2, firstTeam: team3, secondTeam: team4,
-                  betSum: BetSum(firstBet: 9600, secondBet: 13500, drawBet: 1100)),
-            Event(id: 3, firstTeam: team3, secondTeam: team2,
-                  betSum: BetSum(firstBet: 6500, secondBet: 8500, drawBet: 500),
-                  startTime: Date(timeIntervalSince1970: 1617112869))
-        
-        ]
-        
-        eventsCollectionView?.reloadData()
+        networkManager.feed { [weak self] feed, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            guard let feed = feed else { return }
+            
+            self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
+            DispatchQueue.main.async {
+                self?.eventsCollectionView?.reloadData()
+            }
+        }
         
     }
 }

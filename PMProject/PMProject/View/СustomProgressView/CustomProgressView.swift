@@ -36,6 +36,7 @@ class CustomProgressView: UIView {
     
     func setup(left: CGFloat, middle: CGFloat, right: CGFloat) {
         let sum = left + middle + right
+        guard sum != 0 else { return }
         self.left = left / sum
         self.middle = middle / sum
         setNeedsDisplay()
