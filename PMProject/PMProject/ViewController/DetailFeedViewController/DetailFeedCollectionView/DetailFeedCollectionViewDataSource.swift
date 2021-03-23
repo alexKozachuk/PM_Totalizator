@@ -117,14 +117,19 @@ extension DetailFeedCollectionViewDataSource: BetModalDelegate {
         guard let event = event else { return }
         networkManager.makeBet(amount: amount,
                                choice: possibleResult,
-                               eventID: event.id) { [weak self] error in
+                               eventID: event.id) { [weak self] result in
             
-            guard let error = error else { return }
+            switch result {
+            case .failure(let error):
+                let ac = UIAlertController(title: "Error", message: error.rawValue, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                
+                self?.coordinator?.navigationController.present(ac, animated: true)
+            case .success(let _):
+                break
+            }
             
-            let ac = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            
-            self?.coordinator?.navigationController.present(ac, animated: true)
+          
         }
     }
     

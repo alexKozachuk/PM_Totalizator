@@ -63,17 +63,16 @@ class BalanceProvider {
 private extension BalanceProvider {
 
     func fetchBalance(completion: @escaping (Double?) -> Void) {
-        networkManager.wallet { wallet, error in
-            if let error = error {
+        networkManager.wallet { result in
+            
+            switch result {
+            case .failure(let error):
                 print(error)
                 completion(nil)
-                return
+            case .success(let wallet):
+                completion(wallet.amount)
             }
-            guard let wallet = wallet else {
-                completion(nil)
-                return
-            }
-            completion(wallet.amount)
+            
         }
     }
 }
