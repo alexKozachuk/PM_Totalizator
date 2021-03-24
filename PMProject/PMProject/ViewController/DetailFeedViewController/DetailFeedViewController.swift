@@ -44,7 +44,8 @@ private extension DetailFeedViewController {
         dataSource = DetailFeedCollectionViewDataSource()
         dataSource?.coordinator = coordinator
         dataSource?.event = event
-
+        dataSource?.collectionView = collectionView
+        
         collectionView?.dataSource = dataSource
         collectionView?.delegate = dataSource
 

@@ -10,6 +10,7 @@ import TotalizatorNetworkLayer
 
 class DetailFeedCollectionViewDataSource: NSObject {
 
+    weak var collectionView: UICollectionView?
     weak var coordinator: MainCoordinator?
     
     var event: Event?
@@ -125,12 +126,36 @@ extension DetailFeedCollectionViewDataSource: BetModalDelegate {
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
                 
                 self?.coordinator?.navigationController.present(ac, animated: true)
-            case .success(let _):
-                break
+            default:
+                self?.updateEvent()
             }
             
           
         }
+    }
+    
+}
+
+private extension DetailFeedCollectionViewDataSource {
+    
+    func updateEvent() {
+        
+        guard let event = self.event else { return }
+        
+        networkManager.getEvent(by: event.id) { [weak self] result in
+            
+            switch result {
+            case .failure(let error):
+                print(error.rawValue)
+            case .success(let eventResponse):
+                self?.event = Event(event: eventResponse)
+                DispatchQueue.main.async {
+                    self?.collectionView?.reloadData()
+                }
+            }
+        
+        }
+        
     }
     
 }

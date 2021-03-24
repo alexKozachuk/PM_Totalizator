@@ -43,6 +43,8 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupGradientView()
+        setupButtons()
     }
 
     override func layoutSubviews() {
@@ -54,9 +56,6 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
     }
     
     func setup(with event: Event) {
-
-        setupGradientView()
-        setupButtons()
         
         if event.isLive {
             betView?.removeAllConstraints()

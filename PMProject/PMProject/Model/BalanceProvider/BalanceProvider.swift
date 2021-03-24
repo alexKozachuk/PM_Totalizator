@@ -48,7 +48,7 @@ class BalanceProvider {
 
         }
 
-        timer?.schedule(deadline: .now(), repeating: .seconds(15))
+        timer?.schedule(deadline: .now(), repeating: .seconds(5))
 
         timer?.resume()
         print("started")
