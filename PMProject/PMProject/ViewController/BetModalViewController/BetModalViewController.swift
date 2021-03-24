@@ -18,10 +18,11 @@ class BetModalViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton?
     @IBOutlet weak var eventNameLabel: UILabel?
     @IBOutlet weak var betTextField: UITextField?
+    @IBOutlet weak var possibleGainLabel: UILabel?
     
     var delegate: BetModalDelegate?
     var possibleResult: PossibleResult?
-    private var eventName: String?
+    private var event: Event?
     
     var isKeyboardShowing = false
 
@@ -32,7 +33,17 @@ class BetModalViewController: UIViewController {
         submitButton?.pmStyle()
 
         setupKeyboardNotifications()
-        eventNameLabel?.text = eventName
+        guard let event = event else { return }
+        guard let possibleResult = possibleResult else { return }
+        switch  possibleResult{
+        case .w1:
+            eventNameLabel?.text = "Bet on \(event.firstTeam.name)"
+        case .w2:
+            eventNameLabel?.text = "Bet on \(event.secondTeam.name)"
+        case .x:
+            eventNameLabel?.text = "Bet on draw"
+        }
+        
     }
 
     var bottomSafeArea: CGFloat {
@@ -57,8 +68,8 @@ class BetModalViewController: UIViewController {
 
 extension BetModalViewController {
     
-    func setup(eventName: String, delegate: BetModalDelegate, typeBet: PossibleResult) {
-        self.eventName = eventName
+    func setup(event: Event, delegate: BetModalDelegate, typeBet: PossibleResult) {
+        self.event = event
         self.delegate = delegate
         self.possibleResult = typeBet
     }
@@ -70,10 +81,24 @@ extension BetModalViewController: UITextFieldDelegate {
     @IBAction func textChanged(_ sender: UITextField) {
         if let text = sender.text, text.count > 0 {
             submitButton?.isEnabled = true
+            submitButton?.isUserInteractionEnabled = true
             submitButton?.backgroundColor = .pmYellow
+            if let bet = Double(text),
+               let event = event,
+               let possibleResult = possibleResult{
+                let possibleGain = event.potentialGain(result: possibleResult, bet: bet)
+                submitButton?
+                    .setTitle("Зробити Ставку \(bet.rounded(places: 2)) UAH", for: .normal)
+                possibleGainLabel?
+                    .text = "Можлива Виплата \(possibleGain.rounded(places: 2)) UAH"
+            }
         } else {
             submitButton?.isEnabled = false
+            submitButton?.isUserInteractionEnabled = false
             submitButton?.backgroundColor = .gray
+            submitButton?.setTitle("Зробити Ставку", for: .normal)
+            possibleGainLabel?
+                .text = "Можлива Виплата 0.00 UAH"
         }
     }
 

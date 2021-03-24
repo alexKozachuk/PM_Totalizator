@@ -98,18 +98,18 @@ extension DetailFeedCollectionViewDataSource: UICollectionViewDelegateFlowLayout
 extension DetailFeedCollectionViewDataSource: DetailFeedCollectionReusableViewDelegate {
 
     func leftBetButtonDidTapped() {
-        let eventName = "Bet on \(event?.firstTeam.name ?? "")"
-        coordinator?.presentBetModal(eventName: eventName, delegate: self, typeBet: .w1)
+        guard let event = event else { return }
+        coordinator?.presentBetModal(event: event, delegate: self, typeBet: .w1)
     }
 
     func rightBetButtonDidTapped() {
-        let eventName = "Bet on \(event?.secondTeam.name ?? "")"
-        coordinator?.presentBetModal(eventName: eventName, delegate: self, typeBet: .w2)
+        guard let event = event else { return }
+        coordinator?.presentBetModal(event: event, delegate: self, typeBet: .w2)
     }
 
     func drawBetButtonDidTapped() {
-        let eventName = "Bet on draw"
-        coordinator?.presentBetModal(eventName: eventName, delegate: self, typeBet: .x)
+        guard let event = event else { return }
+        coordinator?.presentBetModal(event: event, delegate: self, typeBet: .x)
     }
     
 }

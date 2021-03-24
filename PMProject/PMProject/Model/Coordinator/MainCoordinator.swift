@@ -75,9 +75,9 @@ extension MainCoordinator {
         navigationController.pushViewController(registerVC, animated: true)
     }
     
-    func presentBetModal(eventName: String, delegate: BetModalDelegate, typeBet: PossibleResult) {
+    func presentBetModal(event: Event, delegate: BetModalDelegate, typeBet: PossibleResult) {
         let betModal = BetModalViewController()
-        betModal.setup(eventName: eventName, delegate: delegate, typeBet: typeBet)
+        betModal.setup(event: event, delegate: delegate, typeBet: typeBet)
         betModal.transitioningDelegate = transitioningDelegate
         betModal.modalPresentationStyle = .custom
 
