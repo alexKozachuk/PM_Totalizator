@@ -12,6 +12,7 @@ class OwnMessageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var messageLabel: UILabel?
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var avatarImageView: UIImageView?
+    private var imageLoader = ImageLoader()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,13 +36,18 @@ class OwnMessageCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    var avatar: UIImage? {
-        get {
-            avatarImageView?.image
+    func setAvatar(url: String) {
+        
+        imageLoader.loadImage(urlString: url) { [weak self] image in
+            self?.avatarImageView?.image = image
         }
-        set {
-            avatarImageView?.image = newValue
-        }
+        
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        messageLabel?.preferredMaxLayoutWidth = layoutAttributes.size.width - 70
+        layoutAttributes.bounds.size.height = systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        return layoutAttributes
     }
 
 }
