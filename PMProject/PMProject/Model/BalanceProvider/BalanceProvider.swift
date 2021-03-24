@@ -14,6 +14,8 @@ protocol BalanceProviderDelegate: AnyObject {
 
 class BalanceProvider {
 
+    private let updateTime = 5
+    
     weak var delegate: BalanceProviderDelegate?
 
     private var timer: DispatchSourceTimer?
@@ -48,7 +50,7 @@ class BalanceProvider {
 
         }
 
-        timer?.schedule(deadline: .now(), repeating: .seconds(15))
+        timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
 
         timer?.resume()
         print("started")

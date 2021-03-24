@@ -144,17 +144,9 @@ extension MainCoordinator {
     func displayWallet(navigationItem: UINavigationItem) {
 
         if authManager.isLoggedIn() {
-            let stackview = UIStackView.init(arrangedSubviews: [balanceBarItem.customView!, profileBarButton.customView!])
-
-            stackview.distribution = .equalSpacing
-            stackview.axis = .horizontal
-            stackview.alignment = .center
-            stackview.spacing = 8
-
-            let rightBarButton = UIBarButtonItem(customView: stackview)
-            navigationItem.setRightBarButton(rightBarButton, animated: false)
+            navigationItem.setRightBarButtonItems([profileBarButton, balanceBarItem], animated: false)
         } else {
-            navigationItem.setRightBarButton(profileBarButton, animated: false)
+            navigationItem.setRightBarButtonItems([profileBarButton], animated: false)
         }
 
     }
@@ -190,7 +182,6 @@ extension MainCoordinator {
 
     private func getProfilePicture() -> UIImage {
         let image = UIImage(systemName: "person.fill")!
-
         return image
     }
 
