@@ -30,7 +30,9 @@ class FeedViewController: BalanceProvidingViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        startTimer()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+            self?.startTimer()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
