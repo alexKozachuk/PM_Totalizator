@@ -23,7 +23,7 @@
                 <outlet property="emailField" destination="kFp-Gv-eYt" id="tWS-fb-YRH"/>
                 <outlet property="errorLabel" destination="ILi-nE-xoo" id="fCC-O6-awo"/>
                 <outlet property="passwordField" destination="6aR-kd-Egq" id="KUh-y3-jPV"/>
-                <outlet property="submitButton" destination="5sB-qi-JId" id="Dec-VT-qJn"/>
+                <outlet property="submitButton" destination="5sB-qi-JId" id="ixn-G2-vFU"/>
                 <outlet property="view" destination="iN0-l3-epB" id="BfX-6x-cRZ"/>
             </connections>
         </placeholder>
@@ -46,7 +46,7 @@
                         <action selector="textFiedlEditingChanged" destination="-1" eventType="editingChanged" id="FRb-Zk-Afv"/>
                     </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sB-qi-JId">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sB-qi-JId" customClass="LoadingButton" customModule="PMProject" customModuleProvider="target">
                     <rect key="frame" x="15" y="487" width="384" height="40"/>
                     <color key="backgroundColor" name="tintColor"/>
                     <constraints>
@@ -62,7 +62,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="register" destination="-1" eventType="touchUpInside" id="Trq-gc-vgU"/>
+                        <action selector="register" destination="-1" eventType="touchUpInside" id="iv2-Ib-c22"/>
                     </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kFp-Gv-eYt">

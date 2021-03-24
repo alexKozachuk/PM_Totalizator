@@ -12,10 +12,13 @@ class FeedViewController: BalanceProvidingViewController {
 
     private let authManager = AuthorizationManager()
     private let networkManager = NetworkManager()
-
+    private let updateTime = 10
+    
+    private var timer: DispatchSourceTimer?
     private var eventsDataSource: EventsCollectionViewDataSource?
 
     @IBOutlet weak var eventsCollectionView: UICollectionView?
+    @IBOutlet weak var eventsLoaderIndicator: UIActivityIndicatorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,18 @@ class FeedViewController: BalanceProvidingViewController {
         setupNavbar()
         setupCollectionView()
         setupData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+            self?.startTimer()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopTimer()
     }
 
     // MARK: - BalanceProviderDelegate
@@ -57,20 +72,26 @@ private extension FeedViewController {
     }
     
     func setupData() {
-        
-        networkManager.feed { [weak self] feed, error in
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            guard let feed = feed else { return }
-            
-            self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
+        self.showLoaderEvent()
+        networkManager.feed { [weak self] result in
             DispatchQueue.main.async {
-                self?.eventsCollectionView?.reloadData()
+                self?.hideLoaderEvent()
             }
+            
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let feed):
+                self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
+                DispatchQueue.main.async {
+                    self?.eventsCollectionView?.reloadData()
+                }
+            }
+            
         }
+    }
+    
+    func setupTimer() {
         
     }
 }
@@ -95,3 +116,62 @@ private extension FeedViewController {
     
 }
 
+// MARK: Events Loader Indicator Methods
+
+private extension FeedViewController {
+    
+    func showLoaderEvent() {
+        eventsLoaderIndicator?.isHidden = false
+        eventsLoaderIndicator?.startAnimating()
+    }
+    
+    func hideLoaderEvent() {
+        eventsLoaderIndicator?.isHidden = true
+        eventsLoaderIndicator?.stopAnimating()
+    }
+    
+}
+
+// MARK: Timer
+
+private extension FeedViewController {
+    
+    func startTimer() {
+        guard timer == nil else {
+            return
+        }
+
+        let queue = DispatchQueue(label: "com.pmtech.totalizator.timer.Feed", attributes: .concurrent)
+
+        timer = DispatchSource.makeTimerSource(queue: queue)
+
+        timer?.setEventHandler { [weak self] in
+            self?.networkManager.feed { result in
+                
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let feed):
+                    self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
+                    DispatchQueue.main.async {
+                        self?.eventsCollectionView?.reloadData()
+                    }
+                }
+                
+            }
+
+        }
+
+        timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
+
+        timer?.resume()
+        print("started")
+    }
+
+    func stopTimer() {
+        timer = nil
+        print("stopped")
+    }
+    
+    
+}

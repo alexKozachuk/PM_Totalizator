@@ -10,10 +10,13 @@ import TotalizatorNetworkLayer
 
 class DetailFeedCollectionViewDataSource: NSObject {
 
+    weak var collectionView: UICollectionView?
     weak var coordinator: MainCoordinator?
     
     var event: Event?
     private var networkManager = NetworkManager()
+    private var timer: DispatchSourceTimer?
+    private let updateTime = 10
     
     var detailHeight: CGFloat {
         guard let event = event else { return 0 }
@@ -95,18 +98,18 @@ extension DetailFeedCollectionViewDataSource: UICollectionViewDelegateFlowLayout
 extension DetailFeedCollectionViewDataSource: DetailFeedCollectionReusableViewDelegate {
 
     func leftBetButtonDidTapped() {
-        let eventName = "Bet on \(event?.firstTeam.name ?? "")"
-        coordinator?.presentBetModal(eventName: eventName, delegate: self, typeBet: .w1)
+        guard let event = event else { return }
+        coordinator?.presentBetModal(event: event, delegate: self, typeBet: .w1)
     }
 
     func rightBetButtonDidTapped() {
-        let eventName = "Bet on \(event?.secondTeam.name ?? "")"
-        coordinator?.presentBetModal(eventName: eventName, delegate: self, typeBet: .w2)
+        guard let event = event else { return }
+        coordinator?.presentBetModal(event: event, delegate: self, typeBet: .w2)
     }
 
     func drawBetButtonDidTapped() {
-        let eventName = "Bet on draw"
-        coordinator?.presentBetModal(eventName: eventName, delegate: self, typeBet: .x)
+        guard let event = event else { return }
+        coordinator?.presentBetModal(event: event, delegate: self, typeBet: .x)
     }
     
 }
@@ -117,15 +120,89 @@ extension DetailFeedCollectionViewDataSource: BetModalDelegate {
         guard let event = event else { return }
         networkManager.makeBet(amount: amount,
                                choice: possibleResult,
-                               eventID: event.id) { [weak self] error in
+                               eventID: event.id) { [weak self] result in
             
-            guard let error = error else { return }
+            switch result {
+            case .failure(let error):
+                let ac = UIAlertController(title: "Error", message: error.rawValue, preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                
+                self?.coordinator?.navigationController.present(ac, animated: true)
+            default:
+                self?.updateEvent()
+            }
             
-            let ac = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            
-            self?.coordinator?.navigationController.present(ac, animated: true)
+          
         }
     }
+    
+}
+
+private extension DetailFeedCollectionViewDataSource {
+    
+    func updateEvent() {
+        
+        guard let event = self.event else { return }
+        
+        networkManager.getEvent(by: event.id) { [weak self] result in
+            
+            switch result {
+            case .failure(let error):
+                print(error.rawValue)
+            case .success(let eventResponse):
+                self?.event = Event(event: eventResponse)
+                DispatchQueue.main.async {
+                    self?.collectionView?.reloadData()
+                }
+            }
+        
+        }
+        
+    }
+    
+}
+
+// MARK: Timer
+
+extension DetailFeedCollectionViewDataSource {
+    
+    func startTimer() {
+        guard timer == nil else {
+            return
+        }
+
+        let queue = DispatchQueue(label: "com.pmtech.totalizator.timer.DetailFeed", attributes: .concurrent)
+
+        timer = DispatchSource.makeTimerSource(queue: queue)
+
+        timer?.setEventHandler { [weak self] in
+            guard let event = self?.event else { return }
+            self?.networkManager.getEvent(by: event.id) { [weak self] result in
+                
+                switch result {
+                case .failure(let error):
+                    print(error.rawValue)
+                case .success(let eventResponse):
+                    self?.event = Event(event: eventResponse)
+                    DispatchQueue.main.async {
+                        self?.collectionView?.reloadData()
+                    }
+                }
+            
+            }
+
+        }
+
+        timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
+
+        timer?.resume()
+        print("started")
+    }
+
+    func stopTimer() {
+        timer = nil
+        print("stopped")
+    }
+    
     
 }

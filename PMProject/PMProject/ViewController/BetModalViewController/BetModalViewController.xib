@@ -20,13 +20,14 @@
                 <outlet property="betTextField" destination="XME-D9-6yA" id="PR5-La-2QF"/>
                 <outlet property="eventNameLabel" destination="dgh-jP-ykG" id="bZi-hY-Ygg"/>
                 <outlet property="headerContainer" destination="pQn-yT-5iC" id="Obn-hc-voq"/>
+                <outlet property="possibleGainLabel" destination="58U-cv-MwI" id="TXO-EY-ke1"/>
                 <outlet property="submitButton" destination="axt-ZK-Ens" id="svd-o5-BC0"/>
                 <outlet property="view" destination="iN0-l3-epB" id="z87-wR-jmi"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="227"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="242"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event name Event nameEvent nameEvent nameEvent nameEvent nameEvent nameEvent names" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dgh-jP-ykG">
@@ -87,6 +88,12 @@
                         <constraint firstAttribute="height" constant="40" id="yp2-AV-h1V"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Можлива виплата 0.00 UAH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58U-cv-MwI">
+                    <rect key="frame" x="10" y="209" width="394" height="20"/>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -96,6 +103,8 @@
                 <constraint firstItem="axt-ZK-Ens" firstAttribute="top" secondItem="XME-D9-6yA" secondAttribute="bottom" constant="15" id="ScX-8c-hHY"/>
                 <constraint firstItem="pQn-yT-5iC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TeV-QK-VTD"/>
                 <constraint firstItem="XME-D9-6yA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Tq6-0p-hXA"/>
+                <constraint firstAttribute="trailing" secondItem="58U-cv-MwI" secondAttribute="trailing" constant="10" id="VFX-Wu-MyG"/>
+                <constraint firstItem="58U-cv-MwI" firstAttribute="top" secondItem="axt-ZK-Ens" secondAttribute="bottom" constant="5" id="aK6-Aw-tzh"/>
                 <constraint firstItem="axt-ZK-Ens" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="bIm-p9-VeX"/>
                 <constraint firstItem="XME-D9-6yA" firstAttribute="top" secondItem="dgh-jP-ykG" secondAttribute="bottom" constant="15" id="jxH-wI-WCd"/>
                 <constraint firstAttribute="trailing" secondItem="axt-ZK-Ens" secondAttribute="trailing" constant="10" id="jyi-ai-B3a"/>
@@ -104,9 +113,10 @@
                 <constraint firstItem="pQn-yT-5iC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vH9-Mr-xka"/>
                 <constraint firstItem="Ahe-Tn-suf" firstAttribute="centerY" secondItem="XME-D9-6yA" secondAttribute="centerY" id="wTE-nk-ZTR"/>
                 <constraint firstAttribute="trailing" secondItem="pQn-yT-5iC" secondAttribute="trailing" id="x55-hR-ecI"/>
+                <constraint firstItem="58U-cv-MwI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="xgt-M4-62F"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-30.434782608695656" y="-203.23660714285714"/>
+            <point key="canvasLocation" x="-30.434782608695656" y="-198.21428571428569"/>
         </view>
     </objects>
     <resources>

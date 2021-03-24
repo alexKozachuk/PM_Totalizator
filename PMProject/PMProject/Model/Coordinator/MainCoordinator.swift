@@ -75,9 +75,9 @@ extension MainCoordinator {
         navigationController.pushViewController(registerVC, animated: true)
     }
     
-    func presentBetModal(eventName: String, delegate: BetModalDelegate, typeBet: PossibleResult) {
+    func presentBetModal(event: Event, delegate: BetModalDelegate, typeBet: PossibleResult) {
         let betModal = BetModalViewController()
-        betModal.setup(eventName: eventName, delegate: delegate, typeBet: typeBet)
+        betModal.setup(event: event, delegate: delegate, typeBet: typeBet)
         betModal.transitioningDelegate = transitioningDelegate
         betModal.modalPresentationStyle = .custom
 
@@ -144,17 +144,9 @@ extension MainCoordinator {
     func displayWallet(navigationItem: UINavigationItem) {
 
         if authManager.isLoggedIn() {
-            let stackview = UIStackView.init(arrangedSubviews: [balanceBarItem.customView!, profileBarButton.customView!])
-
-            stackview.distribution = .equalSpacing
-            stackview.axis = .horizontal
-            stackview.alignment = .center
-            stackview.spacing = 8
-
-            let rightBarButton = UIBarButtonItem(customView: stackview)
-            navigationItem.setRightBarButton(rightBarButton, animated: false)
+            navigationItem.setRightBarButtonItems([profileBarButton, balanceBarItem], animated: false)
         } else {
-            navigationItem.setRightBarButton(profileBarButton, animated: false)
+            navigationItem.setRightBarButtonItems([profileBarButton], animated: false)
         }
 
     }
@@ -190,7 +182,6 @@ extension MainCoordinator {
 
     private func getProfilePicture() -> UIImage {
         let image = UIImage(systemName: "person.fill")!
-
         return image
     }
 

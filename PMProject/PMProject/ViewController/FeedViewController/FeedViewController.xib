@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController" customModule="PMProject" customModuleProvider="target">
             <connections>
                 <outlet property="eventsCollectionView" destination="rPA-ci-5iz" id="NdL-k8-G0G"/>
+                <outlet property="eventsLoaderIndicator" destination="HHr-7Y-Fef" id="shG-NJ-LvA"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uLe-2r-3L6"/>
             </connections>
         </placeholder>
@@ -32,11 +33,16 @@
                         <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="HHr-7Y-Fef">
+                    <rect key="frame" x="188.5" y="228" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="rPA-ci-5iz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="3L4-LX-93Q"/>
+                <constraint firstItem="HHr-7Y-Fef" firstAttribute="centerY" secondItem="rPA-ci-5iz" secondAttribute="centerY" id="Kod-lM-vDa"/>
+                <constraint firstItem="HHr-7Y-Fef" firstAttribute="centerX" secondItem="rPA-ci-5iz" secondAttribute="centerX" id="mbW-mL-WBf"/>
                 <constraint firstItem="rPA-ci-5iz" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="yLZ-o0-DVg"/>
                 <constraint firstItem="rPA-ci-5iz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="zjM-ap-vcw"/>
             </constraints>

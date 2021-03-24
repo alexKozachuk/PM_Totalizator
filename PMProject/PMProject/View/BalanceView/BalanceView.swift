@@ -30,8 +30,10 @@ private extension BalanceView {
 
     func commonInit() {
         let label = UILabel(frame: .zero)
-        label.text = "\(balance.rounded(places: 1)) uah"
-        label.font = UIFont(name: "RobotoCondensed-Regular", size: 15)
+        label.numberOfLines = 2
+        label.textAlignment = .right
+        label.text = "UAH \n\(balance.rounded(places: 1)) "
+        label.font = UIFont(name: "RobotoCondensed-Bold", size: 14)
         
         customView = label
     }

@@ -15,7 +15,7 @@ class PresentationController: UIPresentationController {
 
     override var frameOfPresentedViewInContainerView: CGRect {
         let bounds = containerView!.bounds
-        let height: CGFloat = 220 + bottomSafeArea
+        let height: CGFloat = 240 + bottomSafeArea
 
 
         return CGRect(x: 0,

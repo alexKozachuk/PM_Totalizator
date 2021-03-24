@@ -43,6 +43,8 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupGradientView()
+        setupButtons()
     }
 
     override func layoutSubviews() {
@@ -54,20 +56,17 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
     }
     
     func setup(with event: Event) {
-
-        setupGradientView()
-        setupButtons()
         
         if event.isLive {
             betView?.removeAllConstraints()
             betView?.isHidden = true
         }
         
-        imageLoader.loadImage(urlString: event.firstTeam.imageUrl, #imageLiteral(resourceName: "leftImage")) { [weak self] image in
+        imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
             //self?.leftImageView?.image = image
         }
         
-        imageLoader.loadImage(urlString: event.secondTeam.imageUrl, #imageLiteral(resourceName: "rightImage")) { [weak self] image in
+        imageLoader.loadImage(urlString: event.secondTeam.imageUrl) { [weak self] image in
             //self?.rightImageView?.image = image
         }
         

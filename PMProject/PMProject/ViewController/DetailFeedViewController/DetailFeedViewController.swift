@@ -21,6 +21,16 @@ class DetailFeedViewController: BalanceProvidingViewController {
         setupNavbar()
         setupCollectionView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataSource?.startTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        dataSource?.stopTimer()
+    }
 
     override func update(balance: Double) {
         DispatchQueue.main.async { [weak self] in
@@ -44,7 +54,8 @@ private extension DetailFeedViewController {
         dataSource = DetailFeedCollectionViewDataSource()
         dataSource?.coordinator = coordinator
         dataSource?.event = event
-
+        dataSource?.collectionView = collectionView
+        
         collectionView?.dataSource = dataSource
         collectionView?.delegate = dataSource
 

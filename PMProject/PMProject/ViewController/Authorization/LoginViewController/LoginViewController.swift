@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField?
     @IBOutlet weak var passwordField: UITextField?
-    @IBOutlet weak var submitButton: UIButton?
+    @IBOutlet weak var submitButton: LoadingButton?
     @IBOutlet weak var errorLabel: UILabel?
 
     override func viewDidLoad() {
@@ -47,7 +47,11 @@ class LoginViewController: UIViewController {
             break
         }
 
+        submitButton?.showLoading()
         authManager.login(email: email, password: password) { [weak self] error in
+            DispatchQueue.main.async {
+                self?.submitButton?.hideLoading()
+            }
             if let error = error {
                 DispatchQueue.main.async {
                     self?.setError("Невірно вказаний логін або пароль")

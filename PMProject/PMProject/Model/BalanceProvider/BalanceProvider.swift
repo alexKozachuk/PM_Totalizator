@@ -14,6 +14,8 @@ protocol BalanceProviderDelegate: AnyObject {
 
 class BalanceProvider {
 
+    private let updateTime = 5
+    
     weak var delegate: BalanceProviderDelegate?
 
     private var timer: DispatchSourceTimer?
@@ -48,7 +50,7 @@ class BalanceProvider {
 
         }
 
-        timer?.schedule(deadline: .now(), repeating: .seconds(15))
+        timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
 
         timer?.resume()
         print("started")
@@ -63,17 +65,16 @@ class BalanceProvider {
 private extension BalanceProvider {
 
     func fetchBalance(completion: @escaping (Double?) -> Void) {
-        networkManager.wallet { wallet, error in
-            if let error = error {
+        networkManager.wallet { result in
+            
+            switch result {
+            case .failure(let error):
                 print(error)
                 completion(nil)
-                return
+            case .success(let wallet):
+                completion(wallet.amount)
             }
-            guard let wallet = wallet else {
-                completion(nil)
-                return
-            }
-            completion(wallet.amount)
+            
         }
     }
 }
