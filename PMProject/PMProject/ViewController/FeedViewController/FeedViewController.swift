@@ -12,7 +12,9 @@ class FeedViewController: BalanceProvidingViewController {
 
     private let authManager = AuthorizationManager()
     private let networkManager = NetworkManager()
-
+    private let updateTime = 10
+    
+    private var timer: DispatchSourceTimer?
     private var eventsDataSource: EventsCollectionViewDataSource?
 
     @IBOutlet weak var eventsCollectionView: UICollectionView?
@@ -24,6 +26,16 @@ class FeedViewController: BalanceProvidingViewController {
         setupNavbar()
         setupCollectionView()
         setupData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        startTimer()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopTimer()
     }
 
     // MARK: - BalanceProviderDelegate
@@ -74,8 +86,10 @@ private extension FeedViewController {
                 }
             }
             
-            
         }
+    }
+    
+    func setupTimer() {
         
     }
 }
@@ -116,3 +130,46 @@ private extension FeedViewController {
     
 }
 
+// MARK: Timer
+
+private extension FeedViewController {
+    
+    func startTimer() {
+        guard timer == nil else {
+            return
+        }
+
+        let queue = DispatchQueue(label: "com.pmtech.totalizator.timer.Feed", attributes: .concurrent)
+
+        timer = DispatchSource.makeTimerSource(queue: queue)
+
+        timer?.setEventHandler { [weak self] in
+            self?.networkManager.feed { result in
+                
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let feed):
+                    self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
+                    DispatchQueue.main.async {
+                        self?.eventsCollectionView?.reloadData()
+                    }
+                }
+                
+            }
+
+        }
+
+        timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
+
+        timer?.resume()
+        print("started")
+    }
+
+    func stopTimer() {
+        timer = nil
+        print("stopped")
+    }
+    
+    
+}
