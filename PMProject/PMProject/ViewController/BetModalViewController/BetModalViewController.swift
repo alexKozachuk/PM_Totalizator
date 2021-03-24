@@ -22,6 +22,8 @@ class BetModalViewController: UIViewController {
     
     var delegate: BetModalDelegate?
     var possibleResult: PossibleResult?
+    var coordinator: MainCoordinator?
+
     private var event: Event?
     
     var isKeyboardShowing = false
@@ -61,6 +63,11 @@ class BetModalViewController: UIViewController {
               amount > 0 else {
             return
         }
+
+        if let coordinator = coordinator, !coordinator.authManager.isLoggedIn() {
+            coordinator.presentProfileOrAuthorizationPage()
+        }
+
         delegate?.placeBetDidTapped(amount: amount, possibleResult: possibleResult)
         dismiss(animated: true, completion: nil)
     }
@@ -68,9 +75,10 @@ class BetModalViewController: UIViewController {
 
 extension BetModalViewController {
     
-    func setup(event: Event, delegate: BetModalDelegate, typeBet: PossibleResult) {
+    func setup(event: Event, delegate: BetModalDelegate, coordinator: MainCoordinator, typeBet: PossibleResult) {
         self.event = event
         self.delegate = delegate
+        self.coordinator = coordinator
         self.possibleResult = typeBet
     }
     

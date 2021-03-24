@@ -23,9 +23,11 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftImage" translatesAutoresizingMaskIntoConstraints="NO" id="05h-2e-4h5" userLabel="leftImage">
                     <rect key="frame" x="0.0" y="0.0" width="191" height="384"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightImage" translatesAutoresizingMaskIntoConstraints="NO" id="BBz-vl-vLw" userLabel="rightImage">
                     <rect key="frame" x="191" y="0.0" width="191" height="384"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A52-H4-RXD">
                     <rect key="frame" x="0.0" y="192" width="382" height="192"/>
@@ -129,7 +131,7 @@
     </objects>
     <resources>
         <image name="Live Icon" width="122" height="55"/>
-        <image name="leftImage" width="160" height="304"/>
+        <image name="leftImage" width="160" height="305"/>
         <image name="rightImage" width="160" height="307"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

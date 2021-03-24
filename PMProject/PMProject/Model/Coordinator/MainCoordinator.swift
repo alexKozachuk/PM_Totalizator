@@ -18,7 +18,7 @@ class MainCoordinator: Coordinator {
     
     private let transitioningDelegate = ModalTransition()
 
-    private lazy var authManager = AuthorizationManager(networkManager: networkManager)
+    lazy var authManager = AuthorizationManager(networkManager: networkManager)
 
     private lazy var balanceProvider = BalanceProvider(networkManager: networkManager)
 
@@ -77,7 +77,7 @@ extension MainCoordinator {
     
     func presentBetModal(event: Event, delegate: BetModalDelegate, typeBet: PossibleResult) {
         let betModal = BetModalViewController()
-        betModal.setup(event: event, delegate: delegate, typeBet: typeBet)
+        betModal.setup(event: event, delegate: delegate, coordinator: self, typeBet: typeBet)
         betModal.transitioningDelegate = transitioningDelegate
         betModal.modalPresentationStyle = .custom
 

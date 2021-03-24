@@ -9,14 +9,16 @@ import Foundation
 
 enum LoginValidatorError: Error {
     case emptyPassword
+    case invalidPassword
     case emptyEmail
     case invalidEmail
+    case invalidAge
     case success
 }
 
 class LoginValidator {
     
-    func validate(email: String, password: String) -> LoginValidatorError {
+    func validate(email: String, password: String, dateOfBirth: Date? = nil) -> LoginValidatorError {
         
         if email == "" {
             return .emptyEmail
@@ -25,9 +27,17 @@ class LoginValidator {
         if password == "" {
             return .emptyPassword
         }
+
+        if password.count < 8 {
+            return .invalidPassword
+        }
         
         guard isValidEmail(email) else {
             return .invalidEmail
+        }
+
+        if let dateOfBirth = dateOfBirth, Date().timeIntervalSinceNow - dateOfBirth.timeIntervalSinceNow < 568036800 {
+            return .invalidAge
         }
         
         return .success

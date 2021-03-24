@@ -32,16 +32,20 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        
-        switch validator.validate(email: email, password: password) {
+        switch validator.validate(email: email, password: password, dateOfBirth: date) {
         case .emptyPassword:
             setError("Поле пароль пусте")
             return
+        case .invalidPassword:
+            setError("Пароль занадто короткий")
         case .emptyEmail:
             setError("Поле Email пусте")
             return
         case .invalidEmail:
             setError("Невалідний Email")
+            return
+        case .invalidAge:
+            setError("Вам немає 18 років")
             return
         case .success:
             break
