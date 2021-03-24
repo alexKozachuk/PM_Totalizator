@@ -59,6 +59,10 @@
 		D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93BFEB2260363EF00BB93F1 /* SceneDelegate.swift */; };
 		D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEB9260363F200BB93F1 /* Assets.xcassets */; };
 		D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93BFEBB260363F200BB93F1 /* LaunchScreen.storyboard */; };
+		D9419564260B783200F0A2DA /* MessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9419562260B783200F0A2DA /* MessageCollectionViewCell.swift */; };
+		D9419565260B783200F0A2DA /* MessageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9419563260B783200F0A2DA /* MessageCollectionViewCell.xib */; };
+		D941956D260B784E00F0A2DA /* OwnMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D941956B260B784E00F0A2DA /* OwnMessageCollectionViewCell.swift */; };
+		D941956E260B784E00F0A2DA /* OwnMessageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D941956C260B784E00F0A2DA /* OwnMessageCollectionViewCell.xib */; };
 		D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */; };
 		D9CB98882609F0FB00EE8CD8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB98872609F0FB00EE8CD8 /* String+Extension.swift */; };
 		D9CB988D260A241300EE8CD8 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB988C260A241300EE8CD8 /* LoadingButton.swift */; };
@@ -121,6 +125,10 @@
 		D93BFEB9260363F200BB93F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D93BFEBC260363F200BB93F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D93BFEBE260363F200BB93F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9419562260B783200F0A2DA /* MessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9419563260B783200F0A2DA /* MessageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCollectionViewCell.xib; sourceTree = "<group>"; };
+		D941956B260B784E00F0A2DA /* OwnMessageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnMessageCollectionViewCell.swift; sourceTree = "<group>"; };
+		D941956C260B784E00F0A2DA /* OwnMessageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OwnMessageCollectionViewCell.xib; sourceTree = "<group>"; };
 		D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9CB98872609F0FB00EE8CD8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D9CB988C260A241300EE8CD8 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
@@ -311,6 +319,7 @@
 		88C0F8C62604AA330084A05E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D9419561260B77E000F0A2DA /* ChatViews */,
 				88A5F3912608FDA700378E4F /* BalanceView */,
 				88C0F8E02604B8450084A05E /* СustomProgressView */,
 				88C0F8C72604AA610084A05E /* EventCollectionViewCell */,
@@ -439,6 +448,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D9419561260B77E000F0A2DA /* ChatViews */ = {
+			isa = PBXGroup;
+			children = (
+				D9419572260B785D00F0A2DA /* MessageCollectionViewCell */,
+				D9419570260B785400F0A2DA /* OwnMessageCollectionViewCell */,
+			);
+			path = ChatViews;
+			sourceTree = "<group>";
+		};
+		D9419570260B785400F0A2DA /* OwnMessageCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D941956B260B784E00F0A2DA /* OwnMessageCollectionViewCell.swift */,
+				D941956C260B784E00F0A2DA /* OwnMessageCollectionViewCell.xib */,
+			);
+			path = OwnMessageCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		D9419572260B785D00F0A2DA /* MessageCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D9419562260B783200F0A2DA /* MessageCollectionViewCell.swift */,
+				D9419563260B783200F0A2DA /* MessageCollectionViewCell.xib */,
+			);
+			path = MessageCollectionViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -509,6 +545,7 @@
 			files = (
 				88BB4CF426072026008B5A5E /* BetModalViewController.xib in Resources */,
 				D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */,
+				D941956E260B784E00F0A2DA /* OwnMessageCollectionViewCell.xib in Resources */,
 				88C0F8A92603E9910084A05E /* ProfileViewController.xib in Resources */,
 				88C0F8762603A93C0084A05E /* RobotoCondensed-Bold.ttf in Resources */,
 				88C0F8772603A93C0084A05E /* RobotoCondensed-Regular.ttf in Resources */,
@@ -521,6 +558,7 @@
 				88C0F88E2603CB700084A05E /* FeedViewController.xib in Resources */,
 				88C0F8C22604A0270084A05E /* RegisterViewController.xib in Resources */,
 				88C0F8D42604ABBB0084A05E /* EventCollectionViewCell.xib in Resources */,
+				D9419565260B783200F0A2DA /* MessageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +654,7 @@
 				88C0F88A2603CAF40084A05E /* FeedViewController.swift in Sources */,
 				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
 				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,
+				D9419564260B783200F0A2DA /* MessageCollectionViewCell.swift in Sources */,
 				88BB4CF826072026008B5A5E /* ModalTransition.swift in Sources */,
 				D90BF23D26064C5E00B4B38A /* ImageLoader.swift in Sources */,
 				88A5F39B2609247800378E4F /* Coordinated.swift in Sources */,
@@ -625,6 +664,7 @@
 				88A5F3A1260930C200378E4F /* Double.swift in Sources */,
 				D93488612604FB2E005A8291 /* DetailFeedCollectionReusableView.swift in Sources */,
 				88BB4CE926072014008B5A5E /* UIView.swift in Sources */,
+				D941956D260B784E00F0A2DA /* OwnMessageCollectionViewCell.swift in Sources */,
 				D9CB988D260A241300EE8CD8 /* LoadingButton.swift in Sources */,
 				D90BF22F260620AA00B4B38A /* Team.swift in Sources */,
 				88C0F8A12603E84B0084A05E /* Keychain+Key.swift in Sources */,
