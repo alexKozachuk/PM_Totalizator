@@ -26,9 +26,11 @@
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftImage" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-MX-33u" userLabel="leftImage">
                             <rect key="frame" x="0.0" y="0.0" width="160" height="310"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightImage" translatesAutoresizingMaskIntoConstraints="NO" id="LCA-sw-8eb" userLabel="rightImage">
                             <rect key="frame" x="160" y="0.0" width="160" height="310"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hla-63-YJr">
                             <rect key="frame" x="0.0" y="164" width="320" height="146"/>
@@ -197,7 +199,7 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="leftImage" width="160" height="304"/>
+        <image name="leftImage" width="160" height="305"/>
         <image name="rightImage" width="160" height="307"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

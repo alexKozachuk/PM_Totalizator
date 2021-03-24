@@ -126,8 +126,10 @@ extension DetailFeedCollectionViewDataSource: BetModalDelegate {
             case .failure(let error):
                 let ac = UIAlertController(title: "Error", message: error.rawValue, preferredStyle: .alert)
                 ac.addAction(UIAlertAction(title: "OK", style: .default))
-                
-                self?.coordinator?.navigationController.present(ac, animated: true)
+
+                DispatchQueue.main.async {
+                    self?.coordinator?.navigationController.present(ac, animated: true)
+                }
             default:
                 self?.updateEvent()
             }
