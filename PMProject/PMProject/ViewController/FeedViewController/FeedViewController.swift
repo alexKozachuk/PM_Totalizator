@@ -27,6 +27,8 @@ class FeedViewController: BalanceProvidingViewController {
     
     override func viewWillLayoutSubviews() {
         chatViewConstraint.constant = view.frame.height
+            - view.layoutMargins.top
+            - view.layoutMargins.bottom
         setupMessageTextView()
     }
     
@@ -43,6 +45,7 @@ class FeedViewController: BalanceProvidingViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             self?.startTimer()
         }
+        setupMessageTextView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
