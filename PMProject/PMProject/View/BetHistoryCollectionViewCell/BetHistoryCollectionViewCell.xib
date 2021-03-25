@@ -26,15 +26,21 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stake" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCA-Na-eo0">
-                    <rect key="frame" x="20" y="55" width="37.5" height="20"/>
+                    <rect key="frame" x="20" y="73" width="37.5" height="20"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sp-P1-cfd">
-                    <rect key="frame" x="62.5" y="55" width="45" height="20"/>
+                    <rect key="frame" x="62.5" y="73" width="45" height="20"/>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="17"/>
                     <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwL-QU-QNZ">
+                    <rect key="frame" x="20" y="45" width="41" height="18"/>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Regular" family="Roboto Condensed" pointSize="15"/>
+                    <color key="textColor" systemColor="secondaryLabelColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -43,21 +49,27 @@
             <constraints>
                 <constraint firstItem="QCA-Na-eo0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="3Br-CA-BX6"/>
                 <constraint firstItem="1sp-P1-cfd" firstAttribute="leading" secondItem="QCA-Na-eo0" secondAttribute="trailing" constant="5" id="6mE-Dn-Fke"/>
+                <constraint firstItem="JwL-QU-QNZ" firstAttribute="top" secondItem="aEh-t8-pTg" secondAttribute="bottom" constant="10" id="THI-Ek-xKf"/>
                 <constraint firstItem="aEh-t8-pTg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="Wmt-tg-Ne6"/>
                 <constraint firstItem="aEh-t8-pTg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="Y57-0N-hwK"/>
                 <constraint firstAttribute="trailing" secondItem="aEh-t8-pTg" secondAttribute="trailing" constant="20" symbolic="YES" id="Yds-P9-tLT"/>
                 <constraint firstItem="QCA-Na-eo0" firstAttribute="centerY" secondItem="1sp-P1-cfd" secondAttribute="centerY" id="Yly-re-l2H"/>
-                <constraint firstItem="QCA-Na-eo0" firstAttribute="top" secondItem="aEh-t8-pTg" secondAttribute="bottom" constant="20" id="gxV-dF-xQv"/>
+                <constraint firstItem="JwL-QU-QNZ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="h24-zz-enf"/>
+                <constraint firstItem="QCA-Na-eo0" firstAttribute="top" secondItem="JwL-QU-QNZ" secondAttribute="bottom" constant="10" id="vj8-a1-sF3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="betAmountLabel" destination="1sp-P1-cfd" id="kUm-vL-El2"/>
+                <outlet property="choiceLabel" destination="JwL-QU-QNZ" id="yua-Jr-Blh"/>
                 <outlet property="eventNameLabel" destination="aEh-t8-pTg" id="vAk-h2-Sek"/>
             </connections>
             <point key="canvasLocation" x="79.710144927536234" y="-199.55357142857142"/>
         </view>
     </objects>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
