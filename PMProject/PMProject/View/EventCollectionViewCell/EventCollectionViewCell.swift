@@ -70,4 +70,17 @@ class EventCollectionViewCell: UICollectionViewCell {
         gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
         gradientView.layer.insertSublayer(gradientLayer, at: 0)
     }
+
+    
+    override func prepareForReuse() {
+        leftNameLabel?.text = nil
+        rightNameLabel?.text = nil
+        
+        leftSumLabel?.text = nil
+        rightSumLabel?.text = nil
+        
+        progressView?.setup(left: 0, middle: 1, right: 0)
+        
+        liveImageView?.isHidden = true
+    }
 }
