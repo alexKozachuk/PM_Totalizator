@@ -27,7 +27,7 @@ class FeedViewController: BalanceProvidingViewController {
     
     override func viewWillLayoutSubviews() {
         chatViewConstraint.constant = view.frame.height
-        setupTextView()
+        setupMessageTextView()
     }
     
     override func viewDidLoad() {
@@ -67,6 +67,13 @@ private extension FeedViewController {
     
     @objc func profileButtonTapped() {
         coordinator?.presentProfileOrAuthorizationPage()
+    }
+    
+    @IBAction func sendButtonTapped() {
+        guard let text = messageTextView?.text, text != "" else { return }
+        chatDataSource?.items.insert(Message(userId: "qwerty", text: text, name: "Ви"), at: 0)
+        chatCollectionView.reloadData()
+        messageTextView?.text = nil
     }
 }
 
@@ -126,14 +133,17 @@ private extension FeedViewController {
             Message(userId: "432", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. deserunt mollit anim id est laborum.", name: "Діма"),
             Message(userId: "6432", text: "Кікніть Діму за спам.", name: "Олег"),
             Message(userId: "qwerty", text: "ОК, зрозумів розходимся", name: "Ви")
-        ]
+        ].reversed()
         
-        chatDataSource?.items = array
+        chatDataSource?.items = Array(array)
         chatCollectionView.reloadData()
     }
     
-    func setupTextView() {
+    func setupMessageTextView() {
         messageTextView?.centerVertically()
+        messageTextView?.text = "Введіть текст"
+        messageTextView?.textColor = UIColor.lightGray
+        messageTextView?.delegate = self
     }
 }
 
@@ -214,5 +224,24 @@ private extension FeedViewController {
         print("stopped")
     }
     
+    
+}
+
+extension FeedViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Введіть текст"
+            textView.textColor = UIColor.lightGray
+            textView.centerVertically()
+        }
+    }
     
 }
