@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TotalizatorNetworkLayer
 
 struct Message {
     
@@ -23,6 +24,16 @@ struct Message {
         self.date = Date()
         self.id = UUID().uuidString
         self.imageURL = "https://avatars.dicebear.com/api/human/\(userId).png"
+    }
+    
+    init(message: TotalizatorNetworkLayer.Message) {
+        let url = "https://avatars.dicebear.com/api/human/\(message.accountID).png"
+        self.name = message.username
+        self.date = message.time.isoTime ?? Date()
+        self.id = message.id
+        self.userId = message.accountID
+        self.imageURL = message.avatarLink ?? url
+        self.text = message.text
     }
     
 }

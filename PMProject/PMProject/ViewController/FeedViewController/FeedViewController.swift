@@ -13,7 +13,7 @@ class FeedViewController: BalanceProvidingViewController {
     @IBOutlet weak var chatViewConstraint: NSLayoutConstraint!
     private let authManager = AuthorizationManager()
     private let networkManager = NetworkManager()
-    private let updateTime = 10
+    private let updateTime = 5
     
     private var timer: DispatchSourceTimer?
     private var eventsDataSource: EventsCollectionViewDataSource?
@@ -27,6 +27,8 @@ class FeedViewController: BalanceProvidingViewController {
     
     override func viewWillLayoutSubviews() {
         chatViewConstraint.constant = view.frame.height
+            - view.layoutMargins.top
+            - view.layoutMargins.bottom
         setupMessageTextView()
     }
     
@@ -36,7 +38,6 @@ class FeedViewController: BalanceProvidingViewController {
         setupNavbar()
         setupCollectionView()
         setupData()
-        setupChatMock()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,11 +45,17 @@ class FeedViewController: BalanceProvidingViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             self?.startTimer()
         }
+        setupMessageTextView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         stopTimer()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkChat()
     }
     
     // MARK: - BalanceProviderDelegate
@@ -71,9 +78,18 @@ private extension FeedViewController {
     
     @IBAction func sendButtonTapped() {
         guard let text = messageTextView?.text, text != "" else { return }
-        chatDataSource?.items.insert(Message(userId: "qwerty", text: text, name: "Ви"), at: 0)
-        chatCollectionView.reloadData()
-        messageTextView?.text = nil
+        networkManager.sendMessage(text: text) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success:
+                DispatchQueue.main.async {
+                    self?.setupChatMock()
+                    self?.messageTextView?.text = nil
+                }
+            }
+        }
+        
     }
 }
 
@@ -125,18 +141,22 @@ private extension FeedViewController {
     }
     
     func setupChatMock() {
-        let array = [
-            Message(userId: "qwerty", text: "Гайз порекомендуйте на кого ставити? А то я зі своїм везінням всі гроші програю", name: "Ви"),
-            Message(userId: "1234", text: "Я б ставив би все на NAVI", name: "Алекс"),
-            Message(userId: "qwerty", text: "А норм будуть пропозиції?", name: "Ви"),
-            Message(userId: "123", text: "ХЗ, я вже почку на них поставив", name: "Бот"),
-            Message(userId: "432", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. deserunt mollit anim id est laborum.", name: "Діма"),
-            Message(userId: "6432", text: "Кікніть Діму за спам.", name: "Олег"),
-            Message(userId: "qwerty", text: "ОК, зрозумів розходимся", name: "Ви")
-        ].reversed()
         
-        chatDataSource?.items = Array(array)
-        chatCollectionView.reloadData()
+        networkManager.getChat { [weak self] result in
+            
+            switch result {
+            case .failure(let error):
+                print(error.rawValue)
+            case .success(let chat):
+                let items = chat.messages.map { Message(message: $0) }.reversed()
+                self?.chatDataSource?.items = Array(items)
+                DispatchQueue.main.async {
+                    self?.chatCollectionView.reloadData()
+                }
+            }
+            
+        }
+        
     }
     
     func setupMessageTextView() {
@@ -211,6 +231,10 @@ private extension FeedViewController {
                 
             }
             
+            if self?.authManager.isLoggedIn() ?? false {
+                self?.setupChatMock()
+            }
+            
         }
         
         timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
@@ -224,6 +248,30 @@ private extension FeedViewController {
         print("stopped")
     }
     
+    
+}
+
+private extension FeedViewController {
+    
+    func checkChat() {
+        if authManager.isLoggedIn() {
+            networkManager.getUserInfo { [weak self] result in
+                
+                switch result {
+                case .failure(let error):
+                    print(error.rawValue)
+                case .success(let info):
+                    self?.chatDataSource?.currentId = info.id
+                    self?.setupChatMock()
+                }
+                
+            }
+            
+        } else {
+            chatDataSource?.items = []
+            chatCollectionView.reloadData()
+        }
+    }
     
 }
 
