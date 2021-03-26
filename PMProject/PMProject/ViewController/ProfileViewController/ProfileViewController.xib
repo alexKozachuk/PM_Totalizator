@@ -4,12 +4,12 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="PMProject" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="oZr-wR-x2S" id="tIy-9w-sR3"/>
                 <outlet property="view" destination="iN0-l3-epB" id="QK2-dM-Xiq"/>
             </connections>
         </placeholder>
@@ -18,34 +18,27 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3M3-qW-hgj">
-                    <rect key="frame" x="182.5" y="437.5" width="49" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-oo-Drd">
-                    <rect key="frame" x="183" y="473.5" width="48" height="30"/>
-                    <state key="normal" title="Logout"/>
-                    <connections>
-                        <action selector="logout" destination="-1" eventType="touchUpInside" id="Mpa-YJ-fZQ"/>
-                    </connections>
-                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="oZr-wR-x2S">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YzQ-pc-oGV">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="tintColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="ACd-oo-Drd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="2w1-Ln-Dmy"/>
-                <constraint firstItem="3M3-qW-hgj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="5tc-tV-jDi"/>
-                <constraint firstItem="3M3-qW-hgj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Hrz-VJ-Qih"/>
-                <constraint firstItem="ACd-oo-Drd" firstAttribute="top" secondItem="3M3-qW-hgj" secondAttribute="bottom" constant="15" id="q1M-3z-hli"/>
+                <constraint firstItem="oZr-wR-x2S" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="4LA-Ws-0Er"/>
+                <constraint firstItem="oZr-wR-x2S" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="9uw-js-quW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="oZr-wR-x2S" secondAttribute="trailing" id="BHh-mh-k2w"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="oZr-wR-x2S" secondAttribute="bottom" id="xpP-Xy-Rbc"/>
             </constraints>
             <point key="canvasLocation" x="-271.01449275362319" y="89.732142857142847"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

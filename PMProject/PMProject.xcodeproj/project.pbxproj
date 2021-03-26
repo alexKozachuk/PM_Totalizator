@@ -40,6 +40,10 @@
 		88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8CC2604AB8B0084A05E /* EventCollectionViewCell.swift */; };
 		88C0F8D42604ABBB0084A05E /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */; };
 		88C0F8D82604B1730084A05E /* EventsCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */; };
+		88DB967C260D40450077F6C9 /* ProfileCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB967B260D40450077F6C9 /* ProfileCollectionViewDataSource.swift */; };
+		88DB967F260D420E0077F6C9 /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB967E260D420E0077F6C9 /* Bet.swift */; };
+		88DB9686260D44F60077F6C9 /* BetHistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DB9685260D44F60077F6C9 /* BetHistoryCollectionViewCell.swift */; };
+		88DB968A260D45050077F6C9 /* BetHistoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DB9689260D45050077F6C9 /* BetHistoryCollectionViewCell.xib */; };
 		950739F6703AC9FB8C292C0B /* Pods_PMProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD557A38EF98E1ADDB86D161 /* Pods_PMProject.framework */; };
 		D90BF22C26061CC900B4B38A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22B26061CC900B4B38A /* Event.swift */; };
 		D90BF22F260620AA00B4B38A /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90BF22E260620AA00B4B38A /* Team.swift */; };
@@ -108,6 +112,10 @@
 		88C0F8CC2604AB8B0084A05E /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		88C0F8D32604ABBB0084A05E /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 		88C0F8D72604B1730084A05E /* EventsCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		88DB967B260D40450077F6C9 /* ProfileCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		88DB967E260D420E0077F6C9 /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
+		88DB9685260D44F60077F6C9 /* BetHistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetHistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		88DB9689260D45050077F6C9 /* BetHistoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BetHistoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		A9334F42FA409F1B3806A85B /* Pods-PMProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PMProject.debug.xcconfig"; path = "Target Support Files/Pods-PMProject/Pods-PMProject.debug.xcconfig"; sourceTree = "<group>"; };
 		BD557A38EF98E1ADDB86D161 /* Pods_PMProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PMProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D90BF22B26061CC900B4B38A /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -220,6 +228,7 @@
 				88A5F396260901D400378E4F /* BalanceProvider */,
 				88C0F8972603E7480084A05E /* AuthorizationManager */,
 				88C0F87F2603CA580084A05E /* Coordinator */,
+				88DB9681260D43B00077F6C9 /* Bet */,
 				D90BF234260620CA00B4B38A /* Event */,
 				D90BF23C26064C5E00B4B38A /* ImageLoader.swift */,
 				D9F23EED2608B954003C9EBA /* LoginValidator.swift */,
@@ -296,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				88C0F8A52603E98C0084A05E /* ProfileViewController.swift */,
+				88DB967B260D40450077F6C9 /* ProfileCollectionViewDataSource.swift */,
 				88C0F8A82603E9910084A05E /* ProfileViewController.xib */,
 			);
 			path = ProfileViewController;
@@ -331,6 +341,7 @@
 		88C0F8C62604AA330084A05E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88DB9684260D44E40077F6C9 /* BetHistoryCollectionViewCell */,
 				D9419561260B77E000F0A2DA /* ChatViews */,
 				88A5F3912608FDA700378E4F /* BalanceView */,
 				88C0F8E02604B8450084A05E /* СustomProgressView */,
@@ -357,6 +368,23 @@
 				D934882B2604B734005A8291 /* CustomProgressView.swift */,
 			);
 			path = "СustomProgressView";
+			sourceTree = "<group>";
+		};
+		88DB9681260D43B00077F6C9 /* Bet */ = {
+			isa = PBXGroup;
+			children = (
+				88DB967E260D420E0077F6C9 /* Bet.swift */,
+			);
+			path = Bet;
+			sourceTree = "<group>";
+		};
+		88DB9684260D44E40077F6C9 /* BetHistoryCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				88DB9685260D44F60077F6C9 /* BetHistoryCollectionViewCell.swift */,
+				88DB9689260D45050077F6C9 /* BetHistoryCollectionViewCell.xib */,
+			);
+			path = BetHistoryCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		93BA948FEDFE1A2B5579EDD3 /* Pods */ = {
@@ -569,6 +597,7 @@
 				88C0F8A92603E9910084A05E /* ProfileViewController.xib in Resources */,
 				88C0F8762603A93C0084A05E /* RobotoCondensed-Bold.ttf in Resources */,
 				88C0F8772603A93C0084A05E /* RobotoCondensed-Regular.ttf in Resources */,
+				88DB968A260D45050077F6C9 /* BetHistoryCollectionViewCell.xib in Resources */,
 				D93488352604C248005A8291 /* DetailFeedViewController.xib in Resources */,
 				D934883B2604C338005A8291 /* DetailInfoCollectionViewCell.xib in Resources */,
 				D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */,
@@ -665,6 +694,7 @@
 				88C0F8CA2604AB2F0084A05E /* UIResponder.swift in Sources */,
 				D9419581260B8F0600F0A2DA /* Message.swift in Sources */,
 				D90BF232260620BC00B4B38A /* BetSum.swift in Sources */,
+				88DB967C260D40450077F6C9 /* ProfileCollectionViewDataSource.swift in Sources */,
 				88C0F8992603E7650084A05E /* AuthorizationManager.swift in Sources */,
 				D934883A2604C338005A8291 /* DetailInfoCollectionViewCell.swift in Sources */,
 				D93488572604D62F005A8291 /* DetailFeedCollectionViewDataSource.swift in Sources */,
@@ -678,9 +708,11 @@
 				D9419564260B783200F0A2DA /* MessageCollectionViewCell.swift in Sources */,
 				D941957A260B8D7B00F0A2DA /* UITextView+Extension.swift in Sources */,
 				88BB4CF826072026008B5A5E /* ModalTransition.swift in Sources */,
+				88DB9686260D44F60077F6C9 /* BetHistoryCollectionViewCell.swift in Sources */,
 				D90BF23D26064C5E00B4B38A /* ImageLoader.swift in Sources */,
 				88A5F39B2609247800378E4F /* Coordinated.swift in Sources */,
 				D9419595260BCE5900F0A2DA /* Date+Extension.swift in Sources */,
+				88DB967F260D420E0077F6C9 /* Bet.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
 				D934884F2604D436005A8291 /* UICollectionView+Extension.swift in Sources */,
 				D9F23EEE2608B954003C9EBA /* LoginValidator.swift in Sources */,
