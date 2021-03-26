@@ -28,7 +28,7 @@ class LoginValidator {
             return .emptyPassword
         }
 
-        if password.count < 8 {
+        if password.count < 6 {
             return .invalidPassword
         }
         

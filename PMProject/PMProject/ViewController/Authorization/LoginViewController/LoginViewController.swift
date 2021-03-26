@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
             return
         case .invalidPassword:
             setError("Пароль занадто короткий")
+            return
         case .emptyEmail:
             setError("Поле Email пусте")
             return

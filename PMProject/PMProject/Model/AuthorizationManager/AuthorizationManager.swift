@@ -34,6 +34,7 @@ class AuthorizationManager {
             switch result {
             case .failure(let error):
                 print(error.rawValue)
+                completion("Неправильний пароль або логін")
             case .success(let token):
                 do {
                     try self?.authKeychain.set(token.jwtString, key: .token)
