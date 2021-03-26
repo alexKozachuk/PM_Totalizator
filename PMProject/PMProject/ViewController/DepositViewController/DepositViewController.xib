@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="RobotoCondensed-Bold.ttf">
+            <string>RobotoCondensed-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DepositViewController" customModule="PMProject" customModuleProvider="target">
+            <connections>
+                <outlet property="moneyTextField" destination="sw8-QT-wgN" id="ozP-67-J6y"/>
+                <outlet property="submitButton" destination="WGj-4w-uKh" id="jAI-rJ-lvw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hif-bN-9Bw">
+                    <rect key="frame" x="126.5" y="84" width="161" height="32"/>
+                    <segments>
+                        <segment title="Покласти"/>
+                        <segment title="Зняти"/>
+                    </segments>
+                    <connections>
+                        <action selector="segmentChangedWithSender:" destination="-1" eventType="valueChanged" id="DFH-y8-CCH"/>
+                    </connections>
+                </segmentedControl>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sw8-QT-wgN">
+                    <rect key="frame" x="20" y="155" width="374" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGj-4w-uKh" customClass="LoadingButton" customModule="PMProject" customModuleProvider="target">
+                    <rect key="frame" x="20" y="209" width="374" height="40"/>
+                    <color key="backgroundColor" name="tintColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Tcy-Uj-vvz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="18"/>
+                    <state key="normal" title="Покласти">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="moneyButtonDidTapped" destination="-1" eventType="touchUpInside" id="SVI-GH-b5w"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WGj-4w-uKh" secondAttribute="trailing" constant="20" id="Dzq-Gl-yzk"/>
+                <constraint firstItem="sw8-QT-wgN" firstAttribute="top" secondItem="Hif-bN-9Bw" secondAttribute="bottom" constant="40" id="Gty-ze-4Xr"/>
+                <constraint firstItem="Hif-bN-9Bw" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="S1w-so-aw9"/>
+                <constraint firstItem="WGj-4w-uKh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="STM-sS-cMl"/>
+                <constraint firstItem="Hif-bN-9Bw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="lj8-O2-bbg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="sw8-QT-wgN" secondAttribute="trailing" constant="20" id="sKZ-68-2iF"/>
+                <constraint firstItem="WGj-4w-uKh" firstAttribute="top" secondItem="sw8-QT-wgN" secondAttribute="bottom" constant="20" id="wpg-AN-Pme"/>
+                <constraint firstItem="sw8-QT-wgN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="yAw-rS-Fyx"/>
+            </constraints>
+            <point key="canvasLocation" x="86" y="104"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="tintColor">
+            <color red="0.97299998998641968" green="1" blue="0.075000002980232239" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

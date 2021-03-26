@@ -72,6 +72,8 @@
 		D9419581260B8F0600F0A2DA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9419580260B8F0600F0A2DA /* Message.swift */; };
 		D9419595260BCE5900F0A2DA /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9419594260BCE5900F0A2DA /* Date+Extension.swift */; };
 		D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */; };
+		D9A12923260DB84C00ACBAC8 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A12921260DB84C00ACBAC8 /* DepositViewController.swift */; };
+		D9A12924260DB84C00ACBAC8 /* DepositViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A12922260DB84C00ACBAC8 /* DepositViewController.xib */; };
 		D9CB98882609F0FB00EE8CD8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB98872609F0FB00EE8CD8 /* String+Extension.swift */; };
 		D9CB988D260A241300EE8CD8 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB988C260A241300EE8CD8 /* LoadingButton.swift */; };
 		D9D5A29F26073107007B22DA /* CharacteristicsPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */; };
@@ -146,6 +148,8 @@
 		D9419580260B8F0600F0A2DA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D9419594260BCE5900F0A2DA /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D9A12921260DB84C00ACBAC8 /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
+		D9A12922260DB84C00ACBAC8 /* DepositViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepositViewController.xib; sourceTree = "<group>"; };
 		D9CB98872609F0FB00EE8CD8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D9CB988C260A241300EE8CD8 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsPair.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				88C0F8BC2604A00A0084A05E /* Authorization */,
 				88C0F8A42603E9820084A05E /* ProfileViewController */,
 				88C0F8882603CAE90084A05E /* FeedViewController */,
+				D9A12926260DB85500ACBAC8 /* DepositViewController */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -523,6 +528,15 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		D9A12926260DB85500ACBAC8 /* DepositViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9A12921260DB84C00ACBAC8 /* DepositViewController.swift */,
+				D9A12922260DB84C00ACBAC8 /* DepositViewController.xib */,
+			);
+			path = DepositViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -606,6 +620,7 @@
 				D93488622604FB2E005A8291 /* DetailFeedCollectionReusableView.xib in Resources */,
 				88C0F88E2603CB700084A05E /* FeedViewController.xib in Resources */,
 				88C0F8C22604A0270084A05E /* RegisterViewController.xib in Resources */,
+				D9A12924260DB84C00ACBAC8 /* DepositViewController.xib in Resources */,
 				88C0F8D42604ABBB0084A05E /* EventCollectionViewCell.xib in Resources */,
 				D9419565260B783200F0A2DA /* MessageCollectionViewCell.xib in Resources */,
 			);
@@ -719,6 +734,7 @@
 				D941957D260B8DF200F0A2DA /* ChatCollectionViewDataSource.swift in Sources */,
 				88A5F3A1260930C200378E4F /* Double.swift in Sources */,
 				D93488612604FB2E005A8291 /* DetailFeedCollectionReusableView.swift in Sources */,
+				D9A12923260DB84C00ACBAC8 /* DepositViewController.swift in Sources */,
 				88BB4CE926072014008B5A5E /* UIView.swift in Sources */,
 				D941956D260B784E00F0A2DA /* OwnMessageCollectionViewCell.swift in Sources */,
 				D9CB988D260A241300EE8CD8 /* LoadingButton.swift in Sources */,
