@@ -12,6 +12,7 @@ import TotalizatorNetworkLayer
 class AuthorizationManager {
     
     private var networkManager: NetworkManager
+    var userInfo: UserInfo?
     
     enum Key: String {
         case token
@@ -41,6 +42,7 @@ class AuthorizationManager {
                     NetworkManager.APIKey = token.jwtString
                     
                     print("User has successfully registered")
+                    self?.setupUserInfo()
                     completion(nil)
                 } catch {
                     completion(error.localizedDescription)
@@ -64,7 +66,7 @@ class AuthorizationManager {
                     try self?.authKeychain.set(token.jwtString, key: .token)
                     NetworkManager.APIKey = token.jwtString
                     print("User has successfully registered")
-                    
+                    self?.setupUserInfo()
                     completion(nil)
                 } catch {
                     completion(error.localizedDescription)
@@ -74,9 +76,25 @@ class AuthorizationManager {
         
     }
     
+    func setupUserInfo() {
+        
+        networkManager.getUserInfo { [weak self] result in
+            
+            switch result {
+            case .failure:
+                break
+            case .success(let userInfo):
+                self?.userInfo = userInfo
+            }
+            
+        }
+        
+    }
+    
     func logout(completion: @escaping (Error?) -> Void) {
         do {
             try authKeychain.remove(.token)
+            userInfo = nil
             completion(nil)
         } catch {
             completion(error)

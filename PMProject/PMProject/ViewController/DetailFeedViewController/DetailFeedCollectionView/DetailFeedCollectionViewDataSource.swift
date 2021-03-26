@@ -13,6 +13,7 @@ class DetailFeedCollectionViewDataSource: NSObject {
     weak var collectionView: UICollectionView?
     weak var coordinator: MainCoordinator?
     
+    var key: String = "com.pmtech.totalizator.timer.Feed.Detail"
     var event: Event?
     var networkManager: NetworkManager?
     var timer: DispatchSourceTimer?
@@ -131,7 +132,9 @@ extension DetailFeedCollectionViewDataSource: BetModalDelegate {
                     self?.coordinator?.navigationController.present(ac, animated: true)
                 }
             default:
-                self?.updateEvent()
+                DispatchQueue.main.async {
+                    self?.updateEvent()
+                }
             }
             
           
@@ -169,19 +172,8 @@ private extension DetailFeedCollectionViewDataSource {
 extension DetailFeedCollectionViewDataSource: EventUpdating {
     
     func eventHandler() {
-        guard let event = self.event else { return }
-        self.networkManager?.getEvent(by: event.id) { [weak self] result in
-            
-            switch result {
-            case .failure(let error):
-                print(error.rawValue)
-            case .success(let eventResponse):
-                self?.event = Event(event: eventResponse)
-                DispatchQueue.main.async {
-                    self?.collectionView?.reloadData()
-                }
-            }
-        
+        DispatchQueue.main.async { [weak self] in
+            self?.updateEvent()
         }
     }
     

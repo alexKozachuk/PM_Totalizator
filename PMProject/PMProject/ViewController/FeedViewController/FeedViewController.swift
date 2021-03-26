@@ -15,6 +15,7 @@ class FeedViewController: BalanceProvidingViewController {
     var networkManager: NetworkManager?
     var timeInterval: Int = 5
     
+    var key: String = "com.pmtech.totalizator.timer.Feed"
     var timer: DispatchSourceTimer?
     private var eventsDataSource: EventsCollectionViewDataSource?
     private var chatDataSource: ChatCollectionViewDataSource?
@@ -26,10 +27,13 @@ class FeedViewController: BalanceProvidingViewController {
     @IBOutlet weak var messageTextView: UITextView?
     
     override func viewWillLayoutSubviews() {
-        chatViewConstraint.constant = view.frame.height
-            - view.layoutMargins.top
-            - view.layoutMargins.bottom
-        setupMessageTextView()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.chatViewConstraint.constant = self.view.frame.height
+                - self.view.layoutMargins.top
+                - self.view.layoutMargins.bottom
+            self.setupMessageTextView()
+        }
     }
     
     override func viewDidLoad() {
@@ -148,7 +152,7 @@ private extension FeedViewController {
             case .failure(let error):
                 print(error.rawValue)
             case .success(let chat):
-                let items = chat.messages.map { Message(message: $0) }.reversed()
+                let items = chat.messages.map { Message(message: $0) }
                 self?.chatDataSource?.items = Array(items)
                 DispatchQueue.main.async {
                     self?.chatCollectionView.reloadData()
@@ -221,9 +225,7 @@ extension FeedViewController: EventUpdating {
             
         }
         
-        if self.authManager?.isLoggedIn() ?? false {
-            self.setupChatMock()
-        }
+        checkChat()
     }
     
 }
@@ -232,18 +234,9 @@ private extension FeedViewController {
     
     func checkChat() {
         if authManager?.isLoggedIn() ?? false {
-            networkManager?.getUserInfo { [weak self] result in
-                
-                switch result {
-                case .failure(let error):
-                    print(error.rawValue)
-                case .success(let info):
-                    self?.chatDataSource?.currentId = info.id
-                    self?.setupChatMock()
-                }
-                
-            }
-            
+            guard let userInfo = authManager?.userInfo else { return }
+            self.chatDataSource?.currentId = userInfo.id
+            self.setupChatMock()
         } else {
             chatDataSource?.items = []
             chatCollectionView.reloadData()

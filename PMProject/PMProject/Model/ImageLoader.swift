@@ -28,7 +28,7 @@ class ImageLoader {
         URLSession.shared.dataTask(with: url) { (data, _, _) in
             queue.async {
                 if let data = data, let image = UIImage(data: data) {
-                    completion(image)
+                    DispatchQueue.main.async { completion(image) }
                     DispatchQueue.global(qos: .background).async {
                         ImageLoader.imageCache.setObject(image, forKey: nsUrlString)
                     }

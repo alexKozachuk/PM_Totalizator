@@ -15,7 +15,7 @@ class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
 
     private var networkManager = NetworkManager()
-    
+    private var imageLoader = ImageLoader()
     private let transitioningDelegate = ModalTransition()
 
     lazy var authManager = AuthorizationManager(networkManager: networkManager)
@@ -33,6 +33,7 @@ class MainCoordinator: Coordinator {
 
         if let token = authManager.getToken() {
             NetworkManager.APIKey = token
+            authManager.setupUserInfo()
         }
 
         setupNavbar()
@@ -125,11 +126,18 @@ extension MainCoordinator {
     var profileBarButton: UIBarButtonItem {
         let iconLength: CGFloat = 30
 
-        let profilePicture = getProfilePicture()
+        
+        
+        
 
         let profileButton = UIButton()
 
-        profileButton.setImage(profilePicture, for: .normal)
+        getProfilePicture { image in
+            DispatchQueue.main.async {
+                profileButton.setImage(image, for: .normal)
+            }
+        }
+        
         profileButton.backgroundColor = .white
         profileButton.layer.masksToBounds = true
         profileButton.tintColor = .black
@@ -171,9 +179,17 @@ extension MainCoordinator {
     }
 
 
-    private func getProfilePicture() -> UIImage {
-        let image = UIImage(systemName: "person.fill")!
-        return image
+    private func getProfilePicture(completion: @escaping (UIImage) -> Void) {
+        
+        if let info = authManager.userInfo {
+            imageLoader.loadImage(urlString: info.avatarLink) { image in
+                completion(image)
+            }
+        } else {
+            let image = UIImage(systemName: "person.fill")!
+            completion(image)
+        }
+       
     }
     
 }
