@@ -14,11 +14,11 @@ protocol BalanceProviderDelegate: AnyObject {
 
 class BalanceProvider {
 
-    private let updateTime = 5
+    var timeInterval: Int = 5
     
     weak var delegate: BalanceProviderDelegate?
 
-    private var timer: DispatchSourceTimer?
+    var timer: DispatchSourceTimer?
 
     var networkManager: NetworkManager
 
@@ -28,35 +28,6 @@ class BalanceProvider {
 
     var balance: Double = 0
 
-    func startTimer() {
-        guard timer == nil else {
-            return
-        }
-
-        let queue = DispatchQueue(label: "com.pmtech.totalizator.timer", attributes: .concurrent)
-
-        timer = DispatchSource.makeTimerSource(queue: queue)
-
-        timer?.setEventHandler { [weak self] in
-            self?.fetchBalance { [weak self] balance in
-                guard let balance = balance else {
-                    return
-                }
-
-                self?.balance = balance
-                self?.delegate?.update(balance: balance)
-            }
-
-        }
-
-        timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
-
-        timer?.resume()
-    }
-
-    func stopTimer() {
-        timer = nil
-    }
 }
 
 private extension BalanceProvider {
@@ -65,7 +36,7 @@ private extension BalanceProvider {
         networkManager.wallet { result in
             
             switch result {
-            case .failure(let error):
+            case .failure:
                 completion(nil)
             case .success(let wallet):
                 completion(wallet.amount)
@@ -73,4 +44,19 @@ private extension BalanceProvider {
             
         }
     }
+}
+
+extension BalanceProvider: EventUpdating {
+    
+    func eventHandler() {
+        self.fetchBalance { [weak self] balance in
+            guard let balance = balance else {
+                return
+            }
+
+            self?.balance = balance
+            self?.delegate?.update(balance: balance)
+        }
+    }
+    
 }

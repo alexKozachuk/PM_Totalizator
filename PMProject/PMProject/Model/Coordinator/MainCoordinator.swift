@@ -200,12 +200,12 @@ extension MainCoordinator {
 
     func balanceNeeded() {
         if authManager.isLoggedIn() {
-            balanceProvider.startTimer()
+            balanceProvider.startUpdating()
         }
     }
 
     func discardBalanceFetching() {
-        balanceProvider.stopTimer()
+        balanceProvider.stopUpdating()
     }
 
     func update() {

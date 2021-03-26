@@ -15,8 +15,8 @@ class DetailFeedCollectionViewDataSource: NSObject {
     
     var event: Event?
     var networkManager: NetworkManager?
-    private var timer: DispatchSourceTimer?
-    private let updateTime = 10
+    var timer: DispatchSourceTimer?
+    var timeInterval: Int = 10
     
     var detailHeight: CGFloat {
         guard let event = event else { return 0 }
@@ -166,44 +166,23 @@ private extension DetailFeedCollectionViewDataSource {
 
 // MARK: Timer
 
-extension DetailFeedCollectionViewDataSource {
+extension DetailFeedCollectionViewDataSource: EventUpdating {
     
-    func startTimer() {
-        guard timer == nil else {
-            return
-        }
-
-        let queue = DispatchQueue(label: "com.pmtech.totalizator.timer.DetailFeed", attributes: .concurrent)
-
-        timer = DispatchSource.makeTimerSource(queue: queue)
-
-        timer?.setEventHandler { [weak self] in
-            guard let event = self?.event else { return }
-            self?.networkManager?.getEvent(by: event.id) { [weak self] result in
-                
-                switch result {
-                case .failure(let error):
-                    print(error.rawValue)
-                case .success(let eventResponse):
-                    self?.event = Event(event: eventResponse)
-                    DispatchQueue.main.async {
-                        self?.collectionView?.reloadData()
-                    }
-                }
+    func eventHandler() {
+        guard let event = self.event else { return }
+        self.networkManager?.getEvent(by: event.id) { [weak self] result in
             
+            switch result {
+            case .failure(let error):
+                print(error.rawValue)
+            case .success(let eventResponse):
+                self?.event = Event(event: eventResponse)
+                DispatchQueue.main.async {
+                    self?.collectionView?.reloadData()
+                }
             }
-
+        
         }
-
-        timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
-
-        timer?.resume()
-        print("started")
-    }
-
-    func stopTimer() {
-        timer = nil
-        print("stopped")
     }
     
     

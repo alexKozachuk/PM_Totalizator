@@ -73,6 +73,7 @@
 		D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */; };
 		D9A12923260DB84C00ACBAC8 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A12921260DB84C00ACBAC8 /* DepositViewController.swift */; };
 		D9A12924260DB84C00ACBAC8 /* DepositViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A12922260DB84C00ACBAC8 /* DepositViewController.xib */; };
+		D9BF189B260E705C00B0D732 /* EventUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BF189A260E705C00B0D732 /* EventUpdating.swift */; };
 		D9CB98882609F0FB00EE8CD8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB98872609F0FB00EE8CD8 /* String.swift */; };
 		D9CB988D260A241300EE8CD8 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB988C260A241300EE8CD8 /* LoadingButton.swift */; };
 		D9D5A29F26073107007B22DA /* CharacteristicsPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */; };
@@ -148,6 +149,7 @@
 		D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9A12921260DB84C00ACBAC8 /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		D9A12922260DB84C00ACBAC8 /* DepositViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepositViewController.xib; sourceTree = "<group>"; };
+		D9BF189A260E705C00B0D732 /* EventUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventUpdating.swift; sourceTree = "<group>"; };
 		D9CB98872609F0FB00EE8CD8 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		D9CB988C260A241300EE8CD8 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsPair.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				D90BF234260620CA00B4B38A /* Event */,
 				D90BF23C26064C5E00B4B38A /* ImageLoader.swift */,
 				D9F23EED2608B954003C9EBA /* LoginValidator.swift */,
+				D9BF189A260E705C00B0D732 /* EventUpdating.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -740,6 +743,7 @@
 				D93488342604C248005A8291 /* DetailFeedViewController.swift in Sources */,
 				88BB4CF326072026008B5A5E /* BetModalViewController.swift in Sources */,
 				88BB4CF726072026008B5A5E /* DismissAnimation.swift in Sources */,
+				D9BF189B260E705C00B0D732 /* EventUpdating.swift in Sources */,
 				D93BFEB3260363EF00BB93F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

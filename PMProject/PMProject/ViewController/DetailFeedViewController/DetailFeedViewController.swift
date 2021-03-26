@@ -26,12 +26,12 @@ class DetailFeedViewController: BalanceProvidingViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataSource?.startTimer()
+        dataSource?.startUpdating()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        dataSource?.stopTimer()
+        dataSource?.stopUpdating()
     }
 
     override func update(balance: Double) {
