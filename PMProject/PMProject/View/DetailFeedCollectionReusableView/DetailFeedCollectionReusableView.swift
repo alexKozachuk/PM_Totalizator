@@ -63,11 +63,11 @@ class DetailFeedCollectionReusableView: UICollectionReusableView {
         }
         
         imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
-            //self?.leftImageView?.image = image
+            self?.leftImageView?.image = image
         }
         
         imageLoader.loadImage(urlString: event.secondTeam.imageUrl) { [weak self] image in
-            //self?.rightImageView?.image = image
+            self?.rightImageView?.image = image
         }
         
         leftNameLabel?.text = event.firstTeam.name

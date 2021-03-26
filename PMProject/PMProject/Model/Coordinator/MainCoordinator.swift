@@ -75,6 +75,13 @@ extension MainCoordinator {
         navigationController.pushViewController(registerVC, animated: true)
     }
     
+    @objc func presentDepositPage() {
+        if navigationController.viewControllers.last is DepositViewController { return }
+        let depositVC = DepositViewController()
+        depositVC.coordinator = self
+        navigationController.pushViewController(depositVC, animated: true)
+    }
+    
     func presentBetModal(event: Event, delegate: BetModalDelegate, typeBet: PossibleResult) {
         let betModal = BetModalViewController()
         betModal.setup(event: event, delegate: delegate, coordinator: self, typeBet: typeBet)
@@ -136,9 +143,9 @@ extension MainCoordinator {
     }
 
     var balanceBarItem: UIBarButtonItem {
-        let balance = BalanceView(balance: balanceProvider.balance)
-
-        return balance
+        let item = BalanceView(balance: balanceProvider.balance)
+        item.coordinator = self
+        return item
     }
 
     func displayWallet(navigationItem: UINavigationItem) {

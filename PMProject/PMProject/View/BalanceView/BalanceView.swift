@@ -10,6 +10,7 @@ import UIKit
 class BalanceView: UIBarButtonItem {
 
     var balance: Double
+    weak var coordinator: MainCoordinator?
 
     init(balance: Double) {
         self.balance = balance
@@ -29,12 +30,19 @@ class BalanceView: UIBarButtonItem {
 private extension BalanceView {
 
     func commonInit() {
-        let label = UILabel(frame: .zero)
-        label.numberOfLines = 2
-        label.textAlignment = .right
-        label.text = "UAH \n\(balance.rounded(places: 1)) "
-        label.font = UIFont(name: "RobotoCondensed-Bold", size: 14)
+        let button = UIButton(frame: .zero)
+        button.setTitle("UAH \n\(balance.rounded(places: 1)) ", for: .normal)
+        button.contentHorizontalAlignment = .leading
+        button.titleLabel?.numberOfLines = 2
+        button.titleLabel?.textAlignment = .right
+        button.titleLabel?.font = UIFont(name: "RobotoCondensed-Bold", size: 14)
         
-        customView = label
+        button.addTarget(self, action: #selector(buttonDidTapped), for: .touchUpInside)
+        
+        customView = button
+    }
+    
+    @objc func buttonDidTapped() {
+        coordinator?.presentDepositPage()
     }
 }
