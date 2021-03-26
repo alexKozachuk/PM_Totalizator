@@ -40,7 +40,6 @@ class BalanceProvider {
         timer?.setEventHandler { [weak self] in
             self?.fetchBalance { [weak self] balance in
                 guard let balance = balance else {
-                    print("Error fetching balance")
                     return
                 }
 
@@ -53,12 +52,10 @@ class BalanceProvider {
         timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
 
         timer?.resume()
-        print("started")
     }
 
     func stopTimer() {
         timer = nil
-        print("stopped")
     }
 }
 
@@ -69,7 +66,6 @@ private extension BalanceProvider {
             
             switch result {
             case .failure(let error):
-                print(error)
                 completion(nil)
             case .success(let wallet):
                 completion(wallet.amount)

@@ -14,10 +14,6 @@ class OwnMessageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var avatarImageView: UIImageView?
     private var imageLoader = ImageLoader()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     var message: String? {
         get {
             messageLabel?.text
@@ -43,6 +39,8 @@ class OwnMessageCollectionViewCell: UICollectionViewCell {
         }
         
     }
+    
+    // 70 is sum of margins
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         messageLabel?.preferredMaxLayoutWidth = layoutAttributes.size.width - 70

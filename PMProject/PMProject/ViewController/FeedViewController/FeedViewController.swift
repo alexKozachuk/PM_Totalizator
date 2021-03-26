@@ -11,8 +11,8 @@ import TotalizatorNetworkLayer
 class FeedViewController: BalanceProvidingViewController {
     
     @IBOutlet weak var chatViewConstraint: NSLayoutConstraint!
-    private let authManager = AuthorizationManager()
-    private let networkManager = NetworkManager()
+    var authManager: AuthorizationManager?
+    var networkManager: NetworkManager?
     private let updateTime = 5
     
     private var timer: DispatchSourceTimer?
@@ -78,7 +78,7 @@ private extension FeedViewController {
     
     @IBAction func sendButtonTapped() {
         guard let text = messageTextView?.text, text != "" else { return }
-        networkManager.sendMessage(text: text) { [weak self] result in
+        networkManager?.sendMessage(text: text) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
@@ -122,7 +122,7 @@ private extension FeedViewController {
     
     func setupData() {
         self.showLoaderEvent()
-        networkManager.feed { [weak self] result in
+        networkManager?.feed { [weak self] result in
             DispatchQueue.main.async {
                 self?.hideLoaderEvent()
             }
@@ -142,7 +142,7 @@ private extension FeedViewController {
     
     func setupChatMock() {
         
-        networkManager.getChat { [weak self] result in
+        networkManager?.getChat { [weak self] result in
             
             switch result {
             case .failure(let error):
@@ -217,7 +217,7 @@ private extension FeedViewController {
         timer = DispatchSource.makeTimerSource(queue: queue)
         
         timer?.setEventHandler { [weak self] in
-            self?.networkManager.feed { result in
+            self?.networkManager?.feed { result in
                 
                 switch result {
                 case .failure(let error):
@@ -231,7 +231,7 @@ private extension FeedViewController {
                 
             }
             
-            if self?.authManager.isLoggedIn() ?? false {
+            if self?.authManager?.isLoggedIn() ?? false {
                 self?.setupChatMock()
             }
             
@@ -254,8 +254,8 @@ private extension FeedViewController {
 private extension FeedViewController {
     
     func checkChat() {
-        if authManager.isLoggedIn() {
-            networkManager.getUserInfo { [weak self] result in
+        if authManager?.isLoggedIn() ?? false {
+            networkManager?.getUserInfo { [weak self] result in
                 
                 switch result {
                 case .failure(let error):

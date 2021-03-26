@@ -17,7 +17,7 @@ class AuthorizationManager {
         case token
     }
     
-    init(networkManager: NetworkManager = NetworkManager()) {
+    init(networkManager: NetworkManager) {
         self.networkManager = networkManager
     }
     

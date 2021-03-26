@@ -14,7 +14,7 @@ class DetailFeedCollectionViewDataSource: NSObject {
     weak var coordinator: MainCoordinator?
     
     var event: Event?
-    private var networkManager = NetworkManager()
+    var networkManager: NetworkManager?
     private var timer: DispatchSourceTimer?
     private let updateTime = 10
     
@@ -118,7 +118,7 @@ extension DetailFeedCollectionViewDataSource: BetModalDelegate {
     
     func placeBetDidTapped(amount: Double, possibleResult: PossibleResult) {
         guard let event = event else { return }
-        networkManager.makeBet(amount: amount,
+        networkManager?.makeBet(amount: amount,
                                choice: possibleResult,
                                eventID: event.id) { [weak self] result in
             
@@ -146,7 +146,7 @@ private extension DetailFeedCollectionViewDataSource {
         
         guard let event = self.event else { return }
         
-        networkManager.getEvent(by: event.id) { [weak self] result in
+        networkManager?.getEvent(by: event.id) { [weak self] result in
             
             switch result {
             case .failure(let error):
@@ -179,7 +179,7 @@ extension DetailFeedCollectionViewDataSource {
 
         timer?.setEventHandler { [weak self] in
             guard let event = self?.event else { return }
-            self?.networkManager.getEvent(by: event.id) { [weak self] result in
+            self?.networkManager?.getEvent(by: event.id) { [weak self] result in
                 
                 switch result {
                 case .failure(let error):

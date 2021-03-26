@@ -79,8 +79,8 @@ class EventCollectionViewCell: UICollectionViewCell {
         leftSumLabel?.text = nil
         rightSumLabel?.text = nil
         
-        leftImageView?.image = #imageLiteral(resourceName: "leftImage")
-        rightImageView?.image = #imageLiteral(resourceName: "rightImage")
+        leftImageView?.image = nil
+        rightImageView?.image = nil
         
         progressView?.setup(left: 0, middle: 1, right: 0)
         

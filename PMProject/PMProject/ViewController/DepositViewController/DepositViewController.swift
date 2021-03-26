@@ -13,7 +13,7 @@ class DepositViewController: BalanceProvidingViewController {
     @IBOutlet weak var submitButton: LoadingButton?
     @IBOutlet weak var moneyTextField: UITextField?
     
-    var networkManager = NetworkManager()
+    var networkManager: NetworkManager?
     private var currentType: TransactionType = .deposit
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class DepositViewController: BalanceProvidingViewController {
         
         submitButton?.showLoading()
         
-        networkManager.makeTransaction(amount: amount, type: currentType) { [weak self] result in
+        networkManager?.makeTransaction(amount: amount, type: currentType) { [weak self] result in
             
             switch result {
             case .failure(let error):

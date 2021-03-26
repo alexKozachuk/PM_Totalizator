@@ -11,7 +11,7 @@ class LoginViewController: UIViewController {
 
     weak var coordinator: MainCoordinator?
 
-    private let authManager = AuthorizationManager()
+    var authManager: AuthorizationManager?
     private let validator = LoginValidator()
 
     @IBOutlet weak var emailField: UITextField?
@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
         }
 
         submitButton?.showLoading()
-        authManager.login(email: email, password: password) { [weak self] error in
+        authManager?.login(email: email, password: password) { [weak self] error in
             DispatchQueue.main.async {
                 self?.submitButton?.hideLoading()
             }

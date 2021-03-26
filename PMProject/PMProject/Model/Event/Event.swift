@@ -23,7 +23,7 @@ struct Event: Identifiable {
     init(event: TotalizatorNetworkLayer.Event) {
         self.id = event.id
         self.margin = event.margin
-        self.startTime = event.startTime.isoDate ?? Date()
+        self.startTime = event.startTime.isoDate ?? event.startTime.isoTime ?? Date()
         self.firstTeam = Team(team: event.participant1)
         self.secondTeam = Team(team: event.participant2)
         self.betSum = BetSum(firstBet: event.amountW1, secondBet: event.amountW2, drawBet: event.amountX)

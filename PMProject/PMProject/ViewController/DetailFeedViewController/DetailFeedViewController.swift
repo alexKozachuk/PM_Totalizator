@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import TotalizatorNetworkLayer
 
 class DetailFeedViewController: BalanceProvidingViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var dataSource: DetailFeedCollectionViewDataSource?
+    var networkManager: NetworkManager?
+    var dataSource: DetailFeedCollectionViewDataSource?
 
     var event: Event?
     
@@ -55,6 +57,7 @@ private extension DetailFeedViewController {
         dataSource?.coordinator = coordinator
         dataSource?.event = event
         dataSource?.collectionView = collectionView
+        dataSource?.networkManager = networkManager
         
         collectionView?.dataSource = dataSource
         collectionView?.delegate = dataSource
