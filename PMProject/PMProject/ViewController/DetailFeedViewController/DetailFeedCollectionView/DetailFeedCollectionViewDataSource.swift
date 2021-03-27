@@ -13,6 +13,7 @@ class DetailFeedCollectionViewDataSource: NSObject {
     weak var collectionView: UICollectionView?
     weak var coordinator: MainCoordinator?
     
+    var timerLabel = "com.pmtech.totalizator.timer.Feed.Detail"
     var event: Event?
     var networkManager: NetworkManager?
     var timer: DispatchSourceTimer?

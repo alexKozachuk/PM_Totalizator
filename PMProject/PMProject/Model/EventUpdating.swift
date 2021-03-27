@@ -10,6 +10,7 @@ import Foundation
 
 protocol EventUpdating: class {
     
+    var timerLabel: String { get set }
     var timer: DispatchSourceTimer? { get set }
     func eventHandler()
     func startUpdating()
@@ -21,7 +22,7 @@ protocol EventUpdating: class {
 extension EventUpdating {
     
     func startUpdating() {
-        let queue = DispatchQueue(label: "com.pmtech.totalizator.timer.Feed", attributes: .concurrent)
+        let queue = DispatchQueue(label: timerLabel, attributes: .concurrent)
         self.timer = DispatchSource.makeTimerSource(queue: queue)
         
         timer?.setEventHandler { [weak self] in

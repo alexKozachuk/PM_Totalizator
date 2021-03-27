@@ -16,6 +16,7 @@ class FeedViewController: BalanceProvidingViewController {
     var timeInterval: Int = 5
     
     var timer: DispatchSourceTimer?
+    var timerLabel = "com.pmtech.totalizator.timer.Feed"
     private var eventsDataSource: EventsCollectionViewDataSource?
     private var chatDataSource: ChatCollectionViewDataSource?
     private var collectionViewLayout: UICollectionViewFlowLayout?
@@ -148,7 +149,7 @@ private extension FeedViewController {
             case .failure(let error):
                 print(error.rawValue)
             case .success(let chat):
-                let items = chat.messages.map { Message(message: $0) }.reversed()
+                let items = chat.messages.map { Message(message: $0) }
                 self?.chatDataSource?.items = Array(items)
                 DispatchQueue.main.async {
                     self?.chatCollectionView.reloadData()

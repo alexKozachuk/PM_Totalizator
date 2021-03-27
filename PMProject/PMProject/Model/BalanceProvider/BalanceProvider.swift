@@ -14,6 +14,7 @@ protocol BalanceProviderDelegate: AnyObject {
 
 class BalanceProvider {
 
+    var timerLabel = "com.pmtech.totalizator.timer.BalanceProvider"
     var timeInterval: Int = 5
     
     weak var delegate: BalanceProviderDelegate?
