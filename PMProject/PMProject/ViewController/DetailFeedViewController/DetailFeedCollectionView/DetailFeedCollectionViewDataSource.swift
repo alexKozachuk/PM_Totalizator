@@ -41,6 +41,14 @@ class DetailFeedCollectionViewDataSource: NSObject {
                                               firstValue: value,
                                               secondValue: second[key] ?? ""))
         }
+        
+        second.forEach { key, value in
+            if !values.contains(where: { $0.name == key }) {
+                values.append(CharacteristicsPair(name: key,
+                                                  firstValue: "",
+                                                  secondValue: value))
+            }
+        }
         return values
     }
 

@@ -12,13 +12,17 @@ struct Team: Identifiable {
     var id: String
     var name: String
     var imageUrl: String?
-    var characteristics: [String: String]
+    var characteristics: [String: String] = [:]
     
     init(team: TotalizatorNetworkLayer.Participant) {
         self.id = team.id
         self.name = team.name
         self.imageUrl = team.photoLink
-        self.characteristics = [:]
+        
+        team.parameters.forEach { param in
+            self.characteristics[param.type] = param.value
+        }
+        
     }
     
 }
