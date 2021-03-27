@@ -9,21 +9,19 @@ import Foundation
 import TotalizatorNetworkLayer
 
 struct Bet {
-
-    public let accountID, eventID: String
+    
+    public let betID, teamConfrontation: String
     public let choice: PossibleResult
+    public let eventStartime, betTime: String
     public let amount: Int
+    public let status: String?
 
-    init(accountID: String, eventID: String, choice: PossibleResult, amount: Int) {
-        self.accountID = accountID
-        self.eventID = eventID
-        self.choice = choice
-        self.amount = amount
-    }
-
-    init(bet: TotalizatorNetworkLayer.Bet) {
-        self.accountID = bet.accountID
-        self.eventID = bet.eventID
+    init(bet: TotalizatorNetworkLayer.BetsPreviewForUser) {
+        self.betID = bet.betID
+        self.teamConfrontation = bet.teamConfrontation
+        self.status = bet.status
+        self.eventStartime = bet.eventStartime
+        self.betTime = bet.betTime
         self.choice = bet.choice
         self.amount = bet.amount
     }

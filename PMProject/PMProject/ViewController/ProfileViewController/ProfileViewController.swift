@@ -44,31 +44,21 @@ class ProfileViewController: UIViewController {
 private extension ProfileViewController {
 
     func fetchBetsHistory() {
-//        guard let networkManager = networkManager else {
-//            return
-//        }
-//
-//        networkManager.getBets { [weak self] res in
-//            switch res {
-//                case .failure(let error):
-//                    print(error)
-//                case .success(let bets):
-//                    self?.dataSource?.bets = bets.map { Bet(bet: $0) }
-//                    self?.collectionView?.reloadData()
-//            }
-//        }
+        guard let networkManager = networkManager else {
+            return
+        }
 
-        let bets = [
-            Bet(accountID: "Test", eventID: "Test", choice: .w1, amount: 100),
-            Bet(accountID: "Test", eventID: "Test", choice: .w1, amount: 100),
-            Bet(accountID: "Test", eventID: "Test", choice: .w1, amount: 100),
-            Bet(accountID: "Test", eventID: "Test", choice: .w1, amount: 100),
-            Bet(accountID: "Test", eventID: "Test", choice: .w1, amount: 100)
-        ]
-
-        dataSource?.bets = bets
-        collectionView?.reloadData()
-        print("Reloaded")
+        networkManager.getBets { [weak self] res in
+            switch res {
+                case .failure(let error):
+                    print(error)
+                case .success(let bets):
+                    self?.dataSource?.bets = bets.betsPreviewForUsers.map { Bet(bet: $0) }
+                    DispatchQueue.main.async {
+                        self?.collectionView?.reloadData()
+                    }
+            }
+        }
     }
 }
 
