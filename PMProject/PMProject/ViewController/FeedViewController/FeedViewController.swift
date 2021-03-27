@@ -143,6 +143,9 @@ private extension FeedViewController {
     
     func setupChatMock() {
         
+        guard let userInfo = authManager?.userInfo else { return }
+        chatDataSource?.currentId = userInfo.id
+        
         networkManager?.getChat { [weak self] result in
             
             switch result {
@@ -233,18 +236,7 @@ private extension FeedViewController {
     
     func checkChat() {
         if authManager?.isLoggedIn() ?? false {
-            networkManager?.getUserInfo { [weak self] result in
-                
-                switch result {
-                case .failure(let error):
-                    print(error.rawValue)
-                case .success(let info):
-                    self?.chatDataSource?.currentId = info.id
-                    self?.setupChatMock()
-                }
-                
-            }
-            
+            setupChatMock()
         } else {
             chatDataSource?.items = []
             chatCollectionView.reloadData()

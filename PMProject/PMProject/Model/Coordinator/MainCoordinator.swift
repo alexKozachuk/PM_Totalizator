@@ -33,6 +33,7 @@ class MainCoordinator: Coordinator {
 
         if let token = authManager.getToken() {
             NetworkManager.APIKey = token
+            authManager.setupUserInfo()
         }
 
         setupNavbar()
