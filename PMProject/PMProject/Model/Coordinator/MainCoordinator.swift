@@ -43,14 +43,17 @@ class MainCoordinator: Coordinator {
 extension MainCoordinator {
 
     func start() {
-        let mainViewController = FeedViewController()
-        mainViewController.coordinator = self
+        let feedVC = FeedViewController()
+        feedVC.networkManager = networkManager
+        feedVC.authManager = authManager
+        feedVC.coordinator = self
 
-        navigationController.viewControllers = [mainViewController]
+        navigationController.viewControllers = [feedVC]
     }
 
     func presentDetailFeed(with event: Event) {
         let detailFeedVC = DetailFeedViewController()
+        detailFeedVC.networkManager = networkManager
         detailFeedVC.coordinator = self
         detailFeedVC.event = event
         navigationController.pushViewController(detailFeedVC, animated: true)
@@ -59,10 +62,13 @@ extension MainCoordinator {
     @objc func presentProfileOrAuthorizationPage() {
         if authManager.isLoggedIn() {
             let profileVC = ProfileViewController()
+            profileVC.networkManager = networkManager
+            profileVC.authManager = authManager
             profileVC.coordinator = self
             navigationController.pushViewController(profileVC, animated: true)
         } else {
             let loginVC = LoginViewController()
+            loginVC.authManager = authManager
             loginVC.coordinator = self
 
             navigationController.pushViewController(loginVC, animated: true)
@@ -71,6 +77,7 @@ extension MainCoordinator {
 
     func presentRegistrationPage() {
         let registerVC = RegisterViewController()
+        registerVC.authManager = authManager
         registerVC.coordinator = self
         navigationController.pushViewController(registerVC, animated: true)
     }
@@ -78,6 +85,7 @@ extension MainCoordinator {
     @objc func presentDepositPage() {
         if navigationController.viewControllers.last is DepositViewController { return }
         let depositVC = DepositViewController()
+        depositVC.networkManager = networkManager
         depositVC.coordinator = self
         navigationController.pushViewController(depositVC, animated: true)
     }
@@ -142,31 +150,7 @@ extension MainCoordinator {
         return profileBarButton
     }
 
-    var balanceBarItem: UIBarButtonItem {
-        let item = BalanceView(balance: balanceProvider.balance)
-        item.coordinator = self
-        return item
-    }
-
-    func displayWallet(navigationItem: UINavigationItem) {
-
-        if authManager.isLoggedIn() {
-            navigationItem.setRightBarButtonItems([profileBarButton, balanceBarItem], animated: false)
-        } else {
-            navigationItem.setRightBarButtonItems([profileBarButton], animated: false)
-        }
-
-    }
-
-    func balanceNeeded() {
-        if authManager.isLoggedIn() {
-            balanceProvider.startTimer()
-        }
-    }
-
-    func discardBalanceFetching() {
-        balanceProvider.stopTimer()
-    }
+    
 
     private func setupNavbar() {
         navigationController.navigationBar.barStyle = .black
@@ -191,9 +175,42 @@ extension MainCoordinator {
         let image = UIImage(systemName: "person.fill")!
         return image
     }
+    
+}
+
+// MARK: Balance
+
+extension MainCoordinator {
+    
+    var balanceBarItem: UIBarButtonItem {
+        let item = BalanceView(balance: balanceProvider.balance)
+        item.coordinator = self
+        return item
+    }
+
+    func displayWallet(navigationItem: UINavigationItem) {
+
+        if authManager.isLoggedIn() {
+            navigationItem.setRightBarButtonItems([profileBarButton, balanceBarItem], animated: false)
+        } else {
+            navigationItem.setRightBarButtonItems([profileBarButton], animated: false)
+        }
+
+    }
+
+    func balanceNeeded() {
+        if authManager.isLoggedIn() {
+            balanceProvider.startUpdating()
+        }
+    }
+
+    func discardBalanceFetching() {
+        balanceProvider.stopUpdating()
+    }
 
     func update() {
         balanceProviderDelegate?.update(balance: balanceProvider.balance)
     }
+    
 }
 

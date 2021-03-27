@@ -14,9 +14,9 @@ class DetailFeedCollectionViewDataSource: NSObject {
     weak var coordinator: MainCoordinator?
     
     var event: Event?
-    private var networkManager = NetworkManager()
-    private var timer: DispatchSourceTimer?
-    private let updateTime = 10
+    var networkManager: NetworkManager?
+    var timer: DispatchSourceTimer?
+    var timeInterval: Int = 10
     
     var detailHeight: CGFloat {
         guard let event = event else { return 0 }
@@ -118,7 +118,7 @@ extension DetailFeedCollectionViewDataSource: BetModalDelegate {
     
     func placeBetDidTapped(amount: Double, possibleResult: PossibleResult) {
         guard let event = event else { return }
-        networkManager.makeBet(amount: amount,
+        networkManager?.makeBet(amount: amount,
                                choice: possibleResult,
                                eventID: event.id) { [weak self] result in
             
@@ -146,7 +146,7 @@ private extension DetailFeedCollectionViewDataSource {
         
         guard let event = self.event else { return }
         
-        networkManager.getEvent(by: event.id) { [weak self] result in
+        networkManager?.getEvent(by: event.id) { [weak self] result in
             
             switch result {
             case .failure(let error):
@@ -166,44 +166,23 @@ private extension DetailFeedCollectionViewDataSource {
 
 // MARK: Timer
 
-extension DetailFeedCollectionViewDataSource {
+extension DetailFeedCollectionViewDataSource: EventUpdating {
     
-    func startTimer() {
-        guard timer == nil else {
-            return
-        }
-
-        let queue = DispatchQueue(label: "com.pmtech.totalizator.timer.DetailFeed", attributes: .concurrent)
-
-        timer = DispatchSource.makeTimerSource(queue: queue)
-
-        timer?.setEventHandler { [weak self] in
-            guard let event = self?.event else { return }
-            self?.networkManager.getEvent(by: event.id) { [weak self] result in
-                
-                switch result {
-                case .failure(let error):
-                    print(error.rawValue)
-                case .success(let eventResponse):
-                    self?.event = Event(event: eventResponse)
-                    DispatchQueue.main.async {
-                        self?.collectionView?.reloadData()
-                    }
-                }
+    func eventHandler() {
+        guard let event = self.event else { return }
+        self.networkManager?.getEvent(by: event.id) { [weak self] result in
             
+            switch result {
+            case .failure(let error):
+                print(error.rawValue)
+            case .success(let eventResponse):
+                self?.event = Event(event: eventResponse)
+                DispatchQueue.main.async {
+                    self?.collectionView?.reloadData()
+                }
             }
-
+        
         }
-
-        timer?.schedule(deadline: .now(), repeating: .seconds(updateTime))
-
-        timer?.resume()
-        print("started")
-    }
-
-    func stopTimer() {
-        timer = nil
-        print("stopped")
     }
     
     

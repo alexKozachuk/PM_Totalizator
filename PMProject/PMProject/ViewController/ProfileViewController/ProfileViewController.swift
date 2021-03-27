@@ -14,11 +14,10 @@ class ProfileViewController: UIViewController {
 
     weak var coordinator: MainCoordinator?
 
-    private let authManager = AuthorizationManager()
+    var authManager: AuthorizationManager?
+    var networkManager: NetworkManager?
 
     private var dataSource: ProfileCollectionViewDataSource?
-
-    var networkManager: NetworkManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +30,7 @@ class ProfileViewController: UIViewController {
     }
 
     @objc func logout() {
-        authManager.logout() { [weak self] error in
+        authManager?.logout() { [weak self] error in
             guard error == nil else {
                 print(error!)
                 return

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BalanceProvidingViewController: UIViewController, Coordinated {
+class BalanceProvidingViewController: UIViewController {
 
     weak var coordinator: MainCoordinator?
 

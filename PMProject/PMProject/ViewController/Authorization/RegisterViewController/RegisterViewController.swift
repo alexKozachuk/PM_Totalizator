@@ -9,7 +9,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     
-    private let authManager = AuthorizationManager()
+    var authManager: AuthorizationManager?
     private let validator = LoginValidator()
     
     weak var coordinator: MainCoordinator?
@@ -52,7 +52,7 @@ class RegisterViewController: UIViewController {
         }
         
         submitButton?.showLoading()
-        authManager.register(email: email, password: password, dateOfBirth: date) { [weak self] error in
+        authManager?.register(email: email, password: password, dateOfBirth: date) { [weak self] error in
             
             DispatchQueue.main.async {
                 self?.submitButton?.hideLoading()

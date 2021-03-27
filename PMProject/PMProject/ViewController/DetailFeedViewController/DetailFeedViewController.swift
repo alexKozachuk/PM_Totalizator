@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import TotalizatorNetworkLayer
 
 class DetailFeedViewController: BalanceProvidingViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var dataSource: DetailFeedCollectionViewDataSource?
+    var networkManager: NetworkManager?
+    var dataSource: DetailFeedCollectionViewDataSource?
 
     var event: Event?
     
@@ -24,12 +26,12 @@ class DetailFeedViewController: BalanceProvidingViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataSource?.startTimer()
+        dataSource?.startUpdating()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        dataSource?.stopTimer()
+        dataSource?.stopUpdating()
     }
 
     override func update(balance: Double) {
@@ -55,6 +57,7 @@ private extension DetailFeedViewController {
         dataSource?.coordinator = coordinator
         dataSource?.event = event
         dataSource?.collectionView = collectionView
+        dataSource?.networkManager = networkManager
         
         collectionView?.dataSource = dataSource
         collectionView?.delegate = dataSource
