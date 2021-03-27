@@ -33,12 +33,17 @@ class EventCollectionViewCell: UICollectionViewCell {
 
     func setup(with event: Event) {
 
-        imageLoader.loadImage(urlString: event.firstTeam.imageUrl) { [weak self] image in
-            self?.leftImageView?.image = image
+        
+        if let image = event.firstTeam.imageUrl {
+            imageLoader.loadImage(urlString: image) { [weak self] image in
+                self?.leftImageView?.image = image
+            }
         }
         
-        imageLoader.loadImage(urlString: event.secondTeam.imageUrl) { [weak self] image in
-            self?.rightImageView?.image = image
+        if let image = event.secondTeam.imageUrl {
+            imageLoader.loadImage(urlString: image) { [weak self] image in
+                self?.rightImageView?.image = image
+            }
         }
         
         leftNameLabel?.text = event.firstTeam.name

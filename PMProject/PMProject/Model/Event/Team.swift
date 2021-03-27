@@ -11,7 +11,7 @@ import TotalizatorNetworkLayer
 struct Team: Identifiable {
     var id: String
     var name: String
-    var imageUrl: String
+    var imageUrl: String?
     var characteristics: [String: String]
     
     init(team: TotalizatorNetworkLayer.Participant) {
