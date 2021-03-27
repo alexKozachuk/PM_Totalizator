@@ -44,12 +44,18 @@ class MainCoordinator: Coordinator {
 extension MainCoordinator {
 
     func start() {
-        let feedVC = FeedViewController()
-        feedVC.networkManager = networkManager
-        feedVC.authManager = authManager
-        feedVC.coordinator = self
+        if Reachability.isConnectedToNetwork() {
+            let feedVC = FeedViewController()
+            feedVC.networkManager = networkManager
+            feedVC.authManager = authManager
+            feedVC.coordinator = self
 
-        navigationController.viewControllers = [feedVC]
+            navigationController.viewControllers = [feedVC]
+        } else {
+            let errorVC = ErrorConnectionViewController()
+            navigationController.viewControllers = [errorVC]
+        }
+        
     }
 
     func presentDetailFeed(with event: Event) {
