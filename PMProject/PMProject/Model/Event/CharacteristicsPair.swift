@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacteristicsPair {
+struct CharacteristicsPair: Hashable {
     var name: String
     var firstValue: String
     var secondValue: String

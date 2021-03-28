@@ -53,7 +53,11 @@ private extension ProfileViewController {
                 case .failure(let error):
                     print(error)
                 case .success(let bets):
-                    self?.dataSource?.bets = bets.betsPreviewForUsers.map { Bet(bet: $0) }
+                    let bets = bets.betsPreviewForUsers.map { Bet(bet: $0) }
+                    if let hash = self?.dataSource?.bets.hashValue, hash == bets.hashValue {
+                        return
+                    }
+                    self?.dataSource?.bets = bets
                     DispatchQueue.main.async {
                         self?.collectionView?.reloadData()
                     }
