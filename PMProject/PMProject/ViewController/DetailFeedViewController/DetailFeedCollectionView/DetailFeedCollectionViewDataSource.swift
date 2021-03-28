@@ -13,6 +13,7 @@ class DetailFeedCollectionViewDataSource: NSObject {
     weak var collectionView: UICollectionView?
     weak var coordinator: MainCoordinator?
     
+    var timerLabel = "com.pmtech.totalizator.timer.Feed.Detail"
     var event: Event?
     var networkManager: NetworkManager?
     var timer: DispatchSourceTimer?
@@ -39,6 +40,14 @@ class DetailFeedCollectionViewDataSource: NSObject {
             values.append(CharacteristicsPair(name: key,
                                               firstValue: value,
                                               secondValue: second[key] ?? ""))
+        }
+        
+        second.forEach { key, value in
+            if !values.contains(where: { $0.name == key }) {
+                values.append(CharacteristicsPair(name: key,
+                                                  firstValue: "",
+                                                  secondValue: value))
+            }
         }
         return values
     }

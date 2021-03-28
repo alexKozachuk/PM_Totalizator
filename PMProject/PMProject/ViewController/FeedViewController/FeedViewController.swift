@@ -16,6 +16,7 @@ class FeedViewController: BalanceProvidingViewController {
     var timeInterval: Int = 5
     
     var timer: DispatchSourceTimer?
+    var timerLabel = "com.pmtech.totalizator.timer.Feed"
     private var eventsDataSource: EventsCollectionViewDataSource?
     private var chatDataSource: ChatCollectionViewDataSource?
     private var collectionViewLayout: UICollectionViewFlowLayout?
@@ -142,13 +143,16 @@ private extension FeedViewController {
     
     func setupChatMock() {
         
+        guard let userInfo = authManager?.userInfo else { return }
+        chatDataSource?.currentId = userInfo.id
+        
         networkManager?.getChat { [weak self] result in
             
             switch result {
             case .failure(let error):
                 print(error.rawValue)
             case .success(let chat):
-                let items = chat.messages.map { Message(message: $0) }.reversed()
+                let items = chat.messages.map { Message(message: $0) }
                 self?.chatDataSource?.items = Array(items)
                 DispatchQueue.main.async {
                     self?.chatCollectionView.reloadData()
@@ -232,18 +236,7 @@ private extension FeedViewController {
     
     func checkChat() {
         if authManager?.isLoggedIn() ?? false {
-            networkManager?.getUserInfo { [weak self] result in
-                
-                switch result {
-                case .failure(let error):
-                    print(error.rawValue)
-                case .success(let info):
-                    self?.chatDataSource?.currentId = info.id
-                    self?.setupChatMock()
-                }
-                
-            }
-            
+            setupChatMock()
         } else {
             chatDataSource?.items = []
             chatCollectionView.reloadData()

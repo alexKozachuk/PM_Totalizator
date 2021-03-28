@@ -32,11 +32,6 @@ class ImageLoader {
                     DispatchQueue.global(qos: .background).async {
                         ImageLoader.imageCache.setObject(image, forKey: nsUrlString)
                     }
-                } else {
-                    // TODO: add placeholder image
-//                    DispatchQueue.global(qos: .background).async {
-//                        ImageLoader.imageCache.setObject(placeholderImage, forKey: nsUrlString)
-//                    }
                 }
             }
         }.resume()

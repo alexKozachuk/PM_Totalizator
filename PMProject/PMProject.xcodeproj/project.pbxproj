@@ -70,6 +70,9 @@
 		D941957D260B8DF200F0A2DA /* ChatCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D941957C260B8DF200F0A2DA /* ChatCollectionViewDataSource.swift */; };
 		D9419581260B8F0600F0A2DA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9419580260B8F0600F0A2DA /* Message.swift */; };
 		D9419595260BCE5900F0A2DA /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9419594260BCE5900F0A2DA /* Date.swift */; };
+		D9484FC9260F5B6B0015F05A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9484FC8260F5B6B0015F05A /* Reachability.swift */; };
+		D9484FCD260F5C3E0015F05A /* ErrorConnectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9484FCB260F5C3E0015F05A /* ErrorConnectionViewController.swift */; };
+		D9484FCE260F5C3E0015F05A /* ErrorConnectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9484FCC260F5C3E0015F05A /* ErrorConnectionViewController.xib */; };
 		D985739E2605EFAB00C9E987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */; };
 		D9A12923260DB84C00ACBAC8 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A12921260DB84C00ACBAC8 /* DepositViewController.swift */; };
 		D9A12924260DB84C00ACBAC8 /* DepositViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A12922260DB84C00ACBAC8 /* DepositViewController.xib */; };
@@ -146,6 +149,9 @@
 		D941957C260B8DF200F0A2DA /* ChatCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		D9419580260B8F0600F0A2DA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D9419594260BCE5900F0A2DA /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		D9484FC8260F5B6B0015F05A /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		D9484FCB260F5C3E0015F05A /* ErrorConnectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorConnectionViewController.swift; sourceTree = "<group>"; };
+		D9484FCC260F5C3E0015F05A /* ErrorConnectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorConnectionViewController.xib; sourceTree = "<group>"; };
 		D985739D2605EFAB00C9E987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9A12921260DB84C00ACBAC8 /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		D9A12922260DB84C00ACBAC8 /* DepositViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepositViewController.xib; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 				D90BF23C26064C5E00B4B38A /* ImageLoader.swift */,
 				D9F23EED2608B954003C9EBA /* LoginValidator.swift */,
 				D9BF189A260E705C00B0D732 /* EventUpdating.swift */,
+				D9484FC8260F5B6B0015F05A /* Reachability.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +257,7 @@
 				88C0F8A42603E9820084A05E /* ProfileViewController */,
 				88C0F8882603CAE90084A05E /* FeedViewController */,
 				D9A12926260DB85500ACBAC8 /* DepositViewController */,
+				D9484FD0260F5C450015F05A /* ErrorConnectionViewController */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -528,6 +536,15 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		D9484FD0260F5C450015F05A /* ErrorConnectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9484FCB260F5C3E0015F05A /* ErrorConnectionViewController.swift */,
+				D9484FCC260F5C3E0015F05A /* ErrorConnectionViewController.xib */,
+			);
+			path = ErrorConnectionViewController;
+			sourceTree = "<group>";
+		};
 		D9A12926260DB85500ACBAC8 /* DepositViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +633,7 @@
 				D934883B2604C338005A8291 /* DetailInfoCollectionViewCell.xib in Resources */,
 				D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */,
 				D93BFEBA260363F200BB93F1 /* Assets.xcassets in Resources */,
+				D9484FCE260F5C3E0015F05A /* ErrorConnectionViewController.xib in Resources */,
 				88C0F8AE2603E9CE0084A05E /* LoginViewController.xib in Resources */,
 				D93488622604FB2E005A8291 /* DetailFeedCollectionReusableView.xib in Resources */,
 				88C0F88E2603CB700084A05E /* FeedViewController.xib in Resources */,
@@ -714,10 +732,12 @@
 				D934883A2604C338005A8291 /* DetailInfoCollectionViewCell.swift in Sources */,
 				D93488572604D62F005A8291 /* DetailFeedCollectionViewDataSource.swift in Sources */,
 				88C0F8862603CA910084A05E /* MainCoordinator.swift in Sources */,
+				D9484FCD260F5C3E0015F05A /* ErrorConnectionViewController.swift in Sources */,
 				D90BF22C26061CC900B4B38A /* Event.swift in Sources */,
 				88A5F398260901EC00378E4F /* BalanceProvider.swift in Sources */,
 				D9CB98882609F0FB00EE8CD8 /* String.swift in Sources */,
 				88C0F88A2603CAF40084A05E /* FeedViewController.swift in Sources */,
+				D9484FC9260F5B6B0015F05A /* Reachability.swift in Sources */,
 				88C0F8B7260406980084A05E /* UIColor.swift in Sources */,
 				88C0F8CD2604AB8B0084A05E /* EventCollectionViewCell.swift in Sources */,
 				D9419564260B783200F0A2DA /* MessageCollectionViewCell.swift in Sources */,
@@ -886,14 +906,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 87N7QPTHS6;
+				DEVELOPMENT_TEAM = B4LAA475FW;
 				INFOPLIST_FILE = PMProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beaxhem.PMTotalizator.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beaxhem.PMTotalizator.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -907,14 +927,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 87N7QPTHS6;
+				DEVELOPMENT_TEAM = B4LAA475FW;
 				INFOPLIST_FILE = PMProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.beaxhem.PMTotalizator.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.beaxhem.PMTotalizator.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

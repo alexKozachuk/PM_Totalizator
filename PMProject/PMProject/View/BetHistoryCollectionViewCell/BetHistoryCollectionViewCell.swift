@@ -14,19 +14,26 @@ class BetHistoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var choiceLabel: UILabel?
     @IBOutlet weak var betAmountLabel: UILabel?
     @IBOutlet weak var betStatusLabel: UILabel?
-    @IBOutlet weak var dateLabel: UILabel?
+    @IBOutlet weak var dateBetLabel: UILabel?
+    @IBOutlet weak var dateEventLabel: UILabel?
 
     var amount: Double? {
-        didSet {
-            guard let amount = amount else { return }
+        get {
+            return Double(betAmountLabel?.text ?? "0")
+        }
+        set {
+            guard let amount = newValue else { return }
 
             betAmountLabel?.text = "\(amount.rounded(places: 1)) UAH"
         }
     }
 
     var choice: PossibleResult? {
-        didSet {
-            switch choice {
+        get {
+            return PossibleResult(rawValue: choiceLabel?.text ?? "X")
+        }
+        set {
+            switch newValue {
                 case .w1:
                     choiceLabel?.text = "1"
                 case .w2:
@@ -39,33 +46,52 @@ class BetHistoryCollectionViewCell: UICollectionViewCell {
         }
     }
     var eventName: String? {
-        didSet {
-            eventNameLabel?.text = eventName
+        get {
+            return eventNameLabel?.text
+        }
+        set {
+            eventNameLabel?.text = newValue
         }
     }
 
     var status: String? {
-        didSet {
-            betStatusLabel?.text = status
+        get {
+            return betStatusLabel?.text
+        }
+        set {
+            betStatusLabel?.text = newValue
         }
     }
 
-    var date: String? {
-        didSet {
-            guard let date = date?.isoTime else { return }
-
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd.MM, HH:mm"
-
-            dateLabel?.text = formatter.string(from: date)
+    var dateEvent: String? {
+        get {
+            return dateEventLabel?.text
+        }
+        set {
+            dateEventLabel?.text = newValue
+        }
+    }
+    
+    var dateBet: String? {
+        get {
+            return dateBetLabel?.text
+        }
+        set {
+            dateBetLabel?.text = newValue
         }
     }
 
     func setup(bet: Bet) {
+        let dateEvent = bet.betTime.isoTime ?? bet.betTime.isoDate ?? Date()
+        let dateBet = bet.eventStartime.isoTime ?? bet.eventStartime.isoDate ?? Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM, HH:mm"
+        
         amount = Double(bet.amount)
         choice = bet.choice
         eventName = bet.teamConfrontation
         status = bet.status
-        date = bet.betTime
+        self.dateBet = formatter.string(from: dateBet)
+        self.dateEvent = formatter.string(from: dateEvent)
     }
 }
