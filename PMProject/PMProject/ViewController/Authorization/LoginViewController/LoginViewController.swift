@@ -106,7 +106,7 @@ class LoginViewController: UIViewController {
 private extension LoginViewController {
 
     func setupNavbar() {
-        title = "Ввійти"
+        title = "Авторизація"
 
         let registerNavBarButton = UIBarButtonItem(title: "Реєстрація", style: .plain, target: self, action: #selector(goToRegisterPage))
 

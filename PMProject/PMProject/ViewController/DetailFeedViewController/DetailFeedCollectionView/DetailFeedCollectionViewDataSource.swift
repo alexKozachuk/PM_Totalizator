@@ -161,6 +161,10 @@ private extension DetailFeedCollectionViewDataSource {
             case .failure(let error):
                 print(error.rawValue)
             case .success(let eventResponse):
+                let event = Event(event: eventResponse)
+                if let hash = self?.event?.hashValue, hash == event.hashValue {
+                    return
+                }
                 self?.event = Event(event: eventResponse)
                 DispatchQueue.main.async {
                     self?.collectionView?.reloadData()
@@ -178,20 +182,7 @@ private extension DetailFeedCollectionViewDataSource {
 extension DetailFeedCollectionViewDataSource: EventUpdating {
     
     func eventHandler() {
-        guard let event = self.event else { return }
-        self.networkManager?.getEvent(by: event.id) { [weak self] result in
-            
-            switch result {
-            case .failure(let error):
-                print(error.rawValue)
-            case .success(let eventResponse):
-                self?.event = Event(event: eventResponse)
-                DispatchQueue.main.async {
-                    self?.collectionView?.reloadData()
-                }
-            }
-        
-        }
+        updateEvent()
     }
     
     

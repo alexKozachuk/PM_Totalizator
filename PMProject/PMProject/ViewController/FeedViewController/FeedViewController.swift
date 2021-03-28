@@ -85,7 +85,7 @@ private extension FeedViewController {
                 print(error)
             case .success:
                 DispatchQueue.main.async {
-                    self?.setupChatMock()
+                    self?.setupChatData()
                     self?.messageTextView?.text = nil
                 }
             }
@@ -132,7 +132,11 @@ private extension FeedViewController {
             case .failure(let error):
                 print(error)
             case .success(let feed):
-                self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
+                let feed = feed.events.map {Event(event: $0)}
+                if let hash = self?.eventsDataSource?.items.hashValue, hash == feed.hashValue {
+                    return
+                }
+                self?.eventsDataSource?.items = feed
                 DispatchQueue.main.async {
                     self?.eventsCollectionView?.reloadData()
                 }
@@ -141,7 +145,7 @@ private extension FeedViewController {
         }
     }
     
-    func setupChatMock() {
+    func setupChatData() {
         
         guard let userInfo = authManager?.userInfo else { return }
         chatDataSource?.currentId = userInfo.id
@@ -152,8 +156,11 @@ private extension FeedViewController {
             case .failure(let error):
                 print(error.rawValue)
             case .success(let chat):
-                let items = chat.messages.map { Message(message: $0) }
-                self?.chatDataSource?.items = Array(items)
+                let chat = chat.messages.map { Message(message: $0) }
+                if let hash = self?.chatDataSource?.items.hashValue, hash == chat.hashValue {
+                    return
+                }
+                self?.chatDataSource?.items = Array(chat)
                 DispatchQueue.main.async {
                     self?.chatCollectionView.reloadData()
                 }
@@ -217,7 +224,11 @@ extension FeedViewController: EventUpdating {
             case .failure(let error):
                 print(error)
             case .success(let feed):
-                self?.eventsDataSource?.items = feed.events.map {Event(event: $0)}
+                let feed = feed.events.map {Event(event: $0)}
+                if let hash = self?.eventsDataSource?.items.hashValue, hash == feed.hashValue {
+                    return
+                }
+                self?.eventsDataSource?.items = feed
                 DispatchQueue.main.async {
                     self?.eventsCollectionView?.reloadData()
                 }
@@ -226,7 +237,7 @@ extension FeedViewController: EventUpdating {
         }
         
         if self.authManager?.isLoggedIn() ?? false {
-            self.setupChatMock()
+            self.setupChatData()
         }
     }
     
@@ -236,7 +247,7 @@ private extension FeedViewController {
     
     func checkChat() {
         if authManager?.isLoggedIn() ?? false {
-            setupChatMock()
+            setupChatData()
         } else {
             chatDataSource?.items = []
             chatCollectionView.reloadData()

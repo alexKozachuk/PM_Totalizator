@@ -8,7 +8,7 @@
 import Foundation
 import TotalizatorNetworkLayer
 
-struct Bet {
+struct Bet: Hashable {
     
     public let betID, teamConfrontation: String
     public let choice: PossibleResult

@@ -8,7 +8,7 @@
 import UIKit
 import TotalizatorNetworkLayer
 
-struct Event: Identifiable {
+struct Event: Identifiable, Hashable {
     var id: String
     var firstTeam: Team
     var secondTeam: Team

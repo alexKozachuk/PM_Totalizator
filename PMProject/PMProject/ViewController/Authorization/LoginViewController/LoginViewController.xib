@@ -66,7 +66,7 @@
                         <constraint firstAttribute="height" constant="40" id="dck-JW-Nfa"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="18"/>
-                    <state key="normal" title="Ввійти">
+                    <state key="normal" title="Увійти">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>

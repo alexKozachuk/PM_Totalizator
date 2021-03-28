@@ -8,7 +8,7 @@
 import Foundation
 import TotalizatorNetworkLayer
 
-struct Message {
+struct Message: Hashable {
     
     var name: String
     var id: String

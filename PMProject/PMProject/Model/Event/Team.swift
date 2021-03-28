@@ -8,7 +8,7 @@
 import Foundation
 import TotalizatorNetworkLayer
 
-struct Team: Identifiable {
+struct Team: Identifiable, Hashable {
     var id: String
     var name: String
     var imageUrl: String?
