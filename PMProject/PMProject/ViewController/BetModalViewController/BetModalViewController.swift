@@ -96,17 +96,17 @@ extension BetModalViewController: UITextFieldDelegate {
                let possibleResult = possibleResult{
                 let possibleGain = event.potentialGain(result: possibleResult, bet: bet)
                 submitButton?
-                    .setTitle("Зробити Ставку \(bet.rounded(places: 2)) UAH", for: .normal)
+                    .setTitle("Place a bet \(bet.rounded(places: 2)) UAH", for: .normal)
                 possibleGainLabel?
-                    .text = "Можлива Виплата \(possibleGain.rounded(places: 2)) UAH"
+                    .text = "Possible Payment \(possibleGain.rounded(places: 2)) UAH"
             }
         } else {
             submitButton?.isEnabled = false
             submitButton?.isUserInteractionEnabled = false
             submitButton?.backgroundColor = .gray
-            submitButton?.setTitle("Зробити Ставку", for: .normal)
+            submitButton?.setTitle("Place a bet", for: .normal)
             possibleGainLabel?
-                .text = "Можлива Виплата 0.00 UAH"
+                .text = "Possible Payment 0.00 UAH"
         }
     }
 
