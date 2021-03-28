@@ -35,16 +35,16 @@ class LoginViewController: UIViewController {
         
         switch validator.validate(email: email, password: password) {
         case .emptyPassword:
-            setError("Поле пароль пусте")
+            setError("The password field is empty")
             return
         case .invalidPassword:
-            setError("Пароль занадто короткий")
+            setError("Password is too short")
             return
         case .emptyEmail:
-            setError("Поле Email пусте")
+            setError("The Email field is empty")
             return
         case .invalidEmail:
-            setError("Невалідний Email")
+            setError("Invalid Email")
             return
         case .invalidAge,.success:
             break
@@ -106,9 +106,9 @@ class LoginViewController: UIViewController {
 private extension LoginViewController {
 
     func setupNavbar() {
-        title = "Авторизація"
+        title = "Authorization"
 
-        let registerNavBarButton = UIBarButtonItem(title: "Реєстрація", style: .plain, target: self, action: #selector(goToRegisterPage))
+        let registerNavBarButton = UIBarButtonItem(title: "Registration", style: .plain, target: self, action: #selector(goToRegisterPage))
 
         navigationItem.setRightBarButton(registerNavBarButton, animated: true)
     }

@@ -172,7 +172,7 @@ private extension FeedViewController {
     
     func setupMessageTextView() {
         messageTextView?.centerVertically()
-        messageTextView?.text = "Введіть текст"
+        messageTextView?.text = "Enter the text"
         messageTextView?.textColor = UIColor.lightGray
         messageTextView?.delegate = self
     }
@@ -267,7 +267,7 @@ extension FeedViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Введіть текст"
+            textView.text = "Enter the text"
             textView.textColor = UIColor.lightGray
             textView.centerVertically()
         }
