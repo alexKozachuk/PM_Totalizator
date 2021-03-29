@@ -59,6 +59,17 @@ class FeedViewController: BalanceProvidingViewController {
         checkChat()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if Core.shared.openingAppFirstTime() {
+            let onboarding = OnboardingViewController()
+            onboarding.modalPresentationStyle = .fullScreen
+            present(onboarding, animated: true)
+        }
+        
+    }
+    
     // MARK: - BalanceProviderDelegate
     override func update(balance: Double) {
         DispatchQueue.main.async { [weak self] in
