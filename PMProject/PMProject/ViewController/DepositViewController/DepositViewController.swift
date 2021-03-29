@@ -51,10 +51,10 @@ class DepositViewController: BalanceProvidingViewController {
         switch sender.selectedSegmentIndex {
         case 0: 
             currentType = .deposit
-            submitButton?.setTitle("Покласти", for: .normal)
+            submitButton?.setTitle("Deposit money", for: .normal)
         default:
             currentType = .withdraw
-            submitButton?.setTitle("Зняти", for: .normal)
+            submitButton?.setTitle("Withdraw money", for: .normal)
         }
         
     }

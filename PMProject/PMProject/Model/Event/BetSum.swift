@@ -8,7 +8,7 @@
 import Foundation
 
 struct BetSum: Hashable {
-    var firstBet: Int
-    var secondBet: Int
-    var drawBet: Int
+    var firstBet: Double
+    var secondBet: Double
+    var drawBet: Double
 }
