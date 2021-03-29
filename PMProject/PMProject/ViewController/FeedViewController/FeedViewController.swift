@@ -62,11 +62,11 @@ class FeedViewController: BalanceProvidingViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if Core.shared.openingAppFirstTime() {
-            let onboarding = OnboardingViewController()
-            onboarding.modalPresentationStyle = .fullScreen
-            present(onboarding, animated: true)
-        }
+//        if Core.shared.openingAppFirstTime() {
+//            let onboarding = OnboardingViewController()
+//            onboarding.modalPresentationStyle = .fullScreen
+//            present(onboarding, animated: true)
+//        }
         
     }
     
