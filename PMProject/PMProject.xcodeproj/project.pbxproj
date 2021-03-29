@@ -81,6 +81,9 @@
 		D9CB988D260A241300EE8CD8 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CB988C260A241300EE8CD8 /* LoadingButton.swift */; };
 		D9D5A29F26073107007B22DA /* CharacteristicsPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */; };
 		D9F23EEE2608B954003C9EBA /* LoginValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F23EED2608B954003C9EBA /* LoginValidator.swift */; };
+		DC9A64D9261150B5006B2A2A /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A64D8261150B5006B2A2A /* Core.swift */; };
+		DCC5B5542611E95A00CAE727 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC5B5522611E95A00CAE727 /* OnboardingViewController.swift */; };
+		DCC5B5552611E95A00CAE727 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCC5B5532611E95A00CAE727 /* OnboardingViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +163,9 @@
 		D9CB988C260A241300EE8CD8 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		D9D5A29E26073107007B22DA /* CharacteristicsPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsPair.swift; sourceTree = "<group>"; };
 		D9F23EED2608B954003C9EBA /* LoginValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginValidator.swift; sourceTree = "<group>"; };
+		DC9A64D8261150B5006B2A2A /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		DCC5B5522611E95A00CAE727 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		DCC5B5532611E95A00CAE727 /* OnboardingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +250,7 @@
 				D9F23EED2608B954003C9EBA /* LoginValidator.swift */,
 				D9BF189A260E705C00B0D732 /* EventUpdating.swift */,
 				D9484FC8260F5B6B0015F05A /* Reachability.swift */,
+				DC9A64D8261150B5006B2A2A /* Core.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +258,7 @@
 		88C0F87A2603C7890084A05E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DCC5B5512611E92400CAE727 /* OnboardingViewController */,
 				88BB4CEB26072026008B5A5E /* BetModalViewController */,
 				D93488312604C1DD005A8291 /* DetailFeedViewController */,
 				88C0F8BC2604A00A0084A05E /* Authorization */,
@@ -554,6 +562,15 @@
 			path = DepositViewController;
 			sourceTree = "<group>";
 		};
+		DCC5B5512611E92400CAE727 /* OnboardingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DCC5B5522611E95A00CAE727 /* OnboardingViewController.swift */,
+				DCC5B5532611E95A00CAE727 /* OnboardingViewController.xib */,
+			);
+			path = OnboardingViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -629,6 +646,7 @@
 				88C0F8762603A93C0084A05E /* RobotoCondensed-Bold.ttf in Resources */,
 				88C0F8772603A93C0084A05E /* RobotoCondensed-Regular.ttf in Resources */,
 				88DB968A260D45050077F6C9 /* BetHistoryCollectionViewCell.xib in Resources */,
+				DCC5B5552611E95A00CAE727 /* OnboardingViewController.xib in Resources */,
 				D93488352604C248005A8291 /* DetailFeedViewController.xib in Resources */,
 				D934883B2604C338005A8291 /* DetailInfoCollectionViewCell.xib in Resources */,
 				D93BFEBD260363F200BB93F1 /* LaunchScreen.storyboard in Resources */,
@@ -749,12 +767,14 @@
 				88DB967F260D420E0077F6C9 /* Bet.swift in Sources */,
 				88C0F8A62603E98C0084A05E /* ProfileViewController.swift in Sources */,
 				D934884F2604D436005A8291 /* UICollectionView.swift in Sources */,
+				DC9A64D9261150B5006B2A2A /* Core.swift in Sources */,
 				D9F23EEE2608B954003C9EBA /* LoginValidator.swift in Sources */,
 				D941957D260B8DF200F0A2DA /* ChatCollectionViewDataSource.swift in Sources */,
 				88A5F3A1260930C200378E4F /* Double.swift in Sources */,
 				D93488612604FB2E005A8291 /* DetailFeedCollectionReusableView.swift in Sources */,
 				D9A12923260DB84C00ACBAC8 /* DepositViewController.swift in Sources */,
 				88BB4CE926072014008B5A5E /* UIView.swift in Sources */,
+				DCC5B5542611E95A00CAE727 /* OnboardingViewController.swift in Sources */,
 				D941956D260B784E00F0A2DA /* OwnMessageCollectionViewCell.swift in Sources */,
 				D9CB988D260A241300EE8CD8 /* LoadingButton.swift in Sources */,
 				D90BF22F260620AA00B4B38A /* Team.swift in Sources */,
