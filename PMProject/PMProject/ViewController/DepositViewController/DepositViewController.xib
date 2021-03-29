@@ -27,10 +27,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hif-bN-9Bw">
-                    <rect key="frame" x="126.5" y="84" width="161" height="32"/>
+                    <rect key="frame" x="83.5" y="84" width="247" height="32"/>
                     <segments>
-                        <segment title="Покласти"/>
-                        <segment title="Зняти"/>
+                        <segment title="Deposit money"/>
+                        <segment title="Withdraw money"/>
                     </segments>
                     <connections>
                         <action selector="segmentChangedWithSender:" destination="-1" eventType="valueChanged" id="DFH-y8-CCH"/>
@@ -48,7 +48,7 @@
                         <constraint firstAttribute="height" constant="40" id="Tcy-Uj-vvz"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="RobotoCondensed-Bold" family="Roboto Condensed" pointSize="18"/>
-                    <state key="normal" title="Покласти">
+                    <state key="normal" title="Deposit money">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <userDefinedRuntimeAttributes>
