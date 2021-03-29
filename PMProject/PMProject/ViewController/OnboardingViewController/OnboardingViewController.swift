@@ -47,14 +47,14 @@ class OnboardingViewController: UIViewController {
     }
     
     func displayChatOnboarding() {
-        mainImage.image = #imageLiteral(resourceName: "Group-2")
-        imageCaption.text = "Application chat brings fun to the game."
+        mainImage.image = #imageLiteral(resourceName: "Group-1")
+        imageCaption.text = "1% comission from bet sum Bookmaker doesn’t play, bookmaker guarantees"
         onboardingProgress.progress = 0.66
     }
     
     func displayCommisionsOnboarding() {
-        mainImage.image = #imageLiteral(resourceName: "Group-3")
-        imageCaption.text = "3% commission is taken from winnings. 2% goes to the system, 1% - to the referrers. Get bonuses, spend them for little advantages like live coupons or cashouts."
+        mainImage.image = #imageLiteral(resourceName: "Group-2")
+        imageCaption.text = "Application chat brings fun to the game."
         onboardingProgress.progress = 1
     }
     
