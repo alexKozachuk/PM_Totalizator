@@ -7,5 +7,11 @@ target 'PMProject' do
   # Pods for PMProject
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
+  
+  target ‘PMProjectTests’ do
+    inherit! :search_paths
+  end
 
 end
+
+
